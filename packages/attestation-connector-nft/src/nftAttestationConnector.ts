@@ -216,6 +216,10 @@ export class NftAttestationConnector implements IAttestationConnector {
 				owner = issuer.id;
 			}
 
+			const dateCreated = Is.object(checkResult?.verifiableCredential)
+				? VerifiableCredentialHelper.getValidFrom(checkResult?.verifiableCredential)
+				: "";
+
 			const information: IAttestationInformation = {
 				"@context": [
 					AttestationContexts.ContextRoot,
@@ -224,9 +228,7 @@ export class NftAttestationConnector implements IAttestationConnector {
 				],
 				type: AttestationTypes.Information,
 				id,
-				dateCreated: Is.object(checkResult?.verifiableCredential)
-					? (VerifiableCredentialHelper.getValidFrom(checkResult?.verifiableCredential) ?? "")
-					: "",
+				dateCreated: dateCreated ?? "",
 				ownerIdentity: owner,
 				holderIdentity: owner,
 				attestationObject: {
