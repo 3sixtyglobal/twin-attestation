@@ -20,7 +20,12 @@ import { IdentityConnectorFactory, type IIdentityConnector } from "@twin.org/ide
 import { nameof } from "@twin.org/nameof";
 import { NftConnectorFactory, type INftConnector } from "@twin.org/nft-models";
 import { SchemaOrgContexts, SchemaOrgDataTypes } from "@twin.org/standards-schema-org";
-import { DidContexts, DidTypes, type IDidVerifiableCredential } from "@twin.org/standards-w3c-did";
+import {
+	DidContexts,
+	DidTypes,
+	VerifiableCredentialHelper,
+	type IDidVerifiableCredential
+} from "@twin.org/standards-w3c-did";
 import type { INftAttestationConnectorConfig } from "./models/INftAttestationConnectorConfig";
 import type { INftAttestationConnectorConstructorOptions } from "./models/INftAttestationConnectorConstructorOptions";
 import type { INftAttestationHolder } from "./models/INftAttestationHolder";
@@ -219,7 +224,9 @@ export class NftAttestationConnector implements IAttestationConnector {
 				],
 				type: AttestationTypes.Information,
 				id,
-				dateCreated: checkResult?.verifiableCredential?.issuanceDate ?? "",
+				dateCreated: Is.object(checkResult?.verifiableCredential)
+					? (VerifiableCredentialHelper.getValidFrom(checkResult?.verifiableCredential) ?? "")
+					: "",
 				ownerIdentity: owner,
 				holderIdentity: owner,
 				attestationObject: {
