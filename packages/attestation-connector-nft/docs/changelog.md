@@ -1,5 +1,19 @@
 # @twin.org/attestation-connector-nft - Changelog
 
+## [0.0.2-next.3](https://github.com/twinfoundation/attestation/compare/attestation-connector-nft-v0.0.2-next.2...attestation-connector-nft-v0.0.2-next.3) (2025-09-29)
+
+
+### Features
+
+* use getValidFrom ([b81f0fe](https://github.com/twinfoundation/attestation/commit/b81f0fe92cc23592ded1e27dc474a2cf623e391f))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/attestation-models bumped from 0.0.2-next.2 to 0.0.2-next.3
+
 ## [0.0.2-next.2](https://github.com/twinfoundation/attestation/compare/attestation-connector-nft-v0.0.2-next.1...attestation-connector-nft-v0.0.2-next.2) (2025-08-29)
 
 
