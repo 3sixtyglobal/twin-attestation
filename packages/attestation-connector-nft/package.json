@@ -80,5 +80,23 @@
 		"dist/types",
 		"locales",
 		"docs"
+	],
+	"keywords": [
+		"twin",
+		"trade",
+		"iota",
+		"framework",
+		"blockchain",
+		"attestation",
+		"nft",
+		"tokens",
+		"non-fungible",
+		"assets",
+		"verification",
+		"claims",
+		"trust",
+		"connector",
+		"adapter",
+		"integration"
 	]
 }

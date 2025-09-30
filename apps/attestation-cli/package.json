@@ -90,5 +90,16 @@
 	],
 	"bin": {
 		"twin-attestation": "bin/index.js"
-	}
+	},
+	"keywords": [
+		"twin",
+		"trade",
+		"iota",
+		"framework",
+		"blockchain",
+		"attestation",
+		"verification",
+		"claims",
+		"trust"
+	]
 }
