@@ -23,18 +23,18 @@ import { HeaderTypes } from "@twin.org/web";
 /**
  * Client for performing attestation through to REST endpoints.
  */
-export class AttestationClient extends BaseRestClient implements IAttestationComponent {
+export class AttestationRestClient extends BaseRestClient implements IAttestationComponent {
 	/**
 	 * Runtime name for the class.
 	 */
-	public readonly CLASS_NAME: string = nameof<AttestationClient>();
+	public static readonly CLASS_NAME: string = nameof<AttestationRestClient>();
 
 	/**
-	 * Create a new instance of AttestationClient.
+	 * Create a new instance of AttestationRestClient
 	 * @param config The configuration for the client.
 	 */
 	constructor(config: IBaseRestClientConfig) {
-		super(nameof<AttestationClient>(), config, "attestation");
+		super(nameof<AttestationRestClient>(), config, "attestation");
 	}
 
 	/**
@@ -44,7 +44,11 @@ export class AttestationClient extends BaseRestClient implements IAttestationCom
 	 * @returns The id.
 	 */
 	public async create(attestationObject: IJsonLdNodeObject, namespace?: string): Promise<string> {
-		Guards.object<IJsonLdNodeObject>(this.CLASS_NAME, nameof(attestationObject), attestationObject);
+		Guards.object<IJsonLdNodeObject>(
+			AttestationRestClient.CLASS_NAME,
+			nameof(attestationObject),
+			attestationObject
+		);
 
 		const response = await this.fetch<IAttestationCreateRequest, ICreatedResponse>("/", "POST", {
 			body: {
@@ -62,7 +66,7 @@ export class AttestationClient extends BaseRestClient implements IAttestationCom
 	 * @returns The verified attestation details.
 	 */
 	public async get(id: string): Promise<IAttestationInformation> {
-		Urn.guard(this.CLASS_NAME, nameof(id), id);
+		Urn.guard(AttestationRestClient.CLASS_NAME, nameof(id), id);
 
 		const response = await this.fetch<IAttestationGetRequest, IAttestationGetResponse>(
 			"/:id",
@@ -89,9 +93,9 @@ export class AttestationClient extends BaseRestClient implements IAttestationCom
 		holderIdentity: string,
 		holderAddress: string
 	): Promise<void> {
-		Urn.guard(this.CLASS_NAME, nameof(attestationId), attestationId);
-		Guards.stringValue(this.CLASS_NAME, nameof(holderIdentity), holderIdentity);
-		Guards.stringValue(this.CLASS_NAME, nameof(holderAddress), holderAddress);
+		Urn.guard(AttestationRestClient.CLASS_NAME, nameof(attestationId), attestationId);
+		Guards.stringValue(AttestationRestClient.CLASS_NAME, nameof(holderIdentity), holderIdentity);
+		Guards.stringValue(AttestationRestClient.CLASS_NAME, nameof(holderAddress), holderAddress);
 
 		await this.fetch<IAttestationTransferRequest, INoContentResponse>("/:id/transfer", "PUT", {
 			pathParams: {
@@ -110,7 +114,7 @@ export class AttestationClient extends BaseRestClient implements IAttestationCom
 	 * @returns The updated attestation details.
 	 */
 	public async destroy(attestationId: string): Promise<void> {
-		Urn.guard(this.CLASS_NAME, nameof(attestationId), attestationId);
+		Urn.guard(AttestationRestClient.CLASS_NAME, nameof(attestationId), attestationId);
 
 		await this.fetch<IAttestationDestroyRequest, INoContentResponse>("/:id", "DELETE", {
 			pathParams: {

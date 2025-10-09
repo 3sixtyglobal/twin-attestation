@@ -1,5 +1,5 @@
 {
-	"errors": {
+	"error": {
 		"attestation-cli": {
 			"invalidJson": "The JSON file is invalid."
 		}
@@ -58,8 +58,7 @@
 				"attestation": "Attestation",
 				"attestationId": "Attestation Id",
 				"verified": "Verified",
-				"failure": "Failure",
-				"nftId": "NFT Id"
+				"failure": "Failure"
 			}
 		},
 		"attestation-transfer": {
@@ -76,7 +75,7 @@
 				},
 				"holder-address": {
 					"param": "--holder-address '<'holder-address'>'",
-					"description": "The bech32 address of the new holder, or start with ! to read environment variable."
+					"description": "The address of the new holder, or start with ! to read environment variable."
 				},
 				"holder-identity": {
 					"param": "--holder-identity '<'holder-identity'>'",
@@ -89,16 +88,11 @@
 			"labels": {
 				"holderAddress": "Holder Address",
 				"holderIdentity": "Holder Identity",
-				"attestationId": "Attestation Id",
-				"nftId": "NFT Id"
+				"attestationId": "Attestation Id"
 			}
 		},
 		"common": {
 			"options": {
-				"connector": {
-					"param": "--connector '<'connector'>'",
-					"description": "The connector to use for the attestation operation."
-				},
 				"network": {
 					"param": "--network '<'network'>'",
 					"description": "The network to use for the attestation operation."
@@ -106,14 +100,15 @@
 				"node": {
 					"param": "--node '<'url'>'",
 					"description": "The url for the node endpoint, or an environment variable name containing the url."
+				},
+				"explorer": {
+					"param": "--explorer '<'url'>'",
+					"description": "The url for the explorer endpoint, or an environment variable name containing the url."
 				}
 			},
 			"labels": {
-				"did": "DID",
 				"node": "Node",
-				"explorer": "Explorer",
 				"explore": "Explore",
-				"connector": "Connector",
 				"network": "Network"
 			}
 		}

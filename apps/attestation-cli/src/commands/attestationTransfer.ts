@@ -3,17 +3,16 @@
 import { NftAttestationConnector, NftAttestationUtils } from "@twin.org/attestation-connector-nft";
 import { CLIDisplay, CLIParam } from "@twin.org/cli-core";
 import { Converter, I18n, Is, StringHelper } from "@twin.org/core";
-import { setupIdentityConnector } from "@twin.org/identity-cli";
+import { IdentityConnectorTypes, setupIdentityConnector } from "@twin.org/identity-cli";
 import { IdentityConnectorFactory } from "@twin.org/identity-models";
 import { setupNftConnector } from "@twin.org/nft-cli";
 import { IotaNftUtils } from "@twin.org/nft-connector-iota";
 import { NftConnectorFactory } from "@twin.org/nft-models";
 import { VaultConnectorFactory } from "@twin.org/vault-models";
-import { setupWalletConnector } from "@twin.org/wallet-cli";
+import { setupWalletConnector, WalletConnectorTypes } from "@twin.org/wallet-cli";
 import { WalletConnectorFactory } from "@twin.org/wallet-models";
-import { Command, Option } from "commander";
+import { Command } from "commander";
 import { setupVault } from "./setupCommands";
-import { AttestationConnectorTypes } from "../models/attestatationConnectorTypes";
 
 /**
  * Build the attestation transfer command for the CLI.
@@ -43,14 +42,6 @@ export function buildCommandAttestationTransfer(): Command {
 		);
 
 	command
-		.addOption(
-			new Option(
-				I18n.formatMessage("commands.common.options.connector.param"),
-				I18n.formatMessage("commands.common.options.connector.description")
-			)
-				.choices(Object.values(AttestationConnectorTypes))
-				.default(AttestationConnectorTypes.Iota)
-		)
 		.option(
 			I18n.formatMessage("commands.common.options.node.param"),
 			I18n.formatMessage("commands.common.options.node.description"),
@@ -78,7 +69,6 @@ export function buildCommandAttestationTransfer(): Command {
  * @param opts.id The id of the attestation to transfer in urn format.
  * @param opts.holderIdentity The new holder identity of the attestation.
  * @param opts.holderAddress The new holder address of the attestation.
- * @param opts.connector The connector to perform the operations with.
  * @param opts.node The node URL.
  * @param opts.network The network to use for connector.
  * @param opts.explorer The explorer URL.
@@ -88,7 +78,6 @@ export async function actionCommandAttestationTransfer(opts: {
 	id: string;
 	holderIdentity: string;
 	holderAddress: string;
-	connector?: AttestationConnectorTypes;
 	node: string;
 	network?: string;
 	explorer: string;
@@ -96,14 +85,11 @@ export async function actionCommandAttestationTransfer(opts: {
 	const seed: Uint8Array = CLIParam.hexBase64("seed", opts.seed);
 	const id: string = CLIParam.stringValue("id", opts.id);
 	const holderIdentity: string = CLIParam.stringValue("holderIdentity", opts.holderIdentity);
-	const holderAddress: string =
-		opts.connector === AttestationConnectorTypes.Iota
-			? Converter.bytesToHex(CLIParam.hex("holderAddress", opts.holderAddress), true)
-			: CLIParam.bech32("holderAddress", opts.holderAddress);
-	const network: string | undefined =
-		opts.connector === AttestationConnectorTypes.Iota
-			? CLIParam.stringValue("network", opts.network)
-			: undefined;
+	const holderAddress: string = Converter.bytesToHex(
+		CLIParam.hex("holderAddress", opts.holderAddress),
+		true
+	);
+	const network: string | undefined = CLIParam.stringValue("network", opts.network);
 	const nodeEndpoint: string = CLIParam.url("node", opts.node);
 	const explorerEndpoint: string = CLIParam.url("explorer", opts.explorer);
 
@@ -132,20 +118,17 @@ export async function actionCommandAttestationTransfer(opts: {
 
 	const identityConnector = await setupIdentityConnector(
 		{ nodeEndpoint, network, vaultSeedId },
-		opts.connector
+		IdentityConnectorTypes.Iota
 	);
 	IdentityConnectorFactory.register("identity", () => identityConnector);
 
 	const walletConnector = await setupWalletConnector(
 		{ nodeEndpoint, network, vaultSeedId },
-		opts.connector
+		WalletConnectorTypes.Iota
 	);
 	WalletConnectorFactory.register("wallet", () => walletConnector);
 
-	const nftConnector = await setupNftConnector(
-		{ nodeEndpoint, network, vaultSeedId },
-		opts.connector
-	);
+	const nftConnector = await setupNftConnector({ nodeEndpoint, network, vaultSeedId });
 	NftConnectorFactory.register("nft", () => nftConnector);
 
 	const attestationConnector = new NftAttestationConnector();

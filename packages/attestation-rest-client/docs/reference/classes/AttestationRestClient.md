@@ -1,4 +1,4 @@
-# Class: AttestationClient
+# Class: AttestationRestClient
 
 Client for performing attestation through to REST endpoints.
 
@@ -14,7 +14,7 @@ Client for performing attestation through to REST endpoints.
 
 ### Constructor
 
-> **new AttestationClient**(`config`): `AttestationClient`
+> **new AttestationRestClient**(`config`): `AttestationRestClient`
 
 Create a new instance of AttestationClient.
 
@@ -28,7 +28,7 @@ The configuration for the client.
 
 #### Returns
 
-`AttestationClient`
+`AttestationRestClient`
 
 #### Overrides
 
@@ -38,13 +38,9 @@ The configuration for the client.
 
 ### CLASS\_NAME
 
-> `readonly` **CLASS\_NAME**: `string`
+> `readonly` `static` **CLASS\_NAME**: `string`
 
 Runtime name for the class.
-
-#### Implementation of
-
-`IAttestationComponent.CLASS_NAME`
 
 ## Methods
 

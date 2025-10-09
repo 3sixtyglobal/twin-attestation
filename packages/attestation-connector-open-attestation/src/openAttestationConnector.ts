@@ -18,7 +18,7 @@ export class OpenAttestationConnector implements IAttestationConnector {
 	/**
 	 * Runtime name for the class.
 	 */
-	public readonly CLASS_NAME: string = nameof<OpenAttestationConnector>();
+	public static readonly CLASS_NAME: string = nameof<OpenAttestationConnector>();
 
 	/**
 	 * Create a new instance of OpenAttestationConnector.
@@ -39,7 +39,7 @@ export class OpenAttestationConnector implements IAttestationConnector {
 		verificationMethodId: string,
 		attestationObject: IJsonLdNodeObject
 	): Promise<string> {
-		throw new NotImplementedError(this.CLASS_NAME, "attest");
+		throw new NotImplementedError(OpenAttestationConnector.CLASS_NAME, "attest");
 	}
 
 	/**
@@ -48,7 +48,7 @@ export class OpenAttestationConnector implements IAttestationConnector {
 	 * @returns The verified attestation details.
 	 */
 	public async get(id: string): Promise<IAttestationInformation> {
-		throw new NotImplementedError(this.CLASS_NAME, "verify");
+		throw new NotImplementedError(OpenAttestationConnector.CLASS_NAME, "verify");
 	}
 
 	/**
@@ -65,7 +65,7 @@ export class OpenAttestationConnector implements IAttestationConnector {
 		holderIdentity: string,
 		holderAddress: string
 	): Promise<void> {
-		throw new NotImplementedError(this.CLASS_NAME, "transfer");
+		throw new NotImplementedError(OpenAttestationConnector.CLASS_NAME, "transfer");
 	}
 
 	/**
@@ -75,6 +75,6 @@ export class OpenAttestationConnector implements IAttestationConnector {
 	 * @returns Nothing.
 	 */
 	public async destroy(controller: string, attestationId: string): Promise<void> {
-		throw new NotImplementedError(this.CLASS_NAME, "destroy");
+		throw new NotImplementedError(OpenAttestationConnector.CLASS_NAME, "destroy");
 	}
 }

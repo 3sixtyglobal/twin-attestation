@@ -5,4 +5,3 @@ export * from "./commands/attestationCreate";
 export * from "./commands/attestationGet";
 export * from "./commands/attestationTransfer";
 export * from "./commands/setupCommands";
-export * from "./models/attestatationConnectorTypes";

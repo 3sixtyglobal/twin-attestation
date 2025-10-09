@@ -109,21 +109,13 @@ await TEST_VAULT_CONNECTOR.setSecret(
 );
 
 const addresses = await TEST_WALLET_CONNECTOR.getAddresses(TEST_IDENTITY_ID, 0, 0, 2);
-export const TEST_IDENTITY_ADDRESS_BECH32 = addresses[0];
-export const TEST_IDENTITY_ADDRESS_BECH32_2 = addresses[1];
+export const TEST_IDENTITY_ADDRESS = addresses[0];
+export const TEST_IDENTITY_ADDRESS_2 = addresses[1];
 
 /**
  * Setup the test environment.
  */
 export async function setupTestEnv(): Promise<void> {
-	await TEST_WALLET_CONNECTOR.ensureBalance(
-		TEST_IDENTITY_ID,
-		TEST_IDENTITY_ADDRESS_BECH32,
-		1000000000n
-	);
-	await TEST_WALLET_CONNECTOR.ensureBalance(
-		TEST_IDENTITY_ID,
-		TEST_IDENTITY_ADDRESS_BECH32_2,
-		1000000000n
-	);
+	await TEST_WALLET_CONNECTOR.ensureBalance(TEST_IDENTITY_ID, TEST_IDENTITY_ADDRESS, 1000000000n);
+	await TEST_WALLET_CONNECTOR.ensureBalance(TEST_IDENTITY_ID, TEST_IDENTITY_ADDRESS_2, 1000000000n);
 }

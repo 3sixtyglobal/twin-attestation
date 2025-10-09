@@ -3,7 +3,7 @@
 import { Is } from "@twin.org/core";
 import type { IJsonLdNodeObject } from "@twin.org/data-json-ld";
 import {
-	TEST_IDENTITY_ADDRESS_BECH32_2,
+	TEST_IDENTITY_ADDRESS_2,
 	TEST_IDENTITY_CONNECTOR,
 	TEST_IDENTITY_ID,
 	setupTestEnv
@@ -110,7 +110,7 @@ describe("NftAttestationConnector", () => {
 			TEST_IDENTITY_ID,
 			attestationId,
 			testIdentity2.id,
-			TEST_IDENTITY_ADDRESS_BECH32_2
+			TEST_IDENTITY_ADDRESS_2
 		);
 
 		const transfered = await attestation.get(attestationId);
