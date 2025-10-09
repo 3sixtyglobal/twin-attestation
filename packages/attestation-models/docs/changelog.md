@@ -1,5 +1,12 @@
 # @twin.org/attestation-models - Changelog
 
+## [0.0.2-next.4](https://github.com/twinfoundation/attestation/compare/attestation-models-v0.0.2-next.3...attestation-models-v0.0.2-next.4) (2025-10-09)
+
+
+### Features
+
+* add validate-locales ([a1f9e13](https://github.com/twinfoundation/attestation/commit/a1f9e13875a661f612ce16dd9896e7df20c6a7ff))
+
 ## [0.0.2-next.3](https://github.com/twinfoundation/attestation/compare/attestation-models-v0.0.2-next.2...attestation-models-v0.0.2-next.3) (2025-09-29)
 
 
