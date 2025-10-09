@@ -16,7 +16,7 @@ Client for performing attestation through to REST endpoints.
 
 > **new AttestationRestClient**(`config`): `AttestationRestClient`
 
-Create a new instance of AttestationClient.
+Create a new instance of AttestationRestClient.
 
 #### Parameters
 

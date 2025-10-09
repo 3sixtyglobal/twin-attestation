@@ -30,7 +30,7 @@ export class AttestationRestClient extends BaseRestClient implements IAttestatio
 	public static readonly CLASS_NAME: string = nameof<AttestationRestClient>();
 
 	/**
-	 * Create a new instance of AttestationRestClient
+	 * Create a new instance of AttestationRestClient.
 	 * @param config The configuration for the client.
 	 */
 	constructor(config: IBaseRestClientConfig) {
