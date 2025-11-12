@@ -7,8 +7,8 @@ import {
 	TEST_IDENTITY_CONNECTOR,
 	TEST_IDENTITY_ID,
 	setupTestEnv
-} from "./setupTestEnv";
-import { NftAttestationConnector } from "../src/nftAttestationConnector";
+} from "./setupTestEnv.js";
+import { NftAttestationConnector } from "../src/nftAttestationConnector.js";
 
 let ownerIdentity: string;
 let verificationMethodId: string;

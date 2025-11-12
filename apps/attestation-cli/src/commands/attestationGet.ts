@@ -17,7 +17,7 @@ import { NftConnectorFactory } from "@twin.org/nft-models";
 import { setupWalletConnector, WalletConnectorTypes } from "@twin.org/wallet-cli";
 import { WalletConnectorFactory } from "@twin.org/wallet-models";
 import { Command } from "commander";
-import { setupVault } from "./setupCommands";
+import { setupVault } from "./setupCommands.js";
 
 /**
  * Build the attestation resolve command for the CLI.
@@ -93,19 +93,19 @@ export async function actionCommandAttestationGet(
 
 	setupVault();
 
-	const identityConnector = await setupIdentityConnector(
+	const identityConnector = setupIdentityConnector(
 		{ nodeEndpoint, network },
 		IdentityConnectorTypes.Iota
 	);
 	IdentityConnectorFactory.register("identity", () => identityConnector);
 
-	const walletConnector = await setupWalletConnector(
+	const walletConnector = setupWalletConnector(
 		{ nodeEndpoint, network },
 		WalletConnectorTypes.Iota
 	);
 	WalletConnectorFactory.register("wallet", () => walletConnector);
 
-	const nftConnector = await setupNftConnector({ nodeEndpoint, network });
+	const nftConnector = setupNftConnector({ nodeEndpoint, network });
 	NftConnectorFactory.register("nft", () => nftConnector);
 
 	const attestationConnector = new NftAttestationConnector();

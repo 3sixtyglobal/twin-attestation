@@ -6,10 +6,11 @@ import {
 	type IAttestationConnector,
 	type IAttestationInformation
 } from "@twin.org/attestation-models";
+import { ContextIdHelper, ContextIdKeys, ContextIdStore } from "@twin.org/context";
 import { GeneralError, Guards, Urn } from "@twin.org/core";
 import type { IJsonLdNodeObject } from "@twin.org/data-json-ld";
 import { nameof } from "@twin.org/nameof";
-import type { IAttestationServiceConstructorOptions } from "./models/IAttestationServiceConstructorOptions";
+import type { IAttestationServiceConstructorOptions } from "./models/IAttestationServiceConstructorOptions.js";
 
 /**
  * Service for performing attestation operations to a connector.
@@ -54,26 +55,28 @@ export class AttestationService implements IAttestationComponent {
 	}
 
 	/**
+	 * Returns the class name of the component.
+	 * @returns The class name of the component.
+	 */
+	public className(): string {
+		return AttestationService.CLASS_NAME;
+	}
+
+	/**
 	 * Attest the data and return the collated information.
 	 * @param attestationObject The data to attest.
 	 * @param namespace The namespace of the connector to use for the attestation, defaults to service configured namespace.
-	 * @param identity The identity to perform the attestation operation with.
-	 * @param nodeIdentity The node identity to include in the attestation.
 	 * @returns The id.
 	 */
-	public async create(
-		attestationObject: IJsonLdNodeObject,
-		namespace?: string,
-		identity?: string,
-		nodeIdentity?: string
-	): Promise<string> {
+	public async create(attestationObject: IJsonLdNodeObject, namespace?: string): Promise<string> {
 		Guards.object<IJsonLdNodeObject>(
 			AttestationService.CLASS_NAME,
 			nameof(attestationObject),
 			attestationObject
 		);
-		Guards.stringValue(AttestationService.CLASS_NAME, nameof(identity), identity);
-		Guards.stringValue(AttestationService.CLASS_NAME, nameof(nodeIdentity), nodeIdentity);
+
+		const contextIds = await ContextIdStore.getContextIds();
+		ContextIdHelper.guard(contextIds, ContextIdKeys.Organization);
 
 		try {
 			const connectorNamespace = namespace ?? this._defaultNamespace;
@@ -81,11 +84,12 @@ export class AttestationService implements IAttestationComponent {
 			const attestationConnector =
 				AttestationConnectorFactory.get<IAttestationConnector>(connectorNamespace);
 
-			return attestationConnector.create(
-				identity,
-				`${nodeIdentity}#${this._verificationMethodId}`,
+			const result = await attestationConnector.create(
+				contextIds[ContextIdKeys.Organization],
+				`${contextIds[ContextIdKeys.Organization]}#${this._verificationMethodId}`,
 				attestationObject
 			);
+			return result;
 		} catch (error) {
 			throw new GeneralError(AttestationService.CLASS_NAME, "attestFailed", undefined, error);
 		}
@@ -102,7 +106,8 @@ export class AttestationService implements IAttestationComponent {
 		try {
 			const attestationConnector = this.getConnector(id);
 
-			return attestationConnector.get(id);
+			const result = await attestationConnector.get(id);
+			return result;
 		} catch (error) {
 			throw new GeneralError(AttestationService.CLASS_NAME, "verifyFailed", undefined, error);
 		}
@@ -113,24 +118,30 @@ export class AttestationService implements IAttestationComponent {
 	 * @param attestationId The attestation to transfer.
 	 * @param holderIdentity The identity to transfer the attestation to.
 	 * @param holderAddress The address to transfer the attestation to.
-	 * @param identity The identity to perform the attestation operation with.
 	 * @returns The updated attestation details.
 	 */
 	public async transfer(
 		attestationId: string,
 		holderIdentity: string,
-		holderAddress: string,
-		identity: string
+		holderAddress: string
 	): Promise<void> {
 		Urn.guard(AttestationService.CLASS_NAME, nameof(attestationId), attestationId);
 		Guards.stringValue(AttestationService.CLASS_NAME, nameof(holderIdentity), holderIdentity);
 		Guards.stringValue(AttestationService.CLASS_NAME, nameof(holderAddress), holderAddress);
-		Guards.stringValue(AttestationService.CLASS_NAME, nameof(identity), identity);
+
+		const contextIds = await ContextIdStore.getContextIds();
+		ContextIdHelper.guard(contextIds, ContextIdKeys.Organization);
 
 		try {
 			const attestationConnector = this.getConnector(attestationId);
 
-			return attestationConnector.transfer(identity, attestationId, holderIdentity, holderAddress);
+			const result = await attestationConnector.transfer(
+				contextIds.organization,
+				attestationId,
+				holderIdentity,
+				holderAddress
+			);
+			return result;
 		} catch (error) {
 			throw new GeneralError(AttestationService.CLASS_NAME, "transferFailed", undefined, error);
 		}
@@ -139,17 +150,22 @@ export class AttestationService implements IAttestationComponent {
 	/**
 	 * Destroy the attestation.
 	 * @param attestationId The attestation to transfer.
-	 * @param identity The identity to perform the attestation operation with.
 	 * @returns The updated attestation details.
 	 */
-	public async destroy(attestationId: string, identity?: string): Promise<void> {
+	public async destroy(attestationId: string): Promise<void> {
 		Urn.guard(AttestationService.CLASS_NAME, nameof(attestationId), attestationId);
-		Guards.stringValue(AttestationService.CLASS_NAME, nameof(identity), identity);
+
+		const contextIds = await ContextIdStore.getContextIds();
+		ContextIdHelper.guard(contextIds, ContextIdKeys.Organization);
 
 		try {
 			const attestationConnector = this.getConnector(attestationId);
 
-			return attestationConnector.destroy(identity, attestationId);
+			const result = await attestationConnector.destroy(
+				contextIds[ContextIdKeys.Organization],
+				attestationId
+			);
+			return result;
 		} catch (error) {
 			throw new GeneralError(AttestationService.CLASS_NAME, "destroyFailed", undefined, error);
 		}

@@ -16,9 +16,9 @@ import {
 } from "@twin.org/identity-cli";
 import { buildCommandFaucet } from "@twin.org/wallet-cli";
 import type { Command } from "commander";
-import { buildCommandAttestationCreate } from "./commands/attestationCreate";
-import { buildCommandAttestationGet } from "./commands/attestationGet";
-import { buildCommandAttestationTransfer } from "./commands/attestationTransfer";
+import { buildCommandAttestationCreate } from "./commands/attestationCreate.js";
+import { buildCommandAttestationGet } from "./commands/attestationGet.js";
+import { buildCommandAttestationTransfer } from "./commands/attestationTransfer.js";
 
 /**
  * The main entry point for the CLI.
@@ -41,7 +41,7 @@ export class CLI extends CLIBase {
 			{
 				title: "TWIN Attestation",
 				appName: "twin-attestation",
-				version: "0.0.2-next.4", // x-release-please-version
+				version: "0.0.3-next.0", // x-release-please-version
 				icon: "🌍",
 				supportsEnvFiles: true,
 				overrideOutputWidth: options?.overrideOutputWidth

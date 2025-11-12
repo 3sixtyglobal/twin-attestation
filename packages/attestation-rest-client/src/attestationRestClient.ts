@@ -38,6 +38,14 @@ export class AttestationRestClient extends BaseRestClient implements IAttestatio
 	}
 
 	/**
+	 * Returns the class name of the component.
+	 * @returns The class name of the component.
+	 */
+	public className(): string {
+		return AttestationRestClient.CLASS_NAME;
+	}
+
+	/**
 	 * Attest the data and return the collated information.
 	 * @param attestationObject The data to attest.
 	 * @param namespace The namespace of the connector to use for the attestation, defaults to component configured namespace.

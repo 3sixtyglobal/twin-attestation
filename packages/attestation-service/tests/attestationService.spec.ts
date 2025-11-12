@@ -3,7 +3,7 @@
 import { NftAttestationConnector } from "@twin.org/attestation-connector-nft";
 import { AttestationConnectorFactory } from "@twin.org/attestation-models";
 import { type IWalletConnector, WalletConnectorFactory } from "@twin.org/wallet-models";
-import { AttestationService } from "../src/attestationService";
+import { AttestationService } from "../src/attestationService.js";
 
 describe("AttestationService", () => {
 	test("Can create an instance", async () => {

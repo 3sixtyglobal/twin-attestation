@@ -44,6 +44,24 @@ The namespace for the entities.
 
 ## Methods
 
+### className()
+
+> **className**(): `string`
+
+Returns the class name of the component.
+
+#### Returns
+
+`string`
+
+The class name of the component.
+
+#### Implementation of
+
+`IAttestationConnector.className`
+
+***
+
 ### create()
 
 > **create**(`controller`, `verificationMethodId`, `attestationObject`): `Promise`\<`string`\>

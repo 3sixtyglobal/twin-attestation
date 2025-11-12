@@ -351,12 +351,7 @@ export async function attestationCreate(
 		request.body.attestationObject
 	);
 	const component = ComponentFactory.get<IAttestationComponent>(componentName);
-	const id = await component.create(
-		request.body.attestationObject,
-		request.body.namespace,
-		httpRequestContext.userIdentity,
-		httpRequestContext.nodeIdentity
-	);
+	const id = await component.create(request.body.attestationObject, request.body.namespace);
 	return {
 		statusCode: HttpStatusCode.created,
 		headers: {
@@ -432,8 +427,7 @@ export async function attestationTransfer(
 	await component.transfer(
 		request.pathParams.id,
 		request.body.holderIdentity,
-		request.body.holderAddress,
-		httpRequestContext.userIdentity
+		request.body.holderAddress
 	);
 
 	return {
@@ -462,7 +456,7 @@ export async function attestationDestroy(
 	Guards.stringValue(ROUTES_SOURCE, nameof(request.pathParams.id), request.pathParams.id);
 
 	const component = ComponentFactory.get<IAttestationComponent>(componentName);
-	await component.destroy(request.pathParams.id, httpRequestContext.userIdentity);
+	await component.destroy(request.pathParams.id);
 
 	return {
 		statusCode: HttpStatusCode.noContent

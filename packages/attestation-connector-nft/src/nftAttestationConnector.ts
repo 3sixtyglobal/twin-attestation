@@ -26,11 +26,11 @@ import {
 	VerifiableCredentialHelper,
 	type IDidVerifiableCredential
 } from "@twin.org/standards-w3c-did";
-import type { INftAttestationConnectorConfig } from "./models/INftAttestationConnectorConfig";
-import type { INftAttestationConnectorConstructorOptions } from "./models/INftAttestationConnectorConstructorOptions";
-import type { INftAttestationHolder } from "./models/INftAttestationHolder";
-import type { INftAttestationPayload } from "./models/INftAttestationPayload";
-import { NftAttestationUtils } from "./nftAttestationUtils";
+import type { INftAttestationConnectorConfig } from "./models/INftAttestationConnectorConfig.js";
+import type { INftAttestationConnectorConstructorOptions } from "./models/INftAttestationConnectorConstructorOptions.js";
+import type { INftAttestationHolder } from "./models/INftAttestationHolder.js";
+import type { INftAttestationPayload } from "./models/INftAttestationPayload.js";
+import { NftAttestationUtils } from "./nftAttestationUtils.js";
 
 /**
  * Class for performing attestation operations in nfts.
@@ -83,6 +83,14 @@ export class NftAttestationConnector implements IAttestationConnector {
 		this._config.tag ??= NftAttestationConnector._DEFAULT_TAG;
 
 		SchemaOrgDataTypes.registerRedirects();
+	}
+
+	/**
+	 * Returns the class name of the component.
+	 * @returns The class name of the component.
+	 */
+	public className(): string {
+		return NftAttestationConnector.CLASS_NAME;
 	}
 
 	/**
@@ -284,7 +292,8 @@ export class NftAttestationConnector implements IAttestationConnector {
 			information.verified = Is.empty(failure);
 			information.verificationFailure = failure;
 
-			return JsonLdProcessor.compact(information, information["@context"]);
+			const result = await JsonLdProcessor.compact(information, information["@context"]);
+			return result;
 		} catch (error) {
 			throw new GeneralError(
 				NftAttestationConnector.CLASS_NAME,

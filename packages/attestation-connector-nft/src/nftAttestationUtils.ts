@@ -1,7 +1,7 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
 import { Converter, Urn } from "@twin.org/core";
-import { NftAttestationConnector } from "./nftAttestationConnector";
+import { NftAttestationConnector } from "./nftAttestationConnector.js";
 
 /**
  * Utility functions for the entity storage attestation.

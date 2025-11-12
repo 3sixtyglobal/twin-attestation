@@ -12,7 +12,7 @@ import { VaultConnectorFactory } from "@twin.org/vault-models";
 import { setupWalletConnector, WalletConnectorTypes } from "@twin.org/wallet-cli";
 import { WalletConnectorFactory } from "@twin.org/wallet-models";
 import { Command } from "commander";
-import { setupVault } from "./setupCommands";
+import { setupVault } from "./setupCommands.js";
 
 /**
  * Build the attestation transfer command for the CLI.
@@ -116,19 +116,19 @@ export async function actionCommandAttestationTransfer(opts: {
 	const vaultConnector = VaultConnectorFactory.get("vault");
 	await vaultConnector.setSecret(`${localIdentity}/${vaultSeedId}`, Converter.bytesToBase64(seed));
 
-	const identityConnector = await setupIdentityConnector(
+	const identityConnector = setupIdentityConnector(
 		{ nodeEndpoint, network, vaultSeedId },
 		IdentityConnectorTypes.Iota
 	);
 	IdentityConnectorFactory.register("identity", () => identityConnector);
 
-	const walletConnector = await setupWalletConnector(
+	const walletConnector = setupWalletConnector(
 		{ nodeEndpoint, network, vaultSeedId },
 		WalletConnectorTypes.Iota
 	);
 	WalletConnectorFactory.register("wallet", () => walletConnector);
 
-	const nftConnector = await setupNftConnector({ nodeEndpoint, network, vaultSeedId });
+	const nftConnector = setupNftConnector({ nodeEndpoint, network, vaultSeedId });
 	NftConnectorFactory.register("nft", () => nftConnector);
 
 	const attestationConnector = new NftAttestationConnector();

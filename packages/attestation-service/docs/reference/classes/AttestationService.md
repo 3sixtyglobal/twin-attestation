@@ -36,9 +36,27 @@ Runtime name for the class.
 
 ## Methods
 
+### className()
+
+> **className**(): `string`
+
+Returns the class name of the component.
+
+#### Returns
+
+`string`
+
+The class name of the component.
+
+#### Implementation of
+
+`IAttestationComponent.className`
+
+***
+
 ### create()
 
-> **create**(`attestationObject`, `namespace?`, `identity?`, `nodeIdentity?`): `Promise`\<`string`\>
+> **create**(`attestationObject`, `namespace?`): `Promise`\<`string`\>
 
 Attest the data and return the collated information.
 
@@ -55,18 +73,6 @@ The data to attest.
 `string`
 
 The namespace of the connector to use for the attestation, defaults to service configured namespace.
-
-##### identity?
-
-`string`
-
-The identity to perform the attestation operation with.
-
-##### nodeIdentity?
-
-`string`
-
-The node identity to include in the attestation.
 
 #### Returns
 
@@ -108,7 +114,7 @@ The verified attestation details.
 
 ### transfer()
 
-> **transfer**(`attestationId`, `holderIdentity`, `holderAddress`, `identity`): `Promise`\<`void`\>
+> **transfer**(`attestationId`, `holderIdentity`, `holderAddress`): `Promise`\<`void`\>
 
 Transfer the attestation to a new holder.
 
@@ -132,12 +138,6 @@ The identity to transfer the attestation to.
 
 The address to transfer the attestation to.
 
-##### identity
-
-`string`
-
-The identity to perform the attestation operation with.
-
 #### Returns
 
 `Promise`\<`void`\>
@@ -152,7 +152,7 @@ The updated attestation details.
 
 ### destroy()
 
-> **destroy**(`attestationId`, `identity?`): `Promise`\<`void`\>
+> **destroy**(`attestationId`): `Promise`\<`void`\>
 
 Destroy the attestation.
 
@@ -163,12 +163,6 @@ Destroy the attestation.
 `string`
 
 The attestation to transfer.
-
-##### identity?
-
-`string`
-
-The identity to perform the attestation operation with.
 
 #### Returns
 

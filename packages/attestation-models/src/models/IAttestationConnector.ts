@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0.
 import type { IComponent } from "@twin.org/core";
 import type { IJsonLdNodeObject } from "@twin.org/data-json-ld";
-import type { IAttestationInformation } from "./IAttestationInformation";
+import type { IAttestationInformation } from "./IAttestationInformation.js";
 
 /**
  * Interface describing an attestation connector.
