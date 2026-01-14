@@ -7,14 +7,14 @@
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export const AttestationContexts = {
 	/**
-	 * The context root for the attestation types.
+	 * The namespace for the attestation types.
 	 */
-	ContextRoot: "https://schema.twindev.org/attestation/",
+	Namespace: "https://schema.twindev.org/attestation/",
 
 	/**
-	 * The context root for the common types.
+	 * The namespace for the common types.
 	 */
-	ContextRootCommon: "https://schema.twindev.org/common/"
+	NamespaceCommon: "https://schema.twindev.org/common/"
 } as const;
 
 /**

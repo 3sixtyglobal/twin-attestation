@@ -13,9 +13,9 @@ export interface IAttestationInformation {
 	 * JSON-LD Context.
 	 */
 	"@context": [
-		typeof AttestationContexts.ContextRoot,
-		typeof AttestationContexts.ContextRootCommon,
-		typeof SchemaOrgContexts.ContextRoot,
+		typeof AttestationContexts.Namespace,
+		typeof AttestationContexts.NamespaceCommon,
+		typeof SchemaOrgContexts.Namespace,
 		...IJsonLdContextDefinitionElement[]
 	];
 

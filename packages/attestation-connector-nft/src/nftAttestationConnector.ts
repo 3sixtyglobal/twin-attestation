@@ -247,9 +247,9 @@ export class NftAttestationConnector implements IAttestationConnector {
 
 			const information: IAttestationInformation = {
 				"@context": [
-					AttestationContexts.ContextRoot,
-					AttestationContexts.ContextRootCommon,
-					SchemaOrgContexts.ContextRoot
+					AttestationContexts.Namespace,
+					AttestationContexts.NamespaceCommon,
+					SchemaOrgContexts.Namespace
 				],
 				type: AttestationTypes.Information,
 				id,
@@ -271,7 +271,7 @@ export class NftAttestationConnector implements IAttestationConnector {
 
 			if (Is.stringValue(jwtProof)) {
 				information.proof = {
-					"@context": AttestationContexts.ContextRoot,
+					"@context": AttestationContexts.Namespace,
 					type: AttestationTypes.JwtProof,
 					value: jwtProof
 				};

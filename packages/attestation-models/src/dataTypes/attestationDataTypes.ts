@@ -15,18 +15,18 @@ export class AttestationDataTypes {
 	 */
 	public static registerTypes(): void {
 		DataTypeHandlerFactory.register(
-			`${AttestationContexts.ContextRoot}${AttestationTypes.Information}`,
+			`${AttestationContexts.Namespace}${AttestationTypes.Information}`,
 			() => ({
-				context: AttestationContexts.ContextRoot,
+				namespace: AttestationContexts.Namespace,
 				type: AttestationTypes.Information,
 				defaultValue: {},
 				jsonSchema: async () => AttestationInformationSchema as IJsonSchema
 			})
 		);
 		DataTypeHandlerFactory.register(
-			`${AttestationContexts.ContextRoot}${AttestationTypes.JwtProof}`,
+			`${AttestationContexts.Namespace}${AttestationTypes.JwtProof}`,
 			() => ({
-				context: AttestationContexts.ContextRoot,
+				namespace: AttestationContexts.Namespace,
 				type: AttestationTypes.JwtProof,
 				defaultValue: {},
 				jsonSchema: async () => AttestationJwtProofSchema as IJsonSchema

@@ -6,14 +6,14 @@ The contexts of attestation data.
 
 ## Type Declaration
 
-### ContextRoot
+### Namespace
 
-> `readonly` **ContextRoot**: `"https://schema.twindev.org/attestation/"` = `"https://schema.twindev.org/attestation/"`
+> `readonly` **Namespace**: `"https://schema.twindev.org/attestation/"` = `"https://schema.twindev.org/attestation/"`
 
-The context root for the attestation types.
+The namespace for the attestation types.
 
-### ContextRootCommon
+### NamespaceCommon
 
-> `readonly` **ContextRootCommon**: `"https://schema.twindev.org/common/"` = `"https://schema.twindev.org/common/"`
+> `readonly` **NamespaceCommon**: `"https://schema.twindev.org/common/"` = `"https://schema.twindev.org/common/"`
 
-The context root for the common types.
+The namespace for the common types.
