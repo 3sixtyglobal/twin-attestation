@@ -1,5 +1,12 @@
 # @twin.org/attestation-models - Changelog
 
+## [0.0.3-next.2](https://github.com/twinfoundation/attestation/compare/attestation-models-v0.0.3-next.1...attestation-models-v0.0.3-next.2) (2026-01-14)
+
+
+### Features
+
+* update contexts and namespaces ([#23](https://github.com/twinfoundation/attestation/issues/23)) ([7e7ffb4](https://github.com/twinfoundation/attestation/commit/7e7ffb4056bfe296dd3cedcaa7a9bfb91fd830d7))
+
 ## [0.0.3-next.1](https://github.com/twinfoundation/attestation/compare/attestation-models-v0.0.3-next.0...attestation-models-v0.0.3-next.1) (2025-11-12)
 
 
