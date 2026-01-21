@@ -12,8 +12,8 @@ export interface IAttestationJwtProof {
 	 * JSON-LD Context.
 	 */
 	"@context":
-		| typeof AttestationContexts.Namespace
-		| [typeof AttestationContexts.Namespace, ...IJsonLdContextDefinitionElement[]];
+		| typeof AttestationContexts.Context
+		| [typeof AttestationContexts.Context, ...IJsonLdContextDefinitionElement[]];
 
 	/**
 	 * The type of the proof.

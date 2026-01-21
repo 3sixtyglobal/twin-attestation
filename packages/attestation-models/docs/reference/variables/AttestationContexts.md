@@ -10,10 +10,34 @@ The contexts of attestation data.
 
 > `readonly` **Namespace**: `"https://schema.twindev.org/attestation/"` = `"https://schema.twindev.org/attestation/"`
 
-The namespace for the attestation types.
+The canonical RDF namespace URI for Attestation.
+
+### Context
+
+> `readonly` **Context**: `"https://schema.twindev.org/attestation/"` = `"https://schema.twindev.org/attestation/"`
+
+The value to use in context for Attestation.
+
+### JsonLdContext
+
+> `readonly` **JsonLdContext**: `"https://schema.twindev.org/attestation/types.jsonld"` = `"https://schema.twindev.org/attestation/types.jsonld"`
+
+The JSON-LD Context URL for Attestation.
 
 ### NamespaceCommon
 
 > `readonly` **NamespaceCommon**: `"https://schema.twindev.org/common/"` = `"https://schema.twindev.org/common/"`
 
-The namespace for the common types.
+The canonical RDF namespace URI for TWIN Common.
+
+### ContextCommon
+
+> `readonly` **ContextCommon**: `"https://schema.twindev.org/common/"` = `"https://schema.twindev.org/common/"`
+
+The value to use in JSON-LD context for TWIN Common.
+
+### JsonLdContextCommon
+
+> `readonly` **JsonLdContextCommon**: `"https://schema.twindev.org/common/types.jsonld"` = `"https://schema.twindev.org/common/types.jsonld"`
+
+The JSON-LD Context URL for TWIN Common.

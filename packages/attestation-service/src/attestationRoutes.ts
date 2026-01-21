@@ -124,9 +124,9 @@ export function generateRestRoutesAttestation(
 						response: {
 							body: {
 								"@context": [
-									AttestationContexts.Namespace,
-									AttestationContexts.NamespaceCommon,
-									SchemaOrgContexts.Namespace
+									AttestationContexts.Context,
+									AttestationContexts.ContextCommon,
+									SchemaOrgContexts.Context
 								],
 								type: AttestationTypes.Information,
 								id: "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",
@@ -157,9 +157,9 @@ export function generateRestRoutesAttestation(
 						response: {
 							body: {
 								"@context": [
-									AttestationContexts.Namespace,
-									AttestationContexts.NamespaceCommon,
-									SchemaOrgContexts.Namespace
+									AttestationContexts.Context,
+									AttestationContexts.ContextCommon,
+									SchemaOrgContexts.Context
 								],
 								type: AttestationTypes.Information,
 								id: "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",
@@ -196,9 +196,9 @@ export function generateRestRoutesAttestation(
 						response: {
 							body: {
 								"@context": [
-									AttestationContexts.Namespace,
-									AttestationContexts.NamespaceCommon,
-									SchemaOrgContexts.Namespace
+									AttestationContexts.Context,
+									AttestationContexts.ContextCommon,
+									SchemaOrgContexts.Context
 								],
 								type: AttestationTypes.Information,
 								id: "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",
@@ -229,9 +229,9 @@ export function generateRestRoutesAttestation(
 						response: {
 							body: {
 								"@context": [
-									AttestationContexts.Namespace,
-									AttestationContexts.NamespaceCommon,
-									SchemaOrgContexts.Namespace
+									AttestationContexts.Context,
+									AttestationContexts.ContextCommon,
+									SchemaOrgContexts.Context
 								],
 								type: AttestationTypes.Information,
 								id: "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",

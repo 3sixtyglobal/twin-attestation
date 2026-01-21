@@ -7,14 +7,34 @@
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export const AttestationContexts = {
 	/**
-	 * The namespace for the attestation types.
+	 * The canonical RDF namespace URI for Attestation.
 	 */
 	Namespace: "https://schema.twindev.org/attestation/",
 
 	/**
-	 * The namespace for the common types.
+	 * The value to use in context for Attestation.
 	 */
-	NamespaceCommon: "https://schema.twindev.org/common/"
+	Context: "https://schema.twindev.org/attestation/",
+
+	/**
+	 * The JSON-LD Context URL for Attestation.
+	 */
+	JsonLdContext: "https://schema.twindev.org/attestation/types.jsonld",
+
+	/**
+	 * The canonical RDF namespace URI for TWIN Common.
+	 */
+	NamespaceCommon: "https://schema.twindev.org/common/",
+
+	/**
+	 * The value to use in JSON-LD context for TWIN Common.
+	 */
+	ContextCommon: "https://schema.twindev.org/common/",
+
+	/**
+	 * The JSON-LD Context URL for TWIN Common.
+	 */
+	JsonLdContextCommon: "https://schema.twindev.org/common/types.jsonld"
 } as const;
 
 /**
