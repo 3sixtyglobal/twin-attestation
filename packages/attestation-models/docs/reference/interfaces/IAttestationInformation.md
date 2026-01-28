@@ -33,6 +33,7 @@ The unique identifier of the attestation.
 > **dateCreated**: `string`
 
 Created date/time of the attestation in ISO format.
+json-ld namespace:schema
 
 ***
 
@@ -41,6 +42,7 @@ Created date/time of the attestation in ISO format.
 > `optional` **dateTransferred**: `string`
 
 Transferred date/time of the attestation in ISO format, can be blank if holder identity is owner.
+json-ld type:schema:Date
 
 ***
 
@@ -49,6 +51,7 @@ Transferred date/time of the attestation in ISO format, can be blank if holder i
 > **ownerIdentity**: `string`
 
 The identity of the owner.
+json-ld type:schema:identifier
 
 ***
 
@@ -57,6 +60,7 @@ The identity of the owner.
 > `optional` **holderIdentity**: `string`
 
 The identity of the current holder, can be undefined if owner is still the holder.
+json-ld type:schema:identifier
 
 ***
 
@@ -65,6 +69,7 @@ The identity of the current holder, can be undefined if owner is still the holde
 > **attestationObject**: `IJsonLdNodeObject`
 
 The data that was attested.
+json-ld namespace:twin-common
 
 ***
 
@@ -73,6 +78,7 @@ The data that was attested.
 > `optional` **proof**: `IJsonLdNodeObject`
 
 The proof for the attested data.
+json-ld namespace:twin-attestation
 
 ***
 
@@ -81,6 +87,7 @@ The proof for the attested data.
 > `optional` **verified**: `boolean`
 
 Whether the attestation has been verified.
+json-ld namespace:twin-common
 
 ***
 
@@ -89,3 +96,4 @@ Whether the attestation has been verified.
 > `optional` **verificationFailure**: `string`
 
 The verification failure message.
+json-ld type:schema:Text

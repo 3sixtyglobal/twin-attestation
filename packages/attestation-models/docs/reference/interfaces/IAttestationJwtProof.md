@@ -25,3 +25,4 @@ The type of the proof.
 > **value**: `string`
 
 The value of the proof.
+json-ld type:schema:Text
