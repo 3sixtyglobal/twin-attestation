@@ -6,7 +6,7 @@
 	"properties": {
 		"@context": {
 			"type": "array",
-			"minItems": 3,
+			"minItems": 2,
 			"description": "JSON-LD Context.",
 			"prefixItems": [
 				{
@@ -16,10 +16,6 @@
 				{
 					"type": "string",
 					"const": "https://schema.twindev.org/common/"
-				},
-				{
-					"type": "string",
-					"const": "https://schema.org"
 				}
 			],
 			"items": {

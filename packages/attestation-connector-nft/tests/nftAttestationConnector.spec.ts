@@ -74,7 +74,6 @@ describe("NftAttestationConnector", () => {
 		expect(attested["@context"]).toEqual([
 			"https://schema.twindev.org/attestation/",
 			"https://schema.twindev.org/common/",
-			"https://schema.org",
 			"https://www.w3.org/ns/activitystreams"
 		]);
 		expect(attested.verified).toEqual(true);

@@ -19,7 +19,6 @@ import {
 } from "@twin.org/attestation-models";
 import { ComponentFactory, Guards } from "@twin.org/core";
 import { nameof } from "@twin.org/nameof";
-import { SchemaOrgContexts } from "@twin.org/standards-schema-org";
 import { HeaderTypes, HttpStatusCode, MimeTypes } from "@twin.org/web";
 
 /**
@@ -125,8 +124,7 @@ export function generateRestRoutesAttestation(
 							body: {
 								"@context": [
 									AttestationContexts.Context,
-									AttestationContexts.ContextCommon,
-									SchemaOrgContexts.Context
+									AttestationContexts.ContextCommon
 								],
 								type: AttestationTypes.Information,
 								id: "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",
@@ -158,8 +156,7 @@ export function generateRestRoutesAttestation(
 							body: {
 								"@context": [
 									AttestationContexts.Context,
-									AttestationContexts.ContextCommon,
-									SchemaOrgContexts.Context
+									AttestationContexts.ContextCommon
 								],
 								type: AttestationTypes.Information,
 								id: "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",
@@ -197,8 +194,7 @@ export function generateRestRoutesAttestation(
 							body: {
 								"@context": [
 									AttestationContexts.Context,
-									AttestationContexts.ContextCommon,
-									SchemaOrgContexts.Context
+									AttestationContexts.ContextCommon
 								],
 								type: AttestationTypes.Information,
 								id: "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",
@@ -230,8 +226,7 @@ export function generateRestRoutesAttestation(
 							body: {
 								"@context": [
 									AttestationContexts.Context,
-									AttestationContexts.ContextCommon,
-									SchemaOrgContexts.Context
+									AttestationContexts.ContextCommon
 								],
 								type: AttestationTypes.Information,
 								id: "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",

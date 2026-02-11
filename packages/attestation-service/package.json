@@ -36,7 +36,6 @@
 		"@twin.org/data-json-ld": "next",
 		"@twin.org/entity": "next",
 		"@twin.org/nameof": "next",
-		"@twin.org/standards-schema-org": "next",
 		"@twin.org/wallet-models": "next",
 		"@twin.org/web": "next"
 	},
