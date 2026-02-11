@@ -6,9 +6,13 @@
 	"properties": {
 		"@context": {
 			"type": "array",
-			"minItems": 2,
+			"minItems": 3,
 			"description": "JSON-LD Context.",
 			"prefixItems": [
+				{
+					"type": "string",
+					"const": "https://schema.org"
+				},
 				{
 					"type": "string",
 					"const": "https://schema.twindev.org/attestation/"

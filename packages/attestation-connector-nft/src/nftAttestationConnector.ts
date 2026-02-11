@@ -19,6 +19,7 @@ import { JsonLdHelper, JsonLdProcessor, type IJsonLdNodeObject } from "@twin.org
 import { IdentityConnectorFactory, type IIdentityConnector } from "@twin.org/identity-models";
 import { nameof } from "@twin.org/nameof";
 import { NftConnectorFactory, type INftConnector } from "@twin.org/nft-models";
+import { SchemaOrgContexts, SchemaOrgDataTypes } from "@twin.org/standards-schema-org";
 import {
 	DidContexts,
 	DidTypes,
@@ -80,6 +81,8 @@ export class NftAttestationConnector implements IAttestationConnector {
 		this._nftConnector = NftConnectorFactory.get(options?.nftConnectorType ?? "nft");
 		this._config = options?.config ?? {};
 		this._config.tag ??= NftAttestationConnector._DEFAULT_TAG;
+
+		SchemaOrgDataTypes.registerRedirects();
 	}
 
 	/**
@@ -243,7 +246,11 @@ export class NftAttestationConnector implements IAttestationConnector {
 				: "";
 
 			const information: IAttestationInformation = {
-				"@context": [AttestationContexts.Context, AttestationContexts.ContextCommon],
+				"@context": [
+					SchemaOrgContexts.Context,
+					AttestationContexts.Context,
+					AttestationContexts.ContextCommon
+				],
 				type: AttestationTypes.Information,
 				id,
 				dateCreated: dateCreated ?? "",

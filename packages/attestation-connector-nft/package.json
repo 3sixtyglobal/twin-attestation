@@ -37,6 +37,7 @@
 		"@twin.org/identity-models": "next",
 		"@twin.org/nameof": "next",
 		"@twin.org/nft-models": "next",
+		"@twin.org/standards-schema-org": "next",
 		"@twin.org/standards-w3c-did": "next"
 	},
 	"devDependencies": {

@@ -170,9 +170,9 @@
 									"attestationGetResponseExample": {
 										"value": {
 											"@context": [
+												"https://schema.org",
 												"https://schema.twindev.org/attestation/",
-												"https://schema.twindev.org/common/",
-												"https://schema.org"
+												"https://schema.twindev.org/common/"
 											],
 											"type": "Information",
 											"id": "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",
@@ -196,9 +196,9 @@
 									"attestationVerifyResponseFailExample": {
 										"value": {
 											"@context": [
+												"https://schema.org",
 												"https://schema.twindev.org/attestation/",
-												"https://schema.twindev.org/common/",
-												"https://schema.org"
+												"https://schema.twindev.org/common/"
 											],
 											"type": "Information",
 											"id": "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",
@@ -230,9 +230,9 @@
 									"attestationGetResponseExample": {
 										"value": {
 											"@context": [
+												"https://schema.org",
 												"https://schema.twindev.org/attestation/",
-												"https://schema.twindev.org/common/",
-												"https://schema.org"
+												"https://schema.twindev.org/common/"
 											],
 											"type": "Information",
 											"id": "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",
@@ -256,9 +256,9 @@
 									"attestationVerifyResponseFailExample": {
 										"value": {
 											"@context": [
+												"https://schema.org",
 												"https://schema.twindev.org/attestation/",
-												"https://schema.twindev.org/common/",
-												"https://schema.org"
+												"https://schema.twindev.org/common/"
 											],
 											"type": "Information",
 											"id": "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",
@@ -546,9 +546,13 @@
 				"properties": {
 					"@context": {
 						"type": "array",
-						"minItems": 2,
+						"minItems": 3,
 						"description": "JSON-LD Context.",
 						"prefixItems": [
+							{
+								"type": "string",
+								"const": "https://schema.org"
+							},
 							{
 								"type": "string",
 								"const": "https://schema.twindev.org/attestation/"
