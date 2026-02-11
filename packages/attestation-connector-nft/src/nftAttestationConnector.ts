@@ -260,7 +260,7 @@ export class NftAttestationConnector implements IAttestationConnector {
 					information["@context"],
 					contextAndType["@context"]
 				) as IAttestationInformation["@context"];
-				delete contextAndType["@context"];
+				delete information.attestationObject["@context"];
 			}
 
 			if (Is.stringValue(jwtProof)) {
