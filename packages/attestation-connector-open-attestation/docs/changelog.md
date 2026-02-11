@@ -1,5 +1,19 @@
 # @twin.org/attestation-connector-open-attestation - Changelog
 
+## [0.0.3-next.5](https://github.com/twinfoundation/attestation/compare/attestation-connector-open-attestation-v0.0.3-next.4...attestation-connector-open-attestation-v0.0.3-next.5) (2026-02-11)
+
+
+### Miscellaneous Chores
+
+* **attestation-connector-open-attestation:** Synchronize repo versions
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/attestation-models bumped from 0.0.3-next.4 to 0.0.3-next.5
+
 ## [0.0.3-next.4](https://github.com/twinfoundation/attestation/compare/attestation-connector-open-attestation-v0.0.3-next.3...attestation-connector-open-attestation-v0.0.3-next.4) (2026-02-11)
 
 

@@ -1,5 +1,21 @@
 # @twin.org/attestation-service - Changelog
 
+## [0.0.3-next.5](https://github.com/twinfoundation/attestation/compare/attestation-service-v0.0.3-next.4...attestation-service-v0.0.3-next.5) (2026-02-11)
+
+
+### Bug Fixes
+
+* remove context from correct object ([dde633a](https://github.com/twinfoundation/attestation/commit/dde633a6a09c934e18581cc955e771f5e00fa70a))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/attestation-models bumped from 0.0.3-next.4 to 0.0.3-next.5
+  * devDependencies
+    * @twin.org/attestation-connector-nft bumped from 0.0.3-next.4 to 0.0.3-next.5
+
 ## [0.0.3-next.4](https://github.com/twinfoundation/attestation/compare/attestation-service-v0.0.3-next.3...attestation-service-v0.0.3-next.4) (2026-02-11)
 
 
