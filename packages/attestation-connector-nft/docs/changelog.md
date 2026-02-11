@@ -1,5 +1,19 @@
 # @twin.org/attestation-connector-nft - Changelog
 
+## [0.0.3-next.6](https://github.com/twinfoundation/attestation/compare/attestation-connector-nft-v0.0.3-next.5...attestation-connector-nft-v0.0.3-next.6) (2026-02-11)
+
+
+### Bug Fixes
+
+* correct context ordering ([c7cded2](https://github.com/twinfoundation/attestation/commit/c7cded248662b8b78ff41b19749bc182ff5105c0))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/attestation-models bumped from 0.0.3-next.5 to 0.0.3-next.6
+
 ## [0.0.3-next.5](https://github.com/twinfoundation/attestation/compare/attestation-connector-nft-v0.0.3-next.4...attestation-connector-nft-v0.0.3-next.5) (2026-02-11)
 
 

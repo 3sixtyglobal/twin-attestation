@@ -1,5 +1,19 @@
 # @twin.org/attestation-rest-client - Changelog
 
+## [0.0.3-next.6](https://github.com/twinfoundation/attestation/compare/attestation-rest-client-v0.0.3-next.5...attestation-rest-client-v0.0.3-next.6) (2026-02-11)
+
+
+### Miscellaneous Chores
+
+* **attestation-rest-client:** Synchronize repo versions
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/attestation-models bumped from 0.0.3-next.5 to 0.0.3-next.6
+
 ## [0.0.3-next.5](https://github.com/twinfoundation/attestation/compare/attestation-rest-client-v0.0.3-next.4...attestation-rest-client-v0.0.3-next.5) (2026-02-11)
 
 

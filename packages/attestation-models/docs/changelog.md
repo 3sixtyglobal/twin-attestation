@@ -1,5 +1,12 @@
 # @twin.org/attestation-models - Changelog
 
+## [0.0.3-next.6](https://github.com/twinfoundation/attestation/compare/attestation-models-v0.0.3-next.5...attestation-models-v0.0.3-next.6) (2026-02-11)
+
+
+### Bug Fixes
+
+* correct context ordering ([c7cded2](https://github.com/twinfoundation/attestation/commit/c7cded248662b8b78ff41b19749bc182ff5105c0))
+
 ## [0.0.3-next.5](https://github.com/twinfoundation/attestation/compare/attestation-models-v0.0.3-next.4...attestation-models-v0.0.3-next.5) (2026-02-11)
 
 
