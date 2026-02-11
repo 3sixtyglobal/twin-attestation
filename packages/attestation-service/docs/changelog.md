@@ -1,5 +1,22 @@
 # @twin.org/attestation-service - Changelog
 
+## [0.0.3-next.4](https://github.com/twinfoundation/attestation/compare/attestation-service-v0.0.3-next.3...attestation-service-v0.0.3-next.4) (2026-02-11)
+
+
+### Features
+
+* add ts-to-jsonld-context tool ([df7edd0](https://github.com/twinfoundation/attestation/commit/df7edd0d32cabc2b0f9f6dc7b216f569f739324d))
+* remove unused schemas causing conflict ([#27](https://github.com/twinfoundation/attestation/issues/27)) ([9723bc3](https://github.com/twinfoundation/attestation/commit/9723bc3757f87ce8a943f5f091a92d258f867892))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/attestation-models bumped from 0.0.3-next.3 to 0.0.3-next.4
+  * devDependencies
+    * @twin.org/attestation-connector-nft bumped from 0.0.3-next.3 to 0.0.3-next.4
+
 ## [0.0.3-next.3](https://github.com/twinfoundation/attestation/compare/attestation-service-v0.0.3-next.2...attestation-service-v0.0.3-next.3) (2026-01-21)
 
 
