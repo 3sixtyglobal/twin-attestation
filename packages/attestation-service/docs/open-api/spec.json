@@ -538,7 +538,6 @@
 				"required": [
 					"attestationObject"
 				],
-				"additionalProperties": false,
 				"description": "The data to be used in the signing."
 			},
 			"AttestationInformation": {
@@ -614,7 +613,6 @@
 					"ownerIdentity",
 					"attestationObject"
 				],
-				"additionalProperties": false,
 				"description": "Interface describing the collated attestation information."
 			},
 			"AttestationTransferRequest": {
@@ -633,7 +631,6 @@
 					"holderIdentity",
 					"holderAddress"
 				],
-				"additionalProperties": false,
 				"description": "The parameters to be used in the transfer."
 			},
 			"Error": {
@@ -668,7 +665,6 @@
 					"name",
 					"message"
 				],
-				"additionalProperties": false,
 				"description": "Model to describe serialized error."
 			}
 		},
