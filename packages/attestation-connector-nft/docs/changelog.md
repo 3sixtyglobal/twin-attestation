@@ -1,5 +1,19 @@
 # @twin.org/attestation-connector-nft - Changelog
 
+## [0.0.3-next.7](https://github.com/twinfoundation/attestation/compare/attestation-connector-nft-v0.0.3-next.6...attestation-connector-nft-v0.0.3-next.7) (2026-02-25)
+
+
+### Miscellaneous Chores
+
+* **attestation-connector-nft:** Synchronize repo versions
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/attestation-models bumped from 0.0.3-next.6 to 0.0.3-next.7
+
 ## [0.0.3-next.6](https://github.com/twinfoundation/attestation/compare/attestation-connector-nft-v0.0.3-next.5...attestation-connector-nft-v0.0.3-next.6) (2026-02-11)
 
 
