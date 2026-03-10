@@ -22,7 +22,7 @@ export interface IAttestationJwtProof {
 
 	/**
 	 * The value of the proof.
-	 * json-ld type:schema:Text
+	 * @json-ld type:schema:Text
 	 */
 	value: string;
 }
