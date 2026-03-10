@@ -1,7 +1,7 @@
 {
 	"name": "@twin.org/attestation",
 	"version": "0.0.0",
-	"description": "Attestation",
+	"description": "Attestation packages and CLI tooling.",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/twinfoundation/attestation.git"

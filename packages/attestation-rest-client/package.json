@@ -1,7 +1,7 @@
 {
 	"name": "@twin.org/attestation-rest-client",
 	"version": "0.0.3-next.7",
-	"description": "Attestation contract implementation which can connect to REST endpoints",
+	"description": "REST client for calling attestation service endpoints.",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/twinfoundation/attestation.git",

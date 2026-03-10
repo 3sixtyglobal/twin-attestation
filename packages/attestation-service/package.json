@@ -1,7 +1,7 @@
 {
 	"name": "@twin.org/attestation-service",
 	"version": "0.0.3-next.7",
-	"description": "Attestation contract implementation and REST endpoint definitions",
+	"description": "Service layer for creating, verifying, transferring, and destroying attestations.",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/twinfoundation/attestation.git",

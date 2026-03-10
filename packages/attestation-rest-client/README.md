@@ -1,6 +1,6 @@
 # TWIN Attestation REST Client
 
-Attestation contract implementation which can connect to REST endpoints.
+REST client for calling attestation service endpoints.
 
 ## Installation
 

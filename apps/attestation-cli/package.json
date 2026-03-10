@@ -1,7 +1,7 @@
 {
 	"name": "@twin.org/attestation-cli",
 	"version": "0.0.3-next.7",
-	"description": "A command line interface for interacting with the attestation connectors",
+	"description": "Command line tool for creating and managing attestations.",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/twinfoundation/attestation.git",

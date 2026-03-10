@@ -1,11 +1,11 @@
 # TWIN Attestation CLI
 
-A command line interface for interacting with the attestation connectors.
+Command line tool for creating and managing attestations.
 
 ## Installation
 
 ```shell
-npm install @twin.org/attestation-cli
+npm install -D @twin.org/attestation-cli
 ```
 
 ## Examples

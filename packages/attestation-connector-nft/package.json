@@ -1,7 +1,7 @@
 {
 	"name": "@twin.org/attestation-connector-nft",
 	"version": "0.0.3-next.7",
-	"description": "Attestation connector implementation using NFTs",
+	"description": "Attestation connector for minting and resolving NFT-backed attestations.",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/twinfoundation/attestation.git",

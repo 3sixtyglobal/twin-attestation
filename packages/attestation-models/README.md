@@ -1,6 +1,6 @@
 # TWIN Attestation Models
 
-Models which define the structure of the attestation contracts and connectors.
+Shared models and data types for attestation connectors and services.
 
 ## Installation
 

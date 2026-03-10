@@ -1,4 +1,6 @@
-# @twin.org/attestation-cli - Examples
+# Attestation CLI Usage
+
+Use these commands to run the tool locally and inspect available commands before creating, verifying, or transferring attestations.
 
 ## Running
 
@@ -14,6 +16,8 @@ or run directly using NPX:
 ```shell
 npx "@twin.org/attestation-cli"
 ```
+
+## Help
 
 You should see output similar to the following:
 
@@ -45,13 +49,13 @@ Commands:
   attestation-transfer [options]            Transfer an attestation to a new holder.
 ```
 
-You can get further details on the sub commands by using the help option for the individual commands.
+You can get further details on subcommands by using the help option for each command.
 
 ```shell
 twin-attestation attestation-create --help
 ```
 
-Output
+## attestation-create --help
 
 ```shell
 🌍 TWIN Attestation v1.0.0
@@ -77,7 +81,7 @@ Options:
 
 The commands `mnemonic`, `address`, `faucet`, `identity*` and `verifiable-credential*` are described in more detail in the examples for `crypto-cli`, `wallet-cli` and `identity-cli`.
 
-## Command
+## Command Output
 
 ### attestation-create
 
