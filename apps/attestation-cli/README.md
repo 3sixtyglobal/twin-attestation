@@ -5,12 +5,12 @@ Command line tool for creating and managing attestations.
 ## Installation
 
 ```shell
-npm install -D @twin.org/attestation-cli
+npm install -g @twin.org/attestation-cli
 ```
 
-## Examples
+## Usage
 
-Usage of the tool is shown in the examples [docs/examples.md](docs/examples.md)
+Usage of the tool is shown in the examples [docs/usage.md](docs/usage.md)
 
 ## Reference
 

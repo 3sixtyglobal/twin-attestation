@@ -1,4 +1,4 @@
-# @twin.org/attestation-models - Changelog
+# Changelog
 
 ## [0.0.3-next.7](https://github.com/twinfoundation/attestation/compare/attestation-models-v0.0.3-next.6...attestation-models-v0.0.3-next.7) (2026-02-25)
 

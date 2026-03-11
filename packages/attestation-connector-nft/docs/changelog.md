@@ -1,4 +1,4 @@
-# @twin.org/attestation-connector-nft - Changelog
+# Changelog
 
 ## [0.0.3-next.7](https://github.com/twinfoundation/attestation/compare/attestation-connector-nft-v0.0.3-next.6...attestation-connector-nft-v0.0.3-next.7) (2026-02-25)
 

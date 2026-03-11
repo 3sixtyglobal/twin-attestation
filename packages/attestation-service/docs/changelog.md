@@ -1,4 +1,4 @@
-# @twin.org/attestation-service - Changelog
+# Changelog
 
 ## [0.0.3-next.7](https://github.com/twinfoundation/attestation/compare/attestation-service-v0.0.3-next.6...attestation-service-v0.0.3-next.7) (2026-02-25)
 

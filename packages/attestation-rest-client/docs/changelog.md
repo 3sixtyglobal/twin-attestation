@@ -1,4 +1,4 @@
-# @twin.org/attestation-rest-client - Changelog
+# Changelog
 
 ## [0.0.3-next.7](https://github.com/twinfoundation/attestation/compare/attestation-rest-client-v0.0.3-next.6...attestation-rest-client-v0.0.3-next.7) (2026-02-25)
 

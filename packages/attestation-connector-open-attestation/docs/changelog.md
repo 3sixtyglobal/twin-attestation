@@ -1,4 +1,4 @@
-# @twin.org/attestation-connector-open-attestation - Changelog
+# Changelog
 
 ## [0.0.3-next.7](https://github.com/twinfoundation/attestation/compare/attestation-connector-open-attestation-v0.0.3-next.6...attestation-connector-open-attestation-v0.0.3-next.7) (2026-02-25)
 
