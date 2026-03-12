@@ -4,7 +4,7 @@ Model for the owner of an attestation.
 
 ## Properties
 
-### dateTransferred?
+### dateTransferred? {#datetransferred}
 
 > `optional` **dateTransferred**: `string`
 

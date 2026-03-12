@@ -4,7 +4,7 @@ Options for the attestation service constructor.
 
 ## Properties
 
-### config?
+### config? {#config}
 
 > `optional` **config**: [`IAttestationServiceConfig`](IAttestationServiceConfig.md)
 

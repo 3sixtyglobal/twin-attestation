@@ -14,7 +14,7 @@ Utility functions for the entity storage attestation.
 
 ## Methods
 
-### attestationIdToNftId()
+### attestationIdToNftId() {#attestationidtonftid}
 
 > `static` **attestationIdToNftId**(`attestationId`): `string`
 
@@ -36,7 +36,7 @@ The address.
 
 ***
 
-### nftIdToAttestationId()
+### nftIdToAttestationId() {#nftidtoattestationid}
 
 > `static` **nftIdToAttestationId**(`nftId`): `string`
 

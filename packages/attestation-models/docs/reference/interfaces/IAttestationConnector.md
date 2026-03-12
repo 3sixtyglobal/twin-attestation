@@ -8,7 +8,7 @@ Interface describing an attestation connector.
 
 ## Methods
 
-### create()
+### create() {#create}
 
 > **create**(`controller`, `verificationMethodId`, `attestationObject`): `Promise`\<`string`\>
 
@@ -42,7 +42,7 @@ The collated attestation data.
 
 ***
 
-### get()
+### get() {#get}
 
 > **get**(`id`): `Promise`\<[`IAttestationInformation`](IAttestationInformation.md)\>
 
@@ -64,7 +64,7 @@ The verified attestation details.
 
 ***
 
-### transfer()
+### transfer() {#transfer}
 
 > **transfer**(`controller`, `attestationId`, `holderIdentity`, `holderAddress`): `Promise`\<`void`\>
 
@@ -104,7 +104,7 @@ Nothing.
 
 ***
 
-### destroy()
+### destroy() {#destroy}
 
 > **destroy**(`controller`, `attestationId`): `Promise`\<`void`\>
 

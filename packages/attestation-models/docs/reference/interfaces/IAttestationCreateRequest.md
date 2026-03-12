@@ -4,7 +4,7 @@ Attest the data and return the id of the attestation.
 
 ## Properties
 
-### body
+### body {#body}
 
 > **body**: `object`
 

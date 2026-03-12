@@ -6,37 +6,37 @@ The contexts of attestation data.
 
 ## Type Declaration
 
-### Namespace
+### Namespace {#namespace}
 
 > `readonly` **Namespace**: `"https://schema.twindev.org/attestation/"` = `"https://schema.twindev.org/attestation/"`
 
 The canonical RDF namespace URI for Attestation.
 
-### Context
+### Context {#context}
 
 > `readonly` **Context**: `"https://schema.twindev.org/attestation/"` = `"https://schema.twindev.org/attestation/"`
 
 The value to use in context for Attestation.
 
-### JsonLdContext
+### JsonLdContext {#jsonldcontext}
 
 > `readonly` **JsonLdContext**: `"https://schema.twindev.org/attestation/types.jsonld"` = `"https://schema.twindev.org/attestation/types.jsonld"`
 
 The JSON-LD Context URL for Attestation.
 
-### NamespaceCommon
+### NamespaceCommon {#namespacecommon}
 
 > `readonly` **NamespaceCommon**: `"https://schema.twindev.org/common/"` = `"https://schema.twindev.org/common/"`
 
 The canonical RDF namespace URI for TWIN Common.
 
-### ContextCommon
+### ContextCommon {#contextcommon}
 
 > `readonly` **ContextCommon**: `"https://schema.twindev.org/common/"` = `"https://schema.twindev.org/common/"`
 
 The value to use in JSON-LD context for TWIN Common.
 
-### JsonLdContextCommon
+### JsonLdContextCommon {#jsonldcontextcommon}
 
 > `readonly` **JsonLdContextCommon**: `"https://schema.twindev.org/common/types.jsonld"` = `"https://schema.twindev.org/common/types.jsonld"`
 

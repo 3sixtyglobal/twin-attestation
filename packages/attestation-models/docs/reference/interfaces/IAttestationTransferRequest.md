@@ -4,7 +4,7 @@ Transfer the attestation to a new holder.
 
 ## Properties
 
-### pathParams
+### pathParams {#pathparams}
 
 > **pathParams**: `object`
 
@@ -18,7 +18,7 @@ The attestation id to transfer.
 
 ***
 
-### body
+### body {#body}
 
 > **body**: `object`
 

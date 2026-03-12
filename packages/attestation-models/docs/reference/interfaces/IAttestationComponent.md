@@ -8,7 +8,7 @@ Interface describing an attestation contract.
 
 ## Methods
 
-### create()
+### create() {#create}
 
 > **create**(`attestationObject`, `namespace?`): `Promise`\<`string`\>
 
@@ -36,7 +36,7 @@ The id of the attestation.
 
 ***
 
-### get()
+### get() {#get}
 
 > **get**(`id`): `Promise`\<[`IAttestationInformation`](IAttestationInformation.md)\>
 
@@ -58,7 +58,7 @@ The verified attestation details.
 
 ***
 
-### transfer()
+### transfer() {#transfer}
 
 > **transfer**(`attestationId`, `holderIdentity`, `holderAddress`): `Promise`\<`void`\>
 
@@ -92,7 +92,7 @@ Nothing.
 
 ***
 
-### destroy()
+### destroy() {#destroy}
 
 > **destroy**(`attestationId`): `Promise`\<`void`\>
 

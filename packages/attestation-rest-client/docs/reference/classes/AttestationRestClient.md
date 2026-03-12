@@ -36,7 +36,7 @@ The configuration for the client.
 
 ## Properties
 
-### CLASS\_NAME
+### CLASS\_NAME {#class_name}
 
 > `readonly` `static` **CLASS\_NAME**: `string`
 
@@ -44,7 +44,7 @@ Runtime name for the class.
 
 ## Methods
 
-### className()
+### className() {#classname}
 
 > **className**(): `string`
 
@@ -62,7 +62,7 @@ The class name of the component.
 
 ***
 
-### create()
+### create() {#create}
 
 > **create**(`attestationObject`, `namespace?`): `Promise`\<`string`\>
 
@@ -94,7 +94,7 @@ The id.
 
 ***
 
-### get()
+### get() {#get}
 
 > **get**(`id`): `Promise`\<`IAttestationInformation`\>
 
@@ -120,7 +120,7 @@ The verified attestation details.
 
 ***
 
-### transfer()
+### transfer() {#transfer}
 
 > **transfer**(`attestationId`, `holderIdentity`, `holderAddress`): `Promise`\<`void`\>
 
@@ -158,7 +158,7 @@ Nothing.
 
 ***
 
-### destroy()
+### destroy() {#destroy}
 
 > **destroy**(`attestationId`): `Promise`\<`void`\>
 

@@ -28,7 +28,7 @@ The options for the attestation connector.
 
 ## Properties
 
-### CLASS\_NAME
+### CLASS\_NAME {#class_name}
 
 > `readonly` `static` **CLASS\_NAME**: `string`
 
@@ -36,7 +36,7 @@ Runtime name for the class.
 
 ***
 
-### NAMESPACE
+### NAMESPACE {#namespace}
 
 > `readonly` `static` **NAMESPACE**: `string` = `"nft"`
 
@@ -44,7 +44,7 @@ The namespace for the entities.
 
 ## Methods
 
-### className()
+### className() {#classname}
 
 > **className**(): `string`
 
@@ -62,7 +62,7 @@ The class name of the component.
 
 ***
 
-### create()
+### create() {#create}
 
 > **create**(`controller`, `verificationMethodId`, `attestationObject`): `Promise`\<`string`\>
 
@@ -100,7 +100,7 @@ The id of the attestation.
 
 ***
 
-### get()
+### get() {#get}
 
 > **get**(`id`): `Promise`\<`IAttestationInformation`\>
 
@@ -126,7 +126,7 @@ The verified attestation details.
 
 ***
 
-### transfer()
+### transfer() {#transfer}
 
 > **transfer**(`controller`, `attestationId`, `holderIdentity`, `holderAddress`): `Promise`\<`void`\>
 
@@ -170,7 +170,7 @@ Nothing.
 
 ***
 
-### destroy()
+### destroy() {#destroy}
 
 > **destroy**(`controller`, `attestationId`): `Promise`\<`void`\>
 
