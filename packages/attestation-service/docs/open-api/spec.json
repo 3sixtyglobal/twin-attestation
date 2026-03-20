@@ -541,32 +541,29 @@
 				"description": "The data to be used in the signing."
 			},
 			"AttestationInformation": {
+				"description": "Interface describing the collated attestation information.",
 				"type": "object",
 				"properties": {
 					"@context": {
 						"type": "array",
-						"minItems": 3,
-						"description": "JSON-LD Context.",
 						"prefixItems": [
 							{
-								"type": "string",
 								"const": "https://schema.org"
 							},
 							{
-								"type": "string",
 								"const": "https://schema.twindev.org/attestation/"
 							},
 							{
-								"type": "string",
 								"const": "https://schema.twindev.org/common/"
 							}
 						],
 						"items": {
 							"$ref": "https://schema.twindev.org/json-ld/JsonLdContextDefinitionElement"
-						}
+						},
+						"minItems": 3,
+						"description": "JSON-LD Context."
 					},
 					"type": {
-						"type": "string",
 						"const": "Information",
 						"description": "JSON-LD Type."
 					},
@@ -612,8 +609,7 @@
 					"dateCreated",
 					"ownerIdentity",
 					"attestationObject"
-				],
-				"description": "Interface describing the collated attestation information."
+				]
 			},
 			"AttestationTransferRequest": {
 				"type": "object",
@@ -634,6 +630,7 @@
 				"description": "The parameters to be used in the transfer."
 			},
 			"Error": {
+				"description": "Model to describe serialized error.",
 				"type": "object",
 				"properties": {
 					"name": {
@@ -664,8 +661,7 @@
 				"required": [
 					"name",
 					"message"
-				],
-				"description": "Model to describe serialized error."
+				]
 			}
 		},
 		"securitySchemes": {

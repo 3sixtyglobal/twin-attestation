@@ -6,6 +6,6 @@ Model for the owner of an attestation.
 
 ### dateTransferred? {#datetransferred}
 
-> `optional` **dateTransferred**: `string`
+> `optional` **dateTransferred?**: `string`
 
 The ISO date/time when the attestation was transferred, if not provided defaults to issued date.

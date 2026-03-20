@@ -6,7 +6,7 @@ The response to verifying the attestation.
 
 ### headers? {#headers}
 
-> `optional` **headers**: `object`
+> `optional` **headers?**: `object`
 
 The headers which can be used to determine the response data type.
 

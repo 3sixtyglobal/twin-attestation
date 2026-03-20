@@ -6,22 +6,34 @@ Options for the NFT attestation connector constructor.
 
 ### identityConnectorType? {#identityconnectortype}
 
-> `optional` **identityConnectorType**: `string`
+> `optional` **identityConnectorType?**: `string`
 
 The type of the identity connector.
+
+#### Default
+
+```ts
+identity
+```
 
 ***
 
 ### nftConnectorType? {#nftconnectortype}
 
-> `optional` **nftConnectorType**: `string`
+> `optional` **nftConnectorType?**: `string`
 
 The type of the nft connector.
+
+#### Default
+
+```ts
+nft
+```
 
 ***
 
 ### config? {#config}
 
-> `optional` **config**: [`INftAttestationConnectorConfig`](INftAttestationConnectorConfig.md)
+> `optional` **config?**: [`INftAttestationConnectorConfig`](INftAttestationConnectorConfig.md)
 
 The configuration for the connector.

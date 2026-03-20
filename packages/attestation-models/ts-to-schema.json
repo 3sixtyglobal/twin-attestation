@@ -2,6 +2,6 @@
 	"baseUrl": "https://schema.twindev.org/attestation/",
 	"types": ["./src/models/IAttestationInformation.ts", "./src/models/IAttestationJwtProof.ts"],
 	"externalReferences": {
-		"IJsonLd(.*)": "https://schema.twindev.org/json-ld/JsonLd$1"
+		"JsonLd(.*)": "https://schema.twindev.org/json-ld/JsonLd$1"
 	}
 }

@@ -38,7 +38,7 @@ Created date/time of the attestation in ISO format.
 
 ### dateTransferred? {#datetransferred}
 
-> `optional` **dateTransferred**: `string`
+> `optional` **dateTransferred?**: `string`
 
 Transferred date/time of the attestation in ISO format, can be blank if holder identity is owner.
 
@@ -54,7 +54,7 @@ The identity of the owner.
 
 ### holderIdentity? {#holderidentity}
 
-> `optional` **holderIdentity**: `string`
+> `optional` **holderIdentity?**: `string`
 
 The identity of the current holder, can be undefined if owner is still the holder.
 
@@ -70,7 +70,7 @@ The data that was attested.
 
 ### proof? {#proof}
 
-> `optional` **proof**: `IJsonLdNodeObject`
+> `optional` **proof?**: `IJsonLdNodeObject`
 
 The proof for the attested data.
 
@@ -78,7 +78,7 @@ The proof for the attested data.
 
 ### verified? {#verified}
 
-> `optional` **verified**: `boolean`
+> `optional` **verified?**: `boolean`
 
 Whether the attestation has been verified.
 
@@ -86,6 +86,6 @@ Whether the attestation has been verified.
 
 ### verificationFailure? {#verificationfailure}
 
-> `optional` **verificationFailure**: `string`
+> `optional` **verificationFailure?**: `string`
 
 The verification failure message.

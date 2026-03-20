@@ -14,6 +14,6 @@ The version which identifies the content of the payload.
 
 ### proof? {#proof}
 
-> `optional` **proof**: `unknown`
+> `optional` **proof?**: `unknown`
 
 The proof of the attestation.
