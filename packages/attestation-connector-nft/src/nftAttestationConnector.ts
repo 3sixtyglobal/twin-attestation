@@ -277,12 +277,13 @@ export class NftAttestationConnector implements IAttestationConnector {
 				};
 			}
 
-			if (
-				Is.object<INftAttestationHolder>(resolved.metadata) &&
-				Is.stringValue(resolved.metadata.dateTransferred)
-			) {
-				information.holderIdentity = resolved.owner;
-				information.dateTransferred = resolved.metadata.dateTransferred;
+			if (Is.object<INftAttestationHolder>(resolved.metadata)) {
+				if (Is.stringValue(resolved.metadata.holderIdentity)) {
+					information.holderIdentity = resolved.metadata.holderIdentity;
+				}
+				if (Is.stringValue(resolved.metadata.dateTransferred)) {
+					information.dateTransferred = resolved.metadata.dateTransferred;
+				}
 			}
 
 			information.verified = Is.empty(failure);
@@ -345,10 +346,11 @@ export class NftAttestationConnector implements IAttestationConnector {
 			const nftId = NftAttestationUtils.attestationIdToNftId(attestationId);
 
 			const holder: INftAttestationHolder = {
+				holderIdentity,
 				dateTransferred: new Date().toISOString()
 			};
 
-			await this._nftConnector.transfer(controller, nftId, holderIdentity, holderAddress, holder);
+			await this._nftConnector.transfer(controller, nftId, holderAddress, holder);
 		} catch (error) {
 			throw new GeneralError(
 				NftAttestationConnector.CLASS_NAME,

@@ -6,6 +6,11 @@
  */
 export interface INftAttestationHolder {
 	/**
+	 * The holder identity the attestation was transferred to.
+	 */
+	holderIdentity?: string;
+
+	/**
 	 * The ISO date/time when the attestation was transferred, if not provided defaults to issued date.
 	 */
 	dateTransferred?: string;
