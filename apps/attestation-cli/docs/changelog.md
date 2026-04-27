@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.0.3-next.8](https://github.com/twinfoundation/twin-attestation/compare/attestation-cli-v0.0.3-next.7...attestation-cli-v0.0.3-next.8) (2026-04-27)
+
+
+### Miscellaneous Chores
+
+* **attestation-cli:** Synchronize repo versions
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/attestation-connector-nft bumped from 0.0.3-next.7 to 0.0.3-next.8
+
 ## [0.0.3-next.7](https://github.com/iotaledger/twin-attestation/compare/attestation-cli-v0.0.3-next.6...attestation-cli-v0.0.3-next.7) (2026-02-25)
 
 

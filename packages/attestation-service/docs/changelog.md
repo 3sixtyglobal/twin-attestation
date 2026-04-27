@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.0.3-next.8](https://github.com/twinfoundation/twin-attestation/compare/attestation-service-v0.0.3-next.7...attestation-service-v0.0.3-next.8) (2026-04-27)
+
+
+### Miscellaneous Chores
+
+* **attestation-service:** Synchronize repo versions
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/attestation-models bumped from 0.0.3-next.7 to 0.0.3-next.8
+  * devDependencies
+    * @twin.org/attestation-connector-nft bumped from 0.0.3-next.7 to 0.0.3-next.8
+
 ## [0.0.3-next.7](https://github.com/iotaledger/twin-attestation/compare/attestation-service-v0.0.3-next.6...attestation-service-v0.0.3-next.7) (2026-02-25)
 
 

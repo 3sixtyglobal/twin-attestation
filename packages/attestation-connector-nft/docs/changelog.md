@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.0.3-next.8](https://github.com/twinfoundation/twin-attestation/compare/attestation-connector-nft-v0.0.3-next.7...attestation-connector-nft-v0.0.3-next.8) (2026-04-27)
+
+
+### Bug Fixes
+
+* missing nft owner breaking change ([#32](https://github.com/twinfoundation/twin-attestation/issues/32)) ([b2281ad](https://github.com/twinfoundation/twin-attestation/commit/b2281ad40987f0b5e176bdd207fad9a3b6f37df6))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/attestation-models bumped from 0.0.3-next.7 to 0.0.3-next.8
+
 ## [0.0.3-next.7](https://github.com/iotaledger/twin-attestation/compare/attestation-connector-nft-v0.0.3-next.6...attestation-connector-nft-v0.0.3-next.7) (2026-02-25)
 
 
