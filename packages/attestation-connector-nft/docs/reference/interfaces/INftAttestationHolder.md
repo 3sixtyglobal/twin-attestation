@@ -4,6 +4,14 @@ Model for the owner of an attestation.
 
 ## Properties
 
+### holderIdentity? {#holderidentity}
+
+> `optional` **holderIdentity?**: `string`
+
+The holder identity the attestation was transferred to.
+
+***
+
 ### dateTransferred? {#datetransferred}
 
 > `optional` **dateTransferred?**: `string`
