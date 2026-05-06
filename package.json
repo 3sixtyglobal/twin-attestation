@@ -4,7 +4,7 @@
 	"description": "Attestation packages and CLI tooling.",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/twinfoundation/attestation.git"
+		"url": "git+https://github.com/iotaledger/attestation.git"
 	},
 	"author": "martyn.janes@iota.org",
 	"license": "Apache-2.0",
@@ -63,7 +63,7 @@
 	],
 	"type": "module",
 	"bugs": {
-		"url": "git+https://github.com/twinfoundation/attestation/issues"
+		"url": "git+https://github.com/iotaledger/attestation/issues"
 	},
 	"homepage": "https://twindev.org"
 }

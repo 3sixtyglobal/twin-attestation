@@ -4,7 +4,7 @@
 	"description": "Attestation connector for OpenAttestation-compatible document workflows.",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/twinfoundation/attestation.git",
+		"url": "git+https://github.com/iotaledger/attestation.git",
 		"directory": "packages/attestation-connector-open-attestation"
 	},
 	"author": "martyn.janes@iota.org",
@@ -82,7 +82,7 @@
 		"integration"
 	],
 	"bugs": {
-		"url": "git+https://github.com/twinfoundation/attestation/issues"
+		"url": "git+https://github.com/iotaledger/attestation/issues"
 	},
 	"homepage": "https://twindev.org"
 }
