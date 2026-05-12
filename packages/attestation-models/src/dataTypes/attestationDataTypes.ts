@@ -1,6 +1,6 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
-import { DataTypeHandlerFactory, type IJsonSchema } from "@twin.org/data-core";
+import { DataTypeHandlerFactory } from "@twin.org/data-core";
 import { AttestationContexts } from "../models/attestationContexts.js";
 import { AttestationTypes } from "../models/attestationTypes.js";
 import AttestationInformationSchema from "../schemas/AttestationInformation.json" with { type: "json" };
@@ -20,7 +20,7 @@ export class AttestationDataTypes {
 				namespace: AttestationContexts.Namespace,
 				type: AttestationTypes.Information,
 				defaultValue: {},
-				jsonSchema: async () => AttestationInformationSchema as IJsonSchema
+				jsonSchema: async () => AttestationInformationSchema
 			})
 		);
 		DataTypeHandlerFactory.register(
@@ -29,7 +29,7 @@ export class AttestationDataTypes {
 				namespace: AttestationContexts.Namespace,
 				type: AttestationTypes.JwtProof,
 				defaultValue: {},
-				jsonSchema: async () => AttestationJwtProofSchema as IJsonSchema
+				jsonSchema: async () => AttestationJwtProofSchema
 			})
 		);
 	}
