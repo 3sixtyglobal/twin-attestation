@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.0.3-next.9](https://github.com/iotaledger/twin-attestation/compare/attestation-rest-client-v0.0.3-next.8...attestation-rest-client-v0.0.3-next.9) (2026-05-12)
+
+
+### Features
+
+* typescript 6 update ([9484667](https://github.com/iotaledger/twin-attestation/commit/948466713dc980e4b2d89e72ebb927b3fe530280))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/attestation-models bumped from 0.0.3-next.8 to 0.0.3-next.9
+
 ## [0.0.3-next.8](https://github.com/iotaledger/twin-attestation/compare/attestation-rest-client-v0.0.3-next.7...attestation-rest-client-v0.0.3-next.8) (2026-04-27)
 
 
