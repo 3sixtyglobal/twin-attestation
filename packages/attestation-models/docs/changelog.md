@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.3-next.11](https://github.com/iotaledger/twin-attestation/compare/attestation-models-v0.0.3-next.10...attestation-models-v0.0.3-next.11) (2026-05-22)
+
+
+### Features
+
+* remove holder identity ([#38](https://github.com/iotaledger/twin-attestation/issues/38)) ([4862d7f](https://github.com/iotaledger/twin-attestation/commit/4862d7f22345b82bcb90f27adc0d64ed75484813))
+
 ## [0.0.3-next.10](https://github.com/iotaledger/twin-attestation/compare/attestation-models-v0.0.3-next.9...attestation-models-v0.0.3-next.10) (2026-05-20)
 
 
