@@ -24,12 +24,6 @@ The attestation id to transfer.
 
 The parameters to be used in the transfer.
 
-#### holderIdentity
-
-> **holderIdentity**: `string`
-
-The new holder identity.
-
 #### holderAddress
 
 > **holderAddress**: `string`

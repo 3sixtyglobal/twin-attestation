@@ -128,7 +128,7 @@ The verified attestation details.
 
 ### transfer() {#transfer}
 
-> **transfer**(`controller`, `attestationId`, `holderIdentity`, `holderAddress`): `Promise`\<`void`\>
+> **transfer**(`controller`, `attestationId`, `holderAddress`): `Promise`\<`void`\>
 
 Transfer the attestation to a new holder.
 
@@ -145,12 +145,6 @@ The controller identity of the user to access the vault keys.
 `string`
 
 The attestation to transfer.
-
-##### holderIdentity
-
-`string`
-
-The holder identity of the attestation.
 
 ##### holderAddress
 

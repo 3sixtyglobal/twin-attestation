@@ -40,7 +40,7 @@ Created date/time of the attestation in ISO format.
 
 > `optional` **dateTransferred?**: `string`
 
-Transferred date/time of the attestation in ISO format, can be blank if holder identity is owner.
+Transferred date/time of the attestation in ISO format, can be blank if not yet transferred.
 
 ***
 
@@ -49,14 +49,6 @@ Transferred date/time of the attestation in ISO format, can be blank if holder i
 > **ownerIdentity**: `string`
 
 The identity of the owner.
-
-***
-
-### holderIdentity? {#holderidentity}
-
-> `optional` **holderIdentity?**: `string`
-
-The identity of the current holder, can be undefined if owner is still the holder.
 
 ***
 

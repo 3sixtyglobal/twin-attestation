@@ -22,12 +22,6 @@ The seed required for signing by the issuer.
 
 The id of the attestation to transfer in urn format.
 
-#### holderIdentity
-
-`string`
-
-The new holder identity of the attestation.
-
 #### holderAddress
 
 `string`
