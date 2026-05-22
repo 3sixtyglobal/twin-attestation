@@ -63,14 +63,12 @@ export class OpenAttestationConnector implements IAttestationConnector {
 	 * Transfer the attestation to a new holder.
 	 * @param controller The controller identity of the user to access the vault keys.
 	 * @param attestationId The attestation to transfer.
-	 * @param holderIdentity The holder identity of the attestation.
 	 * @param holderAddress The new controller address of the attestation belonging to the holder.
 	 * @returns Nothing.
 	 */
 	public async transfer(
 		controller: string,
 		attestationId: string,
-		holderIdentity: string,
 		holderAddress: string
 	): Promise<void> {
 		throw new NotImplementedError(OpenAttestationConnector.CLASS_NAME, "transfer");

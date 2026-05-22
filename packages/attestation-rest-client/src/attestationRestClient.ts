@@ -92,17 +92,11 @@ export class AttestationRestClient extends BaseRestClient implements IAttestatio
 	/**
 	 * Transfer the attestation to a new holder.
 	 * @param attestationId The attestation to transfer.
-	 * @param holderIdentity The identity to transfer the attestation to.
 	 * @param holderAddress The address to transfer the attestation to.
 	 * @returns Nothing.
 	 */
-	public async transfer(
-		attestationId: string,
-		holderIdentity: string,
-		holderAddress: string
-	): Promise<void> {
+	public async transfer(attestationId: string, holderAddress: string): Promise<void> {
 		Urn.guard(AttestationRestClient.CLASS_NAME, nameof(attestationId), attestationId);
-		Guards.stringValue(AttestationRestClient.CLASS_NAME, nameof(holderIdentity), holderIdentity);
 		Guards.stringValue(AttestationRestClient.CLASS_NAME, nameof(holderAddress), holderAddress);
 
 		await this.fetch<IAttestationTransferRequest, INoContentResponse>("/:id/transfer", "PUT", {
@@ -110,7 +104,6 @@ export class AttestationRestClient extends BaseRestClient implements IAttestatio
 				id: attestationId
 			},
 			body: {
-				holderIdentity,
 				holderAddress
 			}
 		});

@@ -255,7 +255,6 @@ export class NftAttestationConnector implements IAttestationConnector {
 				id,
 				dateCreated: dateCreated ?? "",
 				ownerIdentity: owner,
-				holderIdentity: owner,
 				attestationObject: {
 					...contextAndType,
 					...jsonObject
@@ -278,9 +277,6 @@ export class NftAttestationConnector implements IAttestationConnector {
 			}
 
 			if (Is.object<INftAttestationHolder>(resolved.metadata)) {
-				if (Is.stringValue(resolved.metadata.holderIdentity)) {
-					information.holderIdentity = resolved.metadata.holderIdentity;
-				}
 				if (Is.stringValue(resolved.metadata.dateTransferred)) {
 					information.dateTransferred = resolved.metadata.dateTransferred;
 				}
@@ -305,19 +301,16 @@ export class NftAttestationConnector implements IAttestationConnector {
 	 * Transfer the attestation to a new holder.
 	 * @param controller The controller identity of the user to access the vault keys.
 	 * @param attestationId The attestation to transfer.
-	 * @param holderIdentity The holder identity of the attestation.
 	 * @param holderAddress The new controller address of the attestation belonging to the holder.
 	 * @returns Nothing.
 	 */
 	public async transfer(
 		controller: string,
 		attestationId: string,
-		holderIdentity: string,
 		holderAddress: string
 	): Promise<void> {
 		Guards.stringValue(NftAttestationConnector.CLASS_NAME, nameof(controller), controller);
 		Urn.guard(NftAttestationConnector.CLASS_NAME, nameof(attestationId), attestationId);
-		Guards.stringValue(NftAttestationConnector.CLASS_NAME, nameof(holderIdentity), holderIdentity);
 		Guards.stringValue(NftAttestationConnector.CLASS_NAME, nameof(holderAddress), holderAddress);
 
 		const urnParsed = Urn.fromValidString(attestationId);
@@ -346,7 +339,6 @@ export class NftAttestationConnector implements IAttestationConnector {
 			const nftId = NftAttestationUtils.attestationIdToNftId(attestationId);
 
 			const holder: INftAttestationHolder = {
-				holderIdentity,
 				dateTransferred: new Date().toISOString()
 			};
 

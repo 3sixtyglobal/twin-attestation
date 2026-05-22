@@ -36,7 +36,7 @@ export interface IAttestationInformation {
 	dateCreated: string;
 
 	/**
-	 * Transferred date/time of the attestation in ISO format, can be blank if holder identity is owner.
+	 * Transferred date/time of the attestation in ISO format, can be blank if not yet transferred.
 	 * @json-ld type:schema:Date
 	 */
 	dateTransferred?: string;
@@ -46,12 +46,6 @@ export interface IAttestationInformation {
 	 * @json-ld type:schema:identifier
 	 */
 	ownerIdentity: string;
-
-	/**
-	 * The identity of the current holder, can be undefined if owner is still the holder.
-	 * @json-ld type:schema:identifier
-	 */
-	holderIdentity?: string;
 
 	/**
 	 * The data that was attested.

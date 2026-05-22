@@ -133,8 +133,6 @@ export function generateRestRoutesAttestation(
 								dateCreated: "2024-06-18T13:34:51Z",
 								ownerIdentity:
 									"did:iota:tst:0x8992c426116f21b2a4c7a2854300748d3e94a8ce089d5be62e11f105bd2a0f9e",
-								holderIdentity:
-									"did:iota:tst:0x8992c426116f21b2a4c7a2854300748d3e94a8ce089d5be62e11f105bd2a0f9e",
 								attestationObject: {
 									"@context": "https://schema.org",
 									type: "DigitalDocument",
@@ -165,8 +163,6 @@ export function generateRestRoutesAttestation(
 								id: "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",
 								dateCreated: "2024-06-18T13:34:51Z",
 								ownerIdentity:
-									"did:iota:tst:0x8992c426116f21b2a4c7a2854300748d3e94a8ce089d5be62e11f105bd2a0f9e",
-								holderIdentity:
 									"did:iota:tst:0x8992c426116f21b2a4c7a2854300748d3e94a8ce089d5be62e11f105bd2a0f9e",
 								attestationObject: {
 									"@context": "https://schema.org",
@@ -205,8 +201,6 @@ export function generateRestRoutesAttestation(
 								dateCreated: "2024-06-18T13:34:51Z",
 								ownerIdentity:
 									"did:iota:tst:0x8992c426116f21b2a4c7a2854300748d3e94a8ce089d5be62e11f105bd2a0f9e",
-								holderIdentity:
-									"did:iota:tst:0x8992c426116f21b2a4c7a2854300748d3e94a8ce089d5be62e11f105bd2a0f9e",
 								attestationObject: {
 									"@context": "https://schema.org",
 									type: "DigitalDocument",
@@ -237,8 +231,6 @@ export function generateRestRoutesAttestation(
 								id: "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",
 								dateCreated: "2024-06-18T13:34:51Z",
 								ownerIdentity:
-									"did:iota:tst:0x8992c426116f21b2a4c7a2854300748d3e94a8ce089d5be62e11f105bd2a0f9e",
-								holderIdentity:
 									"did:iota:tst:0x8992c426116f21b2a4c7a2854300748d3e94a8ce089d5be62e11f105bd2a0f9e",
 								attestationObject: {
 									"@context": "https://schema.org",
@@ -281,8 +273,6 @@ export function generateRestRoutesAttestation(
 							id: "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg=="
 						},
 						body: {
-							holderIdentity:
-								"did:iota:tst:0x06ae1034f9f4af1b408a0b54e877bb476259666a14f221400d3746aecefa7105",
 							holderAddress: "tst1prctjk5ck0dutnsunnje6u90jk5htx03qznjjmkd6843pzltlgz87srjzzv"
 						}
 					}
@@ -417,18 +407,8 @@ export async function attestationTransfer(
 		nameof(request.body),
 		request.body
 	);
-	Guards.stringValue(
-		ROUTES_SOURCE,
-		nameof(request.body.holderIdentity),
-		request.body.holderIdentity
-	);
-
 	const component = ComponentFactory.get<IAttestationComponent>(componentName);
-	await component.transfer(
-		request.pathParams.id,
-		request.body.holderIdentity,
-		request.body.holderAddress
-	);
+	await component.transfer(request.pathParams.id, request.body.holderAddress);
 
 	return {
 		statusCode: HttpStatusCode.noContent

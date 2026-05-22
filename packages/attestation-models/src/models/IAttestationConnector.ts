@@ -32,16 +32,10 @@ export interface IAttestationConnector extends IComponent {
 	 * Transfer the attestation to a new holder.
 	 * @param controller The controller identity of the user to access the vault keys.
 	 * @param attestationId The attestation to transfer.
-	 * @param holderIdentity The holder identity of the attestation.
 	 * @param holderAddress The new controller address of the attestation belonging to the holder.
 	 * @returns Nothing.
 	 */
-	transfer(
-		controller: string,
-		attestationId: string,
-		holderIdentity: string,
-		holderAddress: string
-	): Promise<void>;
+	transfer(controller: string, attestationId: string, holderAddress: string): Promise<void>;
 
 	/**
 	 * Destroy the attestation.

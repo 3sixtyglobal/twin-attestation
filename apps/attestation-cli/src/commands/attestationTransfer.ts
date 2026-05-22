@@ -35,10 +35,6 @@ export function buildCommandAttestationTransfer(): Command {
 		.requiredOption(
 			I18n.formatMessage("commands.attestation-transfer.options.holder-address.param"),
 			I18n.formatMessage("commands.attestation-transfer.options.holder-address.description")
-		)
-		.requiredOption(
-			I18n.formatMessage("commands.attestation-transfer.options.holder-identity.param"),
-			I18n.formatMessage("commands.attestation-transfer.options.holder-identity.description")
 		);
 
 	command
@@ -67,7 +63,6 @@ export function buildCommandAttestationTransfer(): Command {
  * @param opts The options for the command.
  * @param opts.seed The seed required for signing by the issuer.
  * @param opts.id The id of the attestation to transfer in urn format.
- * @param opts.holderIdentity The new holder identity of the attestation.
  * @param opts.holderAddress The new holder address of the attestation.
  * @param opts.node The node URL.
  * @param opts.network The network to use for connector.
@@ -76,7 +71,6 @@ export function buildCommandAttestationTransfer(): Command {
 export async function actionCommandAttestationTransfer(opts: {
 	seed: string;
 	id: string;
-	holderIdentity: string;
 	holderAddress: string;
 	node: string;
 	network?: string;
@@ -84,7 +78,6 @@ export async function actionCommandAttestationTransfer(opts: {
 }): Promise<void> {
 	const seed: Uint8Array = CLIParam.hexBase64("seed", opts.seed);
 	const id: string = CLIParam.stringValue("id", opts.id);
-	const holderIdentity: string = CLIParam.stringValue("holderIdentity", opts.holderIdentity);
 	const holderAddress: string = Converter.bytesToHex(
 		CLIParam.hex("holderAddress", opts.holderAddress),
 		true
@@ -94,10 +87,6 @@ export async function actionCommandAttestationTransfer(opts: {
 	const explorerEndpoint: string = CLIParam.url("explorer", opts.explorer);
 
 	CLIDisplay.value(I18n.formatMessage("commands.attestation-transfer.labels.attestationId"), id);
-	CLIDisplay.value(
-		I18n.formatMessage("commands.attestation-transfer.labels.holderIdentity"),
-		holderIdentity
-	);
 	CLIDisplay.value(
 		I18n.formatMessage("commands.attestation-transfer.labels.holderAddress"),
 		holderAddress
@@ -140,7 +129,7 @@ export async function actionCommandAttestationTransfer(opts: {
 
 	CLIDisplay.spinnerStart();
 
-	await attestationConnector.transfer(localIdentity, id, holderIdentity, holderAddress);
+	await attestationConnector.transfer(localIdentity, id, holderAddress);
 
 	CLIDisplay.spinnerStop();
 

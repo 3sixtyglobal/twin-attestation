@@ -116,17 +116,11 @@ export class AttestationService implements IAttestationComponent {
 	/**
 	 * Transfer the attestation to a new holder.
 	 * @param attestationId The attestation to transfer.
-	 * @param holderIdentity The identity to transfer the attestation to.
 	 * @param holderAddress The address to transfer the attestation to.
 	 * @returns The updated attestation details.
 	 */
-	public async transfer(
-		attestationId: string,
-		holderIdentity: string,
-		holderAddress: string
-	): Promise<void> {
+	public async transfer(attestationId: string, holderAddress: string): Promise<void> {
 		Urn.guard(AttestationService.CLASS_NAME, nameof(attestationId), attestationId);
-		Guards.stringValue(AttestationService.CLASS_NAME, nameof(holderIdentity), holderIdentity);
 		Guards.stringValue(AttestationService.CLASS_NAME, nameof(holderAddress), holderAddress);
 
 		const contextIds = await ContextIdStore.getContextIds();
@@ -138,7 +132,6 @@ export class AttestationService implements IAttestationComponent {
 			const result = await attestationConnector.transfer(
 				contextIds.organization,
 				attestationId,
-				holderIdentity,
 				holderAddress
 			);
 			return result;

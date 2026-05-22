@@ -76,10 +76,6 @@
 				"holder-address": {
 					"param": "--holder-address '<'holder-address'>'",
 					"description": "The address of the new holder, or start with ! to read environment variable."
-				},
-				"holder-identity": {
-					"param": "--holder-identity '<'holder-identity'>'",
-					"description": "The identity of the new holder, or start with ! to read environment variable."
 				}
 			},
 			"progress": {
@@ -87,7 +83,6 @@
 			},
 			"labels": {
 				"holderAddress": "Holder Address",
-				"holderIdentity": "Holder Identity",
 				"attestationId": "Attestation Id"
 			}
 		},

@@ -20,11 +20,6 @@ export interface IAttestationTransferRequest {
 	 */
 	body: {
 		/**
-		 * The new holder identity.
-		 */
-		holderIdentity: string;
-
-		/**
 		 * The new holder address.
 		 */
 		holderAddress: string;
