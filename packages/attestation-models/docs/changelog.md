@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.3-next.12](https://github.com/iotaledger/twin-attestation/compare/attestation-models-v0.0.3-next.11...attestation-models-v0.0.3-next.12) (2026-06-01)
+
+
+### Miscellaneous Chores
+
+* **attestation-models:** Synchronize repo versions
+
 ## [0.0.3-next.11](https://github.com/iotaledger/twin-attestation/compare/attestation-models-v0.0.3-next.10...attestation-models-v0.0.3-next.11) (2026-05-22)
 
 

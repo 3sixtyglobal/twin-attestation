@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.0.3-next.12](https://github.com/iotaledger/twin-attestation/compare/attestation-service-v0.0.3-next.11...attestation-service-v0.0.3-next.12) (2026-06-01)
+
+
+### Features
+
+* remove skipAuth from routes ([c7bacbc](https://github.com/iotaledger/twin-attestation/commit/c7bacbc8d14392e480035495ee7276d9e1665168))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/attestation-models bumped from 0.0.3-next.11 to 0.0.3-next.12
+  * devDependencies
+    * @twin.org/attestation-connector-nft bumped from 0.0.3-next.11 to 0.0.3-next.12
+
 ## [0.0.3-next.11](https://github.com/iotaledger/twin-attestation/compare/attestation-service-v0.0.3-next.10...attestation-service-v0.0.3-next.11) (2026-05-22)
 
 

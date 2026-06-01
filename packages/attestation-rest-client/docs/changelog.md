@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.0.3-next.12](https://github.com/iotaledger/twin-attestation/compare/attestation-rest-client-v0.0.3-next.11...attestation-rest-client-v0.0.3-next.12) (2026-06-01)
+
+
+### Miscellaneous Chores
+
+* **attestation-rest-client:** Synchronize repo versions
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/attestation-models bumped from 0.0.3-next.11 to 0.0.3-next.12
+
 ## [0.0.3-next.11](https://github.com/iotaledger/twin-attestation/compare/attestation-rest-client-v0.0.3-next.10...attestation-rest-client-v0.0.3-next.11) (2026-05-22)
 
 
