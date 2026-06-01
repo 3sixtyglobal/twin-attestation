@@ -158,6 +158,11 @@
 						"style": "simple"
 					}
 				],
+				"security": [
+					{
+						"jwtBearerAuthScheme": []
+					}
+				],
 				"responses": {
 					"200": {
 						"description": "The response to verifying the attestation.",
@@ -295,6 +300,24 @@
 											"properties": {
 												"foo": "bar"
 											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "You are not authorized to use the API or no credentials were supplied, see the content for more details.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								},
+								"examples": {
+									"exampleResponse": {
+										"value": {
+											"name": "UnauthorizedError",
+											"message": "errorMessage"
 										}
 									}
 								}
