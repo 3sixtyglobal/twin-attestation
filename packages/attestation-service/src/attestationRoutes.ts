@@ -251,8 +251,7 @@ export function generateRestRoutesAttestation(
 					}
 				]
 			}
-		],
-		skipAuth: true
+		]
 	};
 
 	const transferRoute: IRestRoute<IAttestationTransferRequest, INoContentResponse> = {
