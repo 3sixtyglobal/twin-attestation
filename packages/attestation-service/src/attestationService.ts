@@ -168,6 +168,7 @@ export class AttestationService implements IAttestationComponent {
 	 * Get the connector from the uri.
 	 * @param id The id of the attestation in urn format.
 	 * @returns The connector.
+	 * @throws GeneralError if the namespace does not match.
 	 * @internal
 	 */
 	private getConnector(id: string): IAttestationConnector {
