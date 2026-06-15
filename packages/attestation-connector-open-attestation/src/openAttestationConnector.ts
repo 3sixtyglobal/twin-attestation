@@ -7,7 +7,7 @@ import { nameof } from "@twin.org/nameof";
 import type { IOpenAttestationConnectorConstructorOptions } from "./models/IOpenAttestationConnectorConstructorOptions.js";
 
 /**
- * Class for performing attestation operations in entity storage.
+ * Class for performing attestation operations using the Open Attestation standard.
  */
 export class OpenAttestationConnector implements IAttestationConnector {
 	/**
@@ -40,7 +40,7 @@ export class OpenAttestationConnector implements IAttestationConnector {
 	 * @param controller The controller identity of the user to access the vault keys.
 	 * @param verificationMethodId The identity verification method to use for attesting the data.
 	 * @param attestationObject The data to attest.
-	 * @returns The id.
+	 * @returns The id of the created attestation.
 	 */
 	public async create(
 		controller: string,
@@ -64,7 +64,7 @@ export class OpenAttestationConnector implements IAttestationConnector {
 	 * @param controller The controller identity of the user to access the vault keys.
 	 * @param attestationId The attestation to transfer.
 	 * @param holderAddress The new controller address of the attestation belonging to the holder.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the transfer is complete.
 	 */
 	public async transfer(
 		controller: string,
@@ -78,7 +78,7 @@ export class OpenAttestationConnector implements IAttestationConnector {
 	 * Destroy the attestation.
 	 * @param controller The controller identity of the user to access the vault keys.
 	 * @param attestationId The attestation to destroy.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the attestation has been destroyed.
 	 */
 	public async destroy(controller: string, attestationId: string): Promise<void> {
 		throw new NotImplementedError(OpenAttestationConnector.CLASS_NAME, "destroy");

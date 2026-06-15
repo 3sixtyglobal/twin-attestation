@@ -317,7 +317,7 @@ export function generateRestRoutesAttestation(
 }
 
 /**
- * Sign the data and return the proof.
+ * Attest the data and return the location of the created attestation.
  * @param httpRequestContext The request context for the API.
  * @param componentName The name of the component to use in the routes.
  * @param request The request.

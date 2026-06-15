@@ -10,7 +10,7 @@ export class NftAttestationUtils {
 	/**
 	 * Convert an attestation id to an nft id.
 	 * @param attestationId The attestation id to convert.
-	 * @returns The address.
+	 * @returns The NFT id corresponding to the attestation id.
 	 */
 	public static attestationIdToNftId(attestationId: string): string {
 		const attestationUrn = Urn.fromValidString(attestationId);

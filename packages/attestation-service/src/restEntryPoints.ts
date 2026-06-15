@@ -3,6 +3,9 @@
 import type { IRestRouteEntryPoint } from "@twin.org/api-models";
 import { generateRestRoutesAttestation, tagsAttestation } from "./attestationRoutes.js";
 
+/**
+ * The REST entry points for the attestation service.
+ */
 export const restEntryPoints: IRestRouteEntryPoint[] = [
 	{
 		name: "attestation",

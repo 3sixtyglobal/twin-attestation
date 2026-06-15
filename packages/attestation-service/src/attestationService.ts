@@ -66,7 +66,7 @@ export class AttestationService implements IAttestationComponent {
 	 * Attest the data and return the collated information.
 	 * @param attestationObject The data to attest.
 	 * @param namespace The namespace of the connector to use for the attestation, defaults to service configured namespace.
-	 * @returns The id.
+	 * @returns The id of the created attestation.
 	 */
 	public async create(attestationObject: IJsonLdNodeObject, namespace?: string): Promise<string> {
 		Guards.object<IJsonLdNodeObject>(
@@ -117,7 +117,7 @@ export class AttestationService implements IAttestationComponent {
 	 * Transfer the attestation to a new holder.
 	 * @param attestationId The attestation to transfer.
 	 * @param holderAddress The address to transfer the attestation to.
-	 * @returns The updated attestation details.
+	 * @returns A promise that resolves when the transfer is complete.
 	 */
 	public async transfer(attestationId: string, holderAddress: string): Promise<void> {
 		Urn.guard(AttestationService.CLASS_NAME, nameof(attestationId), attestationId);
@@ -142,8 +142,8 @@ export class AttestationService implements IAttestationComponent {
 
 	/**
 	 * Destroy the attestation.
-	 * @param attestationId The attestation to transfer.
-	 * @returns The updated attestation details.
+	 * @param attestationId The attestation to destroy.
+	 * @returns A promise that resolves when the attestation has been destroyed.
 	 */
 	public async destroy(attestationId: string): Promise<void> {
 		Urn.guard(AttestationService.CLASS_NAME, nameof(attestationId), attestationId);

@@ -33,7 +33,7 @@ export interface IAttestationConnector extends IComponent {
 	 * @param controller The controller identity of the user to access the vault keys.
 	 * @param attestationId The attestation to transfer.
 	 * @param holderAddress The new controller address of the attestation belonging to the holder.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the transfer is complete.
 	 */
 	transfer(controller: string, attestationId: string, holderAddress: string): Promise<void>;
 
@@ -41,7 +41,7 @@ export interface IAttestationConnector extends IComponent {
 	 * Destroy the attestation.
 	 * @param controller The controller identity of the user to access the vault keys.
 	 * @param attestationId The attestation to destroy.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the attestation has been destroyed.
 	 */
 	destroy(controller: string, attestationId: string): Promise<void>;
 }

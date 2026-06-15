@@ -27,14 +27,14 @@ export interface IAttestationComponent extends IComponent {
 	 * Transfer the attestation to a new holder.
 	 * @param attestationId The attestation to transfer.
 	 * @param holderAddress The address to transfer the attestation to.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the transfer is complete.
 	 */
 	transfer(attestationId: string, holderAddress: string): Promise<void>;
 
 	/**
 	 * Destroy the attestation.
-	 * @param attestationId The attestation to transfer.
-	 * @returns Nothing.
+	 * @param attestationId The attestation to destroy.
+	 * @returns A promise that resolves when the attestation has been destroyed.
 	 */
 	destroy(attestationId: string): Promise<void>;
 }

@@ -49,7 +49,7 @@ export class AttestationRestClient extends BaseRestClient implements IAttestatio
 	 * Attest the data and return the collated information.
 	 * @param attestationObject The data to attest.
 	 * @param namespace The namespace of the connector to use for the attestation, defaults to component configured namespace.
-	 * @returns The id.
+	 * @returns The id of the created attestation.
 	 */
 	public async create(attestationObject: IJsonLdNodeObject, namespace?: string): Promise<string> {
 		Guards.object<IJsonLdNodeObject>(
@@ -93,7 +93,7 @@ export class AttestationRestClient extends BaseRestClient implements IAttestatio
 	 * Transfer the attestation to a new holder.
 	 * @param attestationId The attestation to transfer.
 	 * @param holderAddress The address to transfer the attestation to.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the transfer is complete.
 	 */
 	public async transfer(attestationId: string, holderAddress: string): Promise<void> {
 		Urn.guard(AttestationRestClient.CLASS_NAME, nameof(attestationId), attestationId);
@@ -111,8 +111,8 @@ export class AttestationRestClient extends BaseRestClient implements IAttestatio
 
 	/**
 	 * Destroy the attestation.
-	 * @param attestationId The attestation to transfer.
-	 * @returns The updated attestation details.
+	 * @param attestationId The attestation to destroy.
+	 * @returns A promise that resolves when the attestation has been destroyed.
 	 */
 	public async destroy(attestationId: string): Promise<void> {
 		Urn.guard(AttestationRestClient.CLASS_NAME, nameof(attestationId), attestationId);

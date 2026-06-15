@@ -302,7 +302,7 @@ export class NftAttestationConnector implements IAttestationConnector {
 	 * @param controller The controller identity of the user to access the vault keys.
 	 * @param attestationId The attestation to transfer.
 	 * @param holderAddress The new controller address of the attestation belonging to the holder.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the transfer is complete.
 	 */
 	public async transfer(
 		controller: string,
@@ -357,7 +357,7 @@ export class NftAttestationConnector implements IAttestationConnector {
 	 * Destroy the attestation.
 	 * @param controller The controller identity of the user to access the vault keys.
 	 * @param attestationId The attestation to destroy.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the attestation has been destroyed.
 	 */
 	public async destroy(controller: string, attestationId: string): Promise<void> {
 		Guards.stringValue(NftAttestationConnector.CLASS_NAME, nameof(controller), controller);
