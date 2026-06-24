@@ -43,6 +43,7 @@ export class AttestationService implements IAttestationComponent {
 	 * Create a new instance of AttestationService.
 	 * @param options The options for the service.
 	 * @param options.config The configuration for the service.
+	 * @throws {GeneralError} If no attestation connectors are registered.
 	 */
 	constructor(options?: IAttestationServiceConstructorOptions) {
 		const names = AttestationConnectorFactory.names();
