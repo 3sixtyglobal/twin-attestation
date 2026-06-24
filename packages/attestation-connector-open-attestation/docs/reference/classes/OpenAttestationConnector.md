@@ -1,6 +1,6 @@
 # Class: OpenAttestationConnector
 
-Class for performing attestation operations in entity storage.
+Class for performing attestation operations using the Open Attestation standard.
 
 ## Implements
 
@@ -92,7 +92,7 @@ The data to attest.
 
 `Promise`\<`string`\>
 
-The id.
+The id of the created attestation.
 
 #### Implementation of
 
@@ -156,7 +156,7 @@ The new controller address of the attestation belonging to the holder.
 
 `Promise`\<`void`\>
 
-Nothing.
+A promise that resolves when the transfer is complete.
 
 #### Implementation of
 
@@ -188,7 +188,7 @@ The attestation to destroy.
 
 `Promise`\<`void`\>
 
-Nothing.
+A promise that resolves when the attestation has been destroyed.
 
 #### Implementation of
 

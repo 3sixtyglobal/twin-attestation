@@ -26,6 +26,10 @@ The options for the service.
 
 `AttestationService`
 
+#### Throws
+
+If no attestation connectors are registered.
+
 ## Properties
 
 ### CLASS\_NAME {#class_name}
@@ -78,7 +82,7 @@ The namespace of the connector to use for the attestation, defaults to service c
 
 `Promise`\<`string`\>
 
-The id.
+The id of the created attestation.
 
 #### Implementation of
 
@@ -136,7 +140,7 @@ The address to transfer the attestation to.
 
 `Promise`\<`void`\>
 
-The updated attestation details.
+A promise that resolves when the transfer is complete.
 
 #### Implementation of
 
@@ -156,13 +160,13 @@ Destroy the attestation.
 
 `string`
 
-The attestation to transfer.
+The attestation to destroy.
 
 #### Returns
 
 `Promise`\<`void`\>
 
-The updated attestation details.
+A promise that resolves when the attestation has been destroyed.
 
 #### Implementation of
 

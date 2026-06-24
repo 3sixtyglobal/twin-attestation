@@ -32,7 +32,7 @@ The attestation id to convert.
 
 `string`
 
-The address.
+The NFT id corresponding to the attestation id.
 
 ***
 

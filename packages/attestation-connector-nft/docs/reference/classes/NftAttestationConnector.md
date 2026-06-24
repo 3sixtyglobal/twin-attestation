@@ -156,7 +156,7 @@ The new controller address of the attestation belonging to the holder.
 
 `Promise`\<`void`\>
 
-Nothing.
+A promise that resolves when the transfer is complete.
 
 #### Implementation of
 
@@ -188,7 +188,7 @@ The attestation to destroy.
 
 `Promise`\<`void`\>
 
-Nothing.
+A promise that resolves when the attestation has been destroyed.
 
 #### Implementation of
 

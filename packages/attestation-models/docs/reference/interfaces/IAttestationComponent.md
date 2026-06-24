@@ -82,7 +82,7 @@ The address to transfer the attestation to.
 
 `Promise`\<`void`\>
 
-Nothing.
+A promise that resolves when the transfer is complete.
 
 ***
 
@@ -98,10 +98,10 @@ Destroy the attestation.
 
 `string`
 
-The attestation to transfer.
+The attestation to destroy.
 
 #### Returns
 
 `Promise`\<`void`\>
 
-Nothing.
+A promise that resolves when the attestation has been destroyed.
