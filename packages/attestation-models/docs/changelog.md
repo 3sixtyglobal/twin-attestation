@@ -1,5 +1,33 @@
 # Changelog
 
+## [0.9.0-next.1](https://github.com/iotaledger/twin-attestation/compare/attestation-models-v0.9.0-next.0...attestation-models-v0.9.0-next.1) (2026-06-24)
+
+
+### Features
+
+* add context id features ([#21](https://github.com/iotaledger/twin-attestation/issues/21)) ([640deab](https://github.com/iotaledger/twin-attestation/commit/640deabfc00340e619283f94570c5e1ec45e83af))
+* add ts-to-jsonld-context tool ([df7edd0](https://github.com/iotaledger/twin-attestation/commit/df7edd0d32cabc2b0f9f6dc7b216f569f739324d))
+* add validate-locales ([a1f9e13](https://github.com/iotaledger/twin-attestation/commit/a1f9e13875a661f612ce16dd9896e7df20c6a7ff))
+* context updates ([#25](https://github.com/iotaledger/twin-attestation/issues/25)) ([1ea71b2](https://github.com/iotaledger/twin-attestation/commit/1ea71b28d874daef4d0bca594fb5dbf5f2a47571))
+* eslint migration to flat config ([7c768ff](https://github.com/iotaledger/twin-attestation/commit/7c768ffae02456d60fd62ba8b4b488c307ceff32))
+* release to production ([aa69a08](https://github.com/iotaledger/twin-attestation/commit/aa69a08fbd3897c8d72b0d32ec730f104ad31b33))
+* release to production ([89ca987](https://github.com/iotaledger/twin-attestation/commit/89ca987963d9090abcfc1b62bc997e2c521944ec))
+* remove holder identity ([#38](https://github.com/iotaledger/twin-attestation/issues/38)) ([4862d7f](https://github.com/iotaledger/twin-attestation/commit/4862d7f22345b82bcb90f27adc0d64ed75484813))
+* remove unused schemas causing conflict ([#27](https://github.com/iotaledger/twin-attestation/issues/27)) ([9723bc3](https://github.com/iotaledger/twin-attestation/commit/9723bc3757f87ce8a943f5f091a92d258f867892))
+* typescript 6 update ([9484667](https://github.com/iotaledger/twin-attestation/commit/948466713dc980e4b2d89e72ebb927b3fe530280))
+* update contexts and namespaces ([#23](https://github.com/iotaledger/twin-attestation/issues/23)) ([7e7ffb4](https://github.com/iotaledger/twin-attestation/commit/7e7ffb4056bfe296dd3cedcaa7a9bfb91fd830d7))
+* update data type registration with fully qualified names ([5982245](https://github.com/iotaledger/twin-attestation/commit/59822454a027a9c6dfa72ffa9aabb9622b925929))
+* update dependencies ([1d96d2e](https://github.com/iotaledger/twin-attestation/commit/1d96d2ee6e81a30396980f6f5e16e9658710d32d))
+* update framework core ([02326d4](https://github.com/iotaledger/twin-attestation/commit/02326d41238862c13587c19bb3d04c1cb3b606d8))
+* update schemas ([c163f36](https://github.com/iotaledger/twin-attestation/commit/c163f3623d54a0e87a97cf5eab25327b9aeac0fe))
+* update ts-to-schema generation ([0f23298](https://github.com/iotaledger/twin-attestation/commit/0f23298f6e8accb19c0faaf74220cce02155b48a))
+* use shared store mechanism ([#5](https://github.com/iotaledger/twin-attestation/issues/5)) ([3768cf7](https://github.com/iotaledger/twin-attestation/commit/3768cf7214d30a5429b7b08190539b517d7fafa0))
+
+
+### Bug Fixes
+
+* correct context ordering ([c7cded2](https://github.com/iotaledger/twin-attestation/commit/c7cded248662b8b78ff41b19749bc182ff5105c0))
+
 ## [0.0.3-next.12](https://github.com/iotaledger/twin-attestation/compare/attestation-models-v0.0.3-next.11...attestation-models-v0.0.3-next.12) (2026-06-01)
 
 
