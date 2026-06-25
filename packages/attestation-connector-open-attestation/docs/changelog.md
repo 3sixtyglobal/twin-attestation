@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.9.0](https://github.com/iotaledger/twin-attestation/compare/attestation-connector-open-attestation-v0.9.0...attestation-connector-open-attestation-v0.9.0) (2026-06-25)
+
+
+### Features
+
+* release to production ([aa69a08](https://github.com/iotaledger/twin-attestation/commit/aa69a08fbd3897c8d72b0d32ec730f104ad31b33))
+* release to production ([89ca987](https://github.com/iotaledger/twin-attestation/commit/89ca987963d9090abcfc1b62bc997e2c521944ec))
+* release to production ([#48](https://github.com/iotaledger/twin-attestation/issues/48)) ([7dacf79](https://github.com/iotaledger/twin-attestation/commit/7dacf796d2e7c987a7cd1cd907b4cfc72ce8f4f1))
+
 ## [0.9.0-next.1](https://github.com/iotaledger/twin-attestation/compare/attestation-connector-open-attestation-v0.9.0-next.0...attestation-connector-open-attestation-v0.9.0-next.1) (2026-06-24)
 
 
