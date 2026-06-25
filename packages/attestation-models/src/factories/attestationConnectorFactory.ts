@@ -1,7 +1,7 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
 import { Factory } from "@twin.org/core";
-import type { IAttestationConnector } from "../models/IAttestationConnector";
+import type { IAttestationConnector } from "../models/IAttestationConnector.js";
 
 /**
  * Factory for creating attestation connectors.

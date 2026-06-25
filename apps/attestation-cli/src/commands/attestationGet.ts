@@ -9,16 +9,15 @@ import {
 	type CliOutputOptions
 } from "@twin.org/cli-core";
 import { I18n, Is, ObjectHelper, StringHelper } from "@twin.org/core";
-import { setupIdentityConnector } from "@twin.org/identity-cli";
+import { IdentityConnectorTypes, setupIdentityConnector } from "@twin.org/identity-cli";
 import { IdentityConnectorFactory } from "@twin.org/identity-models";
 import { setupNftConnector } from "@twin.org/nft-cli";
 import { IotaNftUtils } from "@twin.org/nft-connector-iota";
 import { NftConnectorFactory } from "@twin.org/nft-models";
-import { setupWalletConnector } from "@twin.org/wallet-cli";
+import { setupWalletConnector, WalletConnectorTypes } from "@twin.org/wallet-cli";
 import { WalletConnectorFactory } from "@twin.org/wallet-models";
-import { Command, Option } from "commander";
-import { setupVault } from "./setupCommands";
-import { AttestationConnectorTypes } from "../models/attestatationConnectorTypes";
+import { Command } from "commander";
+import { setupVault } from "./setupCommands.js";
 
 /**
  * Build the attestation resolve command for the CLI.
@@ -44,14 +43,6 @@ export function buildCommandAttestationGet(): Command {
 	});
 
 	command
-		.addOption(
-			new Option(
-				I18n.formatMessage("commands.common.options.connector.param"),
-				I18n.formatMessage("commands.common.options.connector.description")
-			)
-				.choices(Object.values(AttestationConnectorTypes))
-				.default(AttestationConnectorTypes.Iota)
-		)
 		.option(
 			I18n.formatMessage("commands.common.options.node.param"),
 			I18n.formatMessage("commands.common.options.node.description"),
@@ -76,7 +67,6 @@ export function buildCommandAttestationGet(): Command {
  * Action the attestation verify command.
  * @param opts The options for the command.
  * @param opts.id The id of the NFT to resolve in urn format.
- * @param opts.connector The connector to perform the operations with.
  * @param opts.node The node URL.
  * @param opts.network The network to use for connector.
  * @param opts.explorer The explorer URL.
@@ -84,7 +74,6 @@ export function buildCommandAttestationGet(): Command {
 export async function actionCommandAttestationGet(
 	opts: {
 		id: string;
-		connector?: AttestationConnectorTypes;
 		node: string;
 		network?: string;
 		explorer: string;
@@ -92,10 +81,7 @@ export async function actionCommandAttestationGet(
 ): Promise<void> {
 	const id: string = CLIParam.stringValue("id", opts.id);
 	const nodeEndpoint: string = CLIParam.url("node", opts.node);
-	const network: string | undefined =
-		opts.connector === AttestationConnectorTypes.Iota
-			? CLIParam.stringValue("network", opts.network)
-			: undefined;
+	const network: string = CLIParam.stringValue("network", opts.network);
 	const explorerEndpoint: string = CLIParam.url("explorer", opts.explorer);
 
 	CLIDisplay.value(I18n.formatMessage("commands.attestation-get.labels.attestationId"), id);
@@ -107,13 +93,19 @@ export async function actionCommandAttestationGet(
 
 	setupVault();
 
-	const identityConnector = await setupIdentityConnector({ nodeEndpoint, network }, opts.connector);
+	const identityConnector = setupIdentityConnector(
+		{ nodeEndpoint, network },
+		IdentityConnectorTypes.Iota
+	);
 	IdentityConnectorFactory.register("identity", () => identityConnector);
 
-	const walletConnector = await setupWalletConnector({ nodeEndpoint, network }, opts.connector);
+	const walletConnector = setupWalletConnector(
+		{ nodeEndpoint, network },
+		WalletConnectorTypes.Iota
+	);
 	WalletConnectorFactory.register("wallet", () => walletConnector);
 
-	const nftConnector = await setupNftConnector({ nodeEndpoint, network }, opts.connector);
+	const nftConnector = setupNftConnector({ nodeEndpoint, network });
 	NftConnectorFactory.register("nft", () => nftConnector);
 
 	const attestationConnector = new NftAttestationConnector();

@@ -4,9 +4,9 @@ Configuration for the NFT Attestation Connector.
 
 ## Properties
 
-### tag?
+### tag? {#tag}
 
-> `optional` **tag**: `string`
+> `optional` **tag?**: `string`
 
 The tag to use for the attestation NFTs.
 

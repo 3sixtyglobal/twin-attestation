@@ -4,15 +4,15 @@ Interface describing the collated attestation information.
 
 ## Properties
 
-### @context
+### @context {#context}
 
-> **@context**: \[`"https://schema.twindev.org/attestation/"`, `"https://schema.twindev.org/common/"`, `"https://schema.org"`, `...IJsonLdContextDefinitionElement[]`\]
+> **@context**: \[`"https://schema.org"`, `"https://schema.twindev.org/attestation/"`, `"https://schema.twindev.org/common/"`, `...IJsonLdContextDefinitionElement[]`\]
 
 JSON-LD Context.
 
 ***
 
-### type
+### type {#type}
 
 > **type**: `"Information"`
 
@@ -20,7 +20,7 @@ JSON-LD Type.
 
 ***
 
-### id
+### id {#id}
 
 > **id**: `string`
 
@@ -28,7 +28,7 @@ The unique identifier of the attestation.
 
 ***
 
-### dateCreated
+### dateCreated {#datecreated}
 
 > **dateCreated**: `string`
 
@@ -36,15 +36,15 @@ Created date/time of the attestation in ISO format.
 
 ***
 
-### dateTransferred?
+### dateTransferred? {#datetransferred}
 
-> `optional` **dateTransferred**: `string`
+> `optional` **dateTransferred?**: `string`
 
-Transferred date/time of the attestation in ISO format, can be blank if holder identity is owner.
+Transferred date/time of the attestation in ISO format, can be blank if not yet transferred.
 
 ***
 
-### ownerIdentity
+### ownerIdentity {#owneridentity}
 
 > **ownerIdentity**: `string`
 
@@ -52,15 +52,7 @@ The identity of the owner.
 
 ***
 
-### holderIdentity?
-
-> `optional` **holderIdentity**: `string`
-
-The identity of the current holder, can be undefined if owner is still the holder.
-
-***
-
-### attestationObject
+### attestationObject {#attestationobject}
 
 > **attestationObject**: `IJsonLdNodeObject`
 
@@ -68,24 +60,24 @@ The data that was attested.
 
 ***
 
-### proof?
+### proof? {#proof}
 
-> `optional` **proof**: `IJsonLdNodeObject`
+> `optional` **proof?**: `IJsonLdNodeObject`
 
 The proof for the attested data.
 
 ***
 
-### verified?
+### verified? {#verified}
 
-> `optional` **verified**: `boolean`
+> `optional` **verified?**: `boolean`
 
 Whether the attestation has been verified.
 
 ***
 
-### verificationFailure?
+### verificationFailure? {#verificationfailure}
 
-> `optional` **verificationFailure**: `string`
+> `optional` **verificationFailure?**: `string`
 
 The verification failure message.

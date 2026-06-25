@@ -20,17 +20,27 @@ import { IdentityConnectorFactory, type IIdentityConnector } from "@twin.org/ide
 import { nameof } from "@twin.org/nameof";
 import { NftConnectorFactory, type INftConnector } from "@twin.org/nft-models";
 import { SchemaOrgContexts, SchemaOrgDataTypes } from "@twin.org/standards-schema-org";
-import { DidContexts, DidTypes, type IDidVerifiableCredential } from "@twin.org/standards-w3c-did";
-import type { INftAttestationConnectorConfig } from "./models/INftAttestationConnectorConfig";
-import type { INftAttestationConnectorConstructorOptions } from "./models/INftAttestationConnectorConstructorOptions";
-import type { INftAttestationHolder } from "./models/INftAttestationHolder";
-import type { INftAttestationPayload } from "./models/INftAttestationPayload";
-import { NftAttestationUtils } from "./nftAttestationUtils";
+import {
+	DidContexts,
+	DidTypes,
+	VerifiableCredentialHelper,
+	type IDidVerifiableCredential
+} from "@twin.org/standards-w3c-did";
+import type { INftAttestationConnectorConfig } from "./models/INftAttestationConnectorConfig.js";
+import type { INftAttestationConnectorConstructorOptions } from "./models/INftAttestationConnectorConstructorOptions.js";
+import type { INftAttestationHolder } from "./models/INftAttestationHolder.js";
+import type { INftAttestationPayload } from "./models/INftAttestationPayload.js";
+import { NftAttestationUtils } from "./nftAttestationUtils.js";
 
 /**
  * Class for performing attestation operations in nfts.
  */
 export class NftAttestationConnector implements IAttestationConnector {
+	/**
+	 * Runtime name for the class.
+	 */
+	public static readonly CLASS_NAME: string = nameof<NftAttestationConnector>();
+
 	/**
 	 * The namespace for the entities.
 	 */
@@ -41,11 +51,6 @@ export class NftAttestationConnector implements IAttestationConnector {
 	 * @internal
 	 */
 	private static readonly _DEFAULT_TAG: string = "TWIN-ATTESTATION";
-
-	/**
-	 * Runtime name for the class.
-	 */
-	public readonly CLASS_NAME: string = nameof<NftAttestationConnector>();
 
 	/**
 	 * Connector for identity operations.
@@ -81,6 +86,14 @@ export class NftAttestationConnector implements IAttestationConnector {
 	}
 
 	/**
+	 * Returns the class name of the component.
+	 * @returns The class name of the component.
+	 */
+	public className(): string {
+		return NftAttestationConnector.CLASS_NAME;
+	}
+
+	/**
 	 * Attest the data and return the collated information.
 	 * @param controller The controller identity of the user to access the vault keys.
 	 * @param verificationMethodId The identity verification method to use for attesting the data.
@@ -92,14 +105,26 @@ export class NftAttestationConnector implements IAttestationConnector {
 		verificationMethodId: string,
 		attestationObject: IJsonLdNodeObject
 	): Promise<string> {
-		Guards.stringValue(this.CLASS_NAME, nameof(controller), controller);
-		Guards.stringValue(this.CLASS_NAME, nameof(verificationMethodId), verificationMethodId);
-		Guards.object<IJsonLdNodeObject>(this.CLASS_NAME, nameof(attestationObject), attestationObject);
+		Guards.stringValue(NftAttestationConnector.CLASS_NAME, nameof(controller), controller);
+		Guards.stringValue(
+			NftAttestationConnector.CLASS_NAME,
+			nameof(verificationMethodId),
+			verificationMethodId
+		);
+		Guards.object<IJsonLdNodeObject>(
+			NftAttestationConnector.CLASS_NAME,
+			nameof(attestationObject),
+			attestationObject
+		);
 
 		try {
 			const validationFailures: IValidationFailure[] = [];
 			await JsonLdHelper.validate(attestationObject, validationFailures);
-			Validation.asValidationError(this.CLASS_NAME, nameof(attestationObject), validationFailures);
+			Validation.asValidationError(
+				NftAttestationConnector.CLASS_NAME,
+				nameof(attestationObject),
+				validationFailures
+			);
 
 			const verifiableCredential = await this._identityConnector.createVerifiableCredential(
 				controller,
@@ -127,7 +152,12 @@ export class NftAttestationConnector implements IAttestationConnector {
 			// details of which connector created the NFT
 			return NftAttestationUtils.nftIdToAttestationId(nftId);
 		} catch (error) {
-			throw new GeneralError(this.CLASS_NAME, "attestingFailed", undefined, error);
+			throw new GeneralError(
+				NftAttestationConnector.CLASS_NAME,
+				"attestingFailed",
+				undefined,
+				error
+			);
 		}
 	}
 
@@ -137,14 +167,14 @@ export class NftAttestationConnector implements IAttestationConnector {
 	 * @returns The verified attestation details.
 	 */
 	public async get(id: string): Promise<IAttestationInformation> {
-		Urn.guard(this.CLASS_NAME, nameof(id), id);
+		Urn.guard(NftAttestationConnector.CLASS_NAME, nameof(id), id);
 
 		const urnParsed = Urn.fromValidString(id);
 
 		if (urnParsed.namespaceMethod() !== NftAttestationConnector.NAMESPACE) {
-			throw new GeneralError(this.CLASS_NAME, "namespaceMismatch", {
+			throw new GeneralError(NftAttestationConnector.CLASS_NAME, "namespaceMismatch", {
 				namespace: NftAttestationConnector.NAMESPACE,
-				attestationId: id
+				id
 			});
 		}
 
@@ -166,14 +196,14 @@ export class NftAttestationConnector implements IAttestationConnector {
 
 			const jwtProof = Coerce.string(resolved.immutableMetadata?.proof);
 			if (Is.empty(jwtProof) || Is.empty(resolved.metadata)) {
-				failure = `${this.CLASS_NAME}.verificationFailures.noData`;
+				failure = `${NftAttestationConnector.CLASS_NAME}.verificationFailures.noData`;
 			} else {
 				checkResult = await this._identityConnector.checkVerifiableCredential(jwtProof);
 
 				if (Is.empty(checkResult.verifiableCredential)) {
-					failure = `${this.CLASS_NAME}.verificationFailures.proofFailed`;
+					failure = `${NftAttestationConnector.CLASS_NAME}.verificationFailures.proofFailed`;
 				} else if (checkResult.revoked) {
-					failure = `${this.CLASS_NAME}.verificationFailures.revoked`;
+					failure = `${NftAttestationConnector.CLASS_NAME}.verificationFailures.revoked`;
 				}
 			}
 
@@ -211,17 +241,20 @@ export class NftAttestationConnector implements IAttestationConnector {
 				owner = issuer.id;
 			}
 
+			const dateCreated = Is.object(checkResult?.verifiableCredential)
+				? VerifiableCredentialHelper.getValidFrom(checkResult?.verifiableCredential)
+				: "";
+
 			const information: IAttestationInformation = {
 				"@context": [
-					AttestationContexts.ContextRoot,
-					AttestationContexts.ContextRootCommon,
-					SchemaOrgContexts.ContextRoot
+					SchemaOrgContexts.Context,
+					AttestationContexts.Context,
+					AttestationContexts.ContextCommon
 				],
 				type: AttestationTypes.Information,
 				id,
-				dateCreated: checkResult?.verifiableCredential?.issuanceDate ?? "",
+				dateCreated: dateCreated ?? "",
 				ownerIdentity: owner,
-				holderIdentity: owner,
 				attestationObject: {
 					...contextAndType,
 					...jsonObject
@@ -233,34 +266,34 @@ export class NftAttestationConnector implements IAttestationConnector {
 					information["@context"],
 					contextAndType["@context"]
 				) as IAttestationInformation["@context"];
+				delete information.attestationObject["@context"];
 			}
 
 			if (Is.stringValue(jwtProof)) {
 				information.proof = {
-					"@context": AttestationContexts.ContextRoot,
 					type: AttestationTypes.JwtProof,
 					value: jwtProof
 				};
-				information["@context"] = JsonLdProcessor.combineContexts(
-					information["@context"],
-					information.proof["@context"]
-				) as IAttestationInformation["@context"];
 			}
 
-			if (
-				Is.object<INftAttestationHolder>(resolved.metadata) &&
-				Is.stringValue(resolved.metadata.dateTransferred)
-			) {
-				information.holderIdentity = resolved.owner;
-				information.dateTransferred = resolved.metadata.dateTransferred;
+			if (Is.object<INftAttestationHolder>(resolved.metadata)) {
+				if (Is.stringValue(resolved.metadata.dateTransferred)) {
+					information.dateTransferred = resolved.metadata.dateTransferred;
+				}
 			}
 
 			information.verified = Is.empty(failure);
 			information.verificationFailure = failure;
 
-			return JsonLdProcessor.compact(information, information["@context"]);
+			const result = await JsonLdProcessor.compact(information, information["@context"]);
+			return result;
 		} catch (error) {
-			throw new GeneralError(this.CLASS_NAME, "verificationFailed", undefined, error);
+			throw new GeneralError(
+				NftAttestationConnector.CLASS_NAME,
+				"verificationFailed",
+				undefined,
+				error
+			);
 		}
 	}
 
@@ -268,27 +301,24 @@ export class NftAttestationConnector implements IAttestationConnector {
 	 * Transfer the attestation to a new holder.
 	 * @param controller The controller identity of the user to access the vault keys.
 	 * @param attestationId The attestation to transfer.
-	 * @param holderIdentity The holder identity of the attestation.
 	 * @param holderAddress The new controller address of the attestation belonging to the holder.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the transfer is complete.
 	 */
 	public async transfer(
 		controller: string,
 		attestationId: string,
-		holderIdentity: string,
 		holderAddress: string
 	): Promise<void> {
-		Guards.stringValue(this.CLASS_NAME, nameof(controller), controller);
-		Urn.guard(this.CLASS_NAME, nameof(attestationId), attestationId);
-		Guards.stringValue(this.CLASS_NAME, nameof(holderIdentity), holderIdentity);
-		Guards.stringValue(this.CLASS_NAME, nameof(holderAddress), holderAddress);
+		Guards.stringValue(NftAttestationConnector.CLASS_NAME, nameof(controller), controller);
+		Urn.guard(NftAttestationConnector.CLASS_NAME, nameof(attestationId), attestationId);
+		Guards.stringValue(NftAttestationConnector.CLASS_NAME, nameof(holderAddress), holderAddress);
 
 		const urnParsed = Urn.fromValidString(attestationId);
 
 		if (urnParsed.namespaceMethod() !== NftAttestationConnector.NAMESPACE) {
-			throw new GeneralError(this.CLASS_NAME, "namespaceMismatch", {
+			throw new GeneralError(NftAttestationConnector.CLASS_NAME, "namespaceMismatch", {
 				namespace: NftAttestationConnector.NAMESPACE,
-				attestationId
+				id: attestationId
 			});
 		}
 
@@ -296,10 +326,13 @@ export class NftAttestationConnector implements IAttestationConnector {
 			const verificationResult = await this.get(attestationId);
 			if (Is.stringValue(verificationResult.verificationFailure)) {
 				throw new GeneralError(
-					this.CLASS_NAME,
+					NftAttestationConnector.CLASS_NAME,
 					"verificationFailed",
 					undefined,
-					new GeneralError(this.CLASS_NAME, verificationResult.verificationFailure)
+					new GeneralError(
+						NftAttestationConnector.CLASS_NAME,
+						verificationResult.verificationFailure
+					)
 				);
 			}
 
@@ -309,9 +342,14 @@ export class NftAttestationConnector implements IAttestationConnector {
 				dateTransferred: new Date().toISOString()
 			};
 
-			await this._nftConnector.transfer(controller, nftId, holderIdentity, holderAddress, holder);
+			await this._nftConnector.transfer(controller, nftId, holderAddress, holder);
 		} catch (error) {
-			throw new GeneralError(this.CLASS_NAME, "transferFailed", undefined, error);
+			throw new GeneralError(
+				NftAttestationConnector.CLASS_NAME,
+				"transferFailed",
+				undefined,
+				error
+			);
 		}
 	}
 
@@ -319,18 +357,18 @@ export class NftAttestationConnector implements IAttestationConnector {
 	 * Destroy the attestation.
 	 * @param controller The controller identity of the user to access the vault keys.
 	 * @param attestationId The attestation to destroy.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the attestation has been destroyed.
 	 */
 	public async destroy(controller: string, attestationId: string): Promise<void> {
-		Guards.stringValue(this.CLASS_NAME, nameof(controller), controller);
-		Urn.guard(this.CLASS_NAME, nameof(attestationId), attestationId);
+		Guards.stringValue(NftAttestationConnector.CLASS_NAME, nameof(controller), controller);
+		Urn.guard(NftAttestationConnector.CLASS_NAME, nameof(attestationId), attestationId);
 
 		const urnParsed = Urn.fromValidString(attestationId);
 
 		if (urnParsed.namespaceMethod() !== NftAttestationConnector.NAMESPACE) {
-			throw new GeneralError(this.CLASS_NAME, "namespaceMismatch", {
+			throw new GeneralError(NftAttestationConnector.CLASS_NAME, "namespaceMismatch", {
 				namespace: NftAttestationConnector.NAMESPACE,
-				attestationId
+				id: attestationId
 			});
 		}
 
@@ -339,7 +377,7 @@ export class NftAttestationConnector implements IAttestationConnector {
 
 			await this._nftConnector.burn(controller, nftId);
 		} catch (error) {
-			throw new GeneralError(this.CLASS_NAME, "destroyFailed", undefined, error);
+			throw new GeneralError(NftAttestationConnector.CLASS_NAME, "destroyFailed", undefined, error);
 		}
 	}
 }

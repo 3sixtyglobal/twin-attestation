@@ -35,10 +35,12 @@ import * as dotenv from "dotenv";
 
 console.debug("Setting up test environment from .env and .env.dev files");
 
-dotenv.config({ path: [path.join(__dirname, ".env"), path.join(__dirname, ".env.dev")] });
+dotenv.config({
+	path: [path.join(__dirname, ".env"), path.join(__dirname, ".env.dev")],
+	quiet: true
+});
 
 if (!Is.stringValue(process.env.TEST_MNEMONIC)) {
-	// eslint-disable-next-line no-restricted-syntax
 	throw new Error(
 		`Please define TEST_MNEMONIC as a 24 word mnemonic either as an environment variable or inside an .env.dev file
 		 e.g. TEST_MNEMONIC="word0 word1 ... word23"
@@ -59,11 +61,13 @@ EntityStorageConnectorFactory.register(
 	"vault-key",
 	() =>
 		new MemoryEntityStorageConnector<VaultKey>({
-			entitySchema: nameof<VaultKey>()
+			entitySchema: nameof<VaultKey>(),
+			config: { storageKey: "vault-key" }
 		})
 );
 const secretEntityStorage = new MemoryEntityStorageConnector<VaultSecret>({
-	entitySchema: nameof<VaultSecret>()
+	entitySchema: nameof<VaultSecret>(),
+	config: { storageKey: "vault-secret" }
 });
 EntityStorageConnectorFactory.register("vault-secret", () => secretEntityStorage);
 
@@ -71,7 +75,8 @@ const TEST_VAULT_CONNECTOR = new EntityStorageVaultConnector();
 VaultConnectorFactory.register("vault", () => TEST_VAULT_CONNECTOR);
 
 const walletAddressEntityStorage = new MemoryEntityStorageConnector<WalletAddress>({
-	entitySchema: nameof<WalletAddress>()
+	entitySchema: nameof<WalletAddress>(),
+	config: { storageKey: "wallet-address" }
 });
 EntityStorageConnectorFactory.register("wallet-address", () => walletAddressEntityStorage);
 
@@ -86,7 +91,8 @@ export const TEST_WALLET_CONNECTOR = new EntityStorageWalletConnector({
 WalletConnectorFactory.register("wallet", () => TEST_WALLET_CONNECTOR);
 
 const identityDocumentEntityStorage = new MemoryEntityStorageConnector<IdentityDocument>({
-	entitySchema: nameof<IdentityDocument>()
+	entitySchema: nameof<IdentityDocument>(),
+	config: { storageKey: "identity-document" }
 });
 EntityStorageConnectorFactory.register("identity-document", () => identityDocumentEntityStorage);
 
@@ -94,7 +100,8 @@ export const TEST_IDENTITY_CONNECTOR = new EntityStorageIdentityConnector();
 IdentityConnectorFactory.register("identity", () => TEST_IDENTITY_CONNECTOR);
 
 const nftEntityStorage = new MemoryEntityStorageConnector<Nft>({
-	entitySchema: nameof<Nft>()
+	entitySchema: nameof<Nft>(),
+	config: { storageKey: "nft" }
 });
 EntityStorageConnectorFactory.register("nft", () => nftEntityStorage);
 
@@ -107,21 +114,13 @@ await TEST_VAULT_CONNECTOR.setSecret(
 );
 
 const addresses = await TEST_WALLET_CONNECTOR.getAddresses(TEST_IDENTITY_ID, 0, 0, 2);
-export const TEST_IDENTITY_ADDRESS_BECH32 = addresses[0];
-export const TEST_IDENTITY_ADDRESS_BECH32_2 = addresses[1];
+export const TEST_IDENTITY_ADDRESS = addresses[0];
+export const TEST_IDENTITY_ADDRESS_2 = addresses[1];
 
 /**
  * Setup the test environment.
  */
 export async function setupTestEnv(): Promise<void> {
-	await TEST_WALLET_CONNECTOR.ensureBalance(
-		TEST_IDENTITY_ID,
-		TEST_IDENTITY_ADDRESS_BECH32,
-		1000000000n
-	);
-	await TEST_WALLET_CONNECTOR.ensureBalance(
-		TEST_IDENTITY_ID,
-		TEST_IDENTITY_ADDRESS_BECH32_2,
-		1000000000n
-	);
+	await TEST_WALLET_CONNECTOR.ensureBalance(TEST_IDENTITY_ID, TEST_IDENTITY_ADDRESS, 1000000000n);
+	await TEST_WALLET_CONNECTOR.ensureBalance(TEST_IDENTITY_ID, TEST_IDENTITY_ADDRESS_2, 1000000000n);
 }

@@ -2,7 +2,7 @@
 
 > **attestationCreate**(`httpRequestContext`, `componentName`, `request`): `Promise`\<`ICreatedResponse`\>
 
-Sign the data and return the proof.
+Attest the data and return the location of the created attestation.
 
 ## Parameters
 

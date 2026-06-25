@@ -8,7 +8,7 @@ Interface describing an attestation connector.
 
 ## Methods
 
-### create()
+### create() {#create}
 
 > **create**(`controller`, `verificationMethodId`, `attestationObject`): `Promise`\<`string`\>
 
@@ -42,7 +42,7 @@ The collated attestation data.
 
 ***
 
-### get()
+### get() {#get}
 
 > **get**(`id`): `Promise`\<[`IAttestationInformation`](IAttestationInformation.md)\>
 
@@ -64,9 +64,9 @@ The verified attestation details.
 
 ***
 
-### transfer()
+### transfer() {#transfer}
 
-> **transfer**(`controller`, `attestationId`, `holderIdentity`, `holderAddress`): `Promise`\<`void`\>
+> **transfer**(`controller`, `attestationId`, `holderAddress`): `Promise`\<`void`\>
 
 Transfer the attestation to a new holder.
 
@@ -84,12 +84,6 @@ The controller identity of the user to access the vault keys.
 
 The attestation to transfer.
 
-##### holderIdentity
-
-`string`
-
-The holder identity of the attestation.
-
 ##### holderAddress
 
 `string`
@@ -100,11 +94,11 @@ The new controller address of the attestation belonging to the holder.
 
 `Promise`\<`void`\>
 
-Nothing.
+A promise that resolves when the transfer is complete.
 
 ***
 
-### destroy()
+### destroy() {#destroy}
 
 > **destroy**(`controller`, `attestationId`): `Promise`\<`void`\>
 
@@ -128,4 +122,4 @@ The attestation to destroy.
 
 `Promise`\<`void`\>
 
-Nothing.
+A promise that resolves when the attestation has been destroyed.

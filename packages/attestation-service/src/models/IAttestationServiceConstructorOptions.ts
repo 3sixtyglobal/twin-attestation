@@ -1,6 +1,6 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
-import type { IAttestationServiceConfig } from "./IAttestationServiceConfig";
+import type { IAttestationServiceConfig } from "./IAttestationServiceConfig.js";
 
 /**
  * Options for the attestation service constructor.

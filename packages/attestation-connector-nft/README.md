@@ -1,6 +1,6 @@
 # TWIN Attestation Connector NFT
 
-Attestation connector implementation using NFTs.
+Attestation connector for minting and resolving NFT-backed attestations.
 
 ## Installation
 

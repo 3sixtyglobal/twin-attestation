@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0.
 import type { IComponent } from "@twin.org/core";
 import type { IJsonLdNodeObject } from "@twin.org/data-json-ld";
-import type { IAttestationInformation } from "./IAttestationInformation";
+import type { IAttestationInformation } from "./IAttestationInformation.js";
 
 /**
  * Interface describing an attestation connector.
@@ -32,22 +32,16 @@ export interface IAttestationConnector extends IComponent {
 	 * Transfer the attestation to a new holder.
 	 * @param controller The controller identity of the user to access the vault keys.
 	 * @param attestationId The attestation to transfer.
-	 * @param holderIdentity The holder identity of the attestation.
 	 * @param holderAddress The new controller address of the attestation belonging to the holder.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the transfer is complete.
 	 */
-	transfer(
-		controller: string,
-		attestationId: string,
-		holderIdentity: string,
-		holderAddress: string
-	): Promise<void>;
+	transfer(controller: string, attestationId: string, holderAddress: string): Promise<void>;
 
 	/**
 	 * Destroy the attestation.
 	 * @param controller The controller identity of the user to access the vault keys.
 	 * @param attestationId The attestation to destroy.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the attestation has been destroyed.
 	 */
 	destroy(controller: string, attestationId: string): Promise<void>;
 }

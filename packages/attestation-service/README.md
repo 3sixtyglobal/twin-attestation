@@ -1,6 +1,6 @@
 # TWIN Attestation Service
 
-Attestation contract implementation and REST endpoint definitions.
+Service layer for creating, verifying, transferring, and destroying attestations.
 
 ## Installation
 

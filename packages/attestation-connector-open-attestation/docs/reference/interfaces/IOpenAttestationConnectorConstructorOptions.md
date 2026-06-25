@@ -4,8 +4,8 @@ Options for the Open Attestation connector constructor.
 
 ## Properties
 
-### config?
+### config? {#config}
 
-> `optional` **config**: [`IOpenAttestationConnectorConfig`](IOpenAttestationConnectorConfig.md)
+> `optional` **config?**: [`IOpenAttestationConnectorConfig`](IOpenAttestationConnectorConfig.md)
 
 The configuration for the connector.

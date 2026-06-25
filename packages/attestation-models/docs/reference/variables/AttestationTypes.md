@@ -4,15 +4,15 @@
 
 The types of attestation data.
 
-## Type declaration
+## Type Declaration
 
-### Information
+### Information {#information}
 
 > `readonly` **Information**: `"Information"` = `"Information"`
 
 Represents attestation information.
 
-### JwtProof
+### JwtProof {#jwtproof}
 
 > `readonly` **JwtProof**: `"JwtProof"` = `"JwtProof"`
 

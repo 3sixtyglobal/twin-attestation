@@ -14,7 +14,7 @@ Handle all the data types for attestation.
 
 ## Methods
 
-### registerTypes()
+### registerTypes() {#registertypes}
 
 > `static` **registerTypes**(): `void`
 

@@ -8,9 +8,9 @@ Interface describing an attestation contract.
 
 ## Methods
 
-### create()
+### create() {#create}
 
-> **create**(`attestationObject`, `namespace?`, `identity?`, `nodeIdentity?`): `Promise`\<`string`\>
+> **create**(`attestationObject`, `namespace?`): `Promise`\<`string`\>
 
 Attest the data and return the collated information.
 
@@ -28,18 +28,6 @@ The data to attest.
 
 The namespace of the connector to use for the attestation, defaults to component configured namespace.
 
-##### identity?
-
-`string`
-
-The identity to perform the attestation operation with.
-
-##### nodeIdentity?
-
-`string`
-
-The node identity to include in the attestation.
-
 #### Returns
 
 `Promise`\<`string`\>
@@ -48,7 +36,7 @@ The id of the attestation.
 
 ***
 
-### get()
+### get() {#get}
 
 > **get**(`id`): `Promise`\<[`IAttestationInformation`](IAttestationInformation.md)\>
 
@@ -70,9 +58,9 @@ The verified attestation details.
 
 ***
 
-### transfer()
+### transfer() {#transfer}
 
-> **transfer**(`attestationId`, `holderIdentity`, `holderAddress`, `identity?`): `Promise`\<`void`\>
+> **transfer**(`attestationId`, `holderAddress`): `Promise`\<`void`\>
 
 Transfer the attestation to a new holder.
 
@@ -84,35 +72,23 @@ Transfer the attestation to a new holder.
 
 The attestation to transfer.
 
-##### holderIdentity
-
-`string`
-
-The identity to transfer the attestation to.
-
 ##### holderAddress
 
 `string`
 
 The address to transfer the attestation to.
 
-##### identity?
-
-`string`
-
-The identity to perform the attestation operation with.
-
 #### Returns
 
 `Promise`\<`void`\>
 
-Nothing.
+A promise that resolves when the transfer is complete.
 
 ***
 
-### destroy()
+### destroy() {#destroy}
 
-> **destroy**(`attestationId`, `identity?`): `Promise`\<`void`\>
+> **destroy**(`attestationId`): `Promise`\<`void`\>
 
 Destroy the attestation.
 
@@ -122,16 +98,10 @@ Destroy the attestation.
 
 `string`
 
-The attestation to transfer.
-
-##### identity?
-
-`string`
-
-The identity to perform the attestation operation with.
+The attestation to destroy.
 
 #### Returns
 
 `Promise`\<`void`\>
 
-Nothing.
+A promise that resolves when the attestation has been destroyed.

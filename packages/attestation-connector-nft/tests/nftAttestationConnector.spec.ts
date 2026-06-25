@@ -3,12 +3,12 @@
 import { Is } from "@twin.org/core";
 import type { IJsonLdNodeObject } from "@twin.org/data-json-ld";
 import {
-	TEST_IDENTITY_ADDRESS_BECH32_2,
+	TEST_IDENTITY_ADDRESS_2,
 	TEST_IDENTITY_CONNECTOR,
 	TEST_IDENTITY_ID,
 	setupTestEnv
-} from "./setupTestEnv";
-import { NftAttestationConnector } from "../src/nftAttestationConnector";
+} from "./setupTestEnv.js";
+import { NftAttestationConnector } from "../src/nftAttestationConnector.js";
 
 let ownerIdentity: string;
 let verificationMethodId: string;
@@ -72,9 +72,9 @@ describe("NftAttestationConnector", () => {
 
 		expect(attested).toBeDefined();
 		expect(attested["@context"]).toEqual([
+			"https://schema.org",
 			"https://schema.twindev.org/attestation/",
 			"https://schema.twindev.org/common/",
-			"https://schema.org",
 			"https://www.w3.org/ns/activitystreams"
 		]);
 		expect(attested.verified).toEqual(true);
@@ -82,7 +82,6 @@ describe("NftAttestationConnector", () => {
 		expect(attested.id?.startsWith("attestation:nft")).toEqual(true);
 		expect(Is.dateTimeString(attested?.dateCreated)).toEqual(true);
 		expect(attested.ownerIdentity).toEqual(ownerIdentity);
-		expect(attested.holderIdentity).toEqual(ownerIdentity);
 		expect(attested.dateTransferred).toEqual(undefined);
 		expect(attested.attestationObject).toEqual({
 			type: "Create",
@@ -104,14 +103,7 @@ describe("NftAttestationConnector", () => {
 	test("can transfer an attestation", async () => {
 		const attestation = new NftAttestationConnector();
 
-		const testIdentity2 = await TEST_IDENTITY_CONNECTOR.createDocument(TEST_IDENTITY_ID);
-
-		await attestation.transfer(
-			TEST_IDENTITY_ID,
-			attestationId,
-			testIdentity2.id,
-			TEST_IDENTITY_ADDRESS_BECH32_2
-		);
+		await attestation.transfer(TEST_IDENTITY_ID, attestationId, TEST_IDENTITY_ADDRESS_2);
 
 		const transfered = await attestation.get(attestationId);
 
@@ -119,7 +111,6 @@ describe("NftAttestationConnector", () => {
 		expect(transfered.id.startsWith("attestation:nft")).toEqual(true);
 		expect(Is.dateTimeString(transfered.dateCreated)).toEqual(true);
 		expect(transfered.ownerIdentity).toEqual(ownerIdentity);
-		expect(transfered.holderIdentity).toEqual(testIdentity2.id);
 		expect(Is.dateTimeString(transfered.dateTransferred)).toEqual(true);
 		expect(transfered.attestationObject).toEqual({
 			type: "Create",

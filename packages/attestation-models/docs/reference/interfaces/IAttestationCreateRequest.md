@@ -4,7 +4,7 @@ Attest the data and return the id of the attestation.
 
 ## Properties
 
-### body
+### body {#body}
 
 > **body**: `object`
 
@@ -18,6 +18,6 @@ The data object to attest.
 
 #### namespace?
 
-> `optional` **namespace**: `string`
+> `optional` **namespace?**: `string`
 
 The namespace of the connector to use for the attestation, defaults to component configured namespace.

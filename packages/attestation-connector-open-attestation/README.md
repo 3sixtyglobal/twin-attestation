@@ -1,6 +1,6 @@
 # TWIN Attestation Connector OpenAttestation
 
-Attestation connector implementation using [OpenAttestation](https://www.openattestation.com/).
+Attestation connector for [OpenAttestation](https://www.openattestation.com/) compatible document workflows.
 
 ## Installation
 

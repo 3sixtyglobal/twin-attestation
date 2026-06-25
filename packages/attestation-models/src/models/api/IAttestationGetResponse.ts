@@ -1,7 +1,7 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
 import type { HeaderTypes, MimeTypes } from "@twin.org/web";
-import type { IAttestationInformation } from "../IAttestationInformation";
+import type { IAttestationInformation } from "../IAttestationInformation.js";
 
 /**
  * The response to verifying the attestation.

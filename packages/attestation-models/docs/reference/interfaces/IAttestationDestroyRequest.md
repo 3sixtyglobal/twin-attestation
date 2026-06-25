@@ -4,7 +4,7 @@ Destroy the attestation.
 
 ## Properties
 
-### pathParams
+### pathParams {#pathparams}
 
 > **pathParams**: `object`
 

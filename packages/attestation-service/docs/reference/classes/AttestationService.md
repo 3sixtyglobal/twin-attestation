@@ -26,31 +26,41 @@ The options for the service.
 
 `AttestationService`
 
+#### Throws
+
+If no attestation connectors are registered.
+
 ## Properties
 
-### NAMESPACE
+### CLASS\_NAME {#class_name}
 
-> `readonly` `static` **NAMESPACE**: `string` = `"attestation"`
-
-The namespace supported by the attestation service.
-
-***
-
-### CLASS\_NAME
-
-> `readonly` **CLASS\_NAME**: `string`
+> `readonly` `static` **CLASS\_NAME**: `string`
 
 Runtime name for the class.
 
-#### Implementation of
-
-`IAttestationComponent.CLASS_NAME`
-
 ## Methods
 
-### create()
+### className() {#classname}
 
-> **create**(`attestationObject`, `namespace?`, `identity?`, `nodeIdentity?`): `Promise`\<`string`\>
+> **className**(): `string`
+
+Returns the class name of the component.
+
+#### Returns
+
+`string`
+
+The class name of the component.
+
+#### Implementation of
+
+`IAttestationComponent.className`
+
+***
+
+### create() {#create}
+
+> **create**(`attestationObject`, `namespace?`): `Promise`\<`string`\>
 
 Attest the data and return the collated information.
 
@@ -68,23 +78,11 @@ The data to attest.
 
 The namespace of the connector to use for the attestation, defaults to service configured namespace.
 
-##### identity?
-
-`string`
-
-The identity to perform the attestation operation with.
-
-##### nodeIdentity?
-
-`string`
-
-The node identity to include in the attestation.
-
 #### Returns
 
 `Promise`\<`string`\>
 
-The id.
+The id of the created attestation.
 
 #### Implementation of
 
@@ -92,7 +90,7 @@ The id.
 
 ***
 
-### get()
+### get() {#get}
 
 > **get**(`id`): `Promise`\<`IAttestationInformation`\>
 
@@ -118,9 +116,9 @@ The verified attestation details.
 
 ***
 
-### transfer()
+### transfer() {#transfer}
 
-> **transfer**(`attestationId`, `holderIdentity`, `holderAddress`, `identity`): `Promise`\<`void`\>
+> **transfer**(`attestationId`, `holderAddress`): `Promise`\<`void`\>
 
 Transfer the attestation to a new holder.
 
@@ -132,29 +130,17 @@ Transfer the attestation to a new holder.
 
 The attestation to transfer.
 
-##### holderIdentity
-
-`string`
-
-The identity to transfer the attestation to.
-
 ##### holderAddress
 
 `string`
 
 The address to transfer the attestation to.
 
-##### identity
-
-`string`
-
-The identity to perform the attestation operation with.
-
 #### Returns
 
 `Promise`\<`void`\>
 
-The updated attestation details.
+A promise that resolves when the transfer is complete.
 
 #### Implementation of
 
@@ -162,9 +148,9 @@ The updated attestation details.
 
 ***
 
-### destroy()
+### destroy() {#destroy}
 
-> **destroy**(`attestationId`, `identity?`): `Promise`\<`void`\>
+> **destroy**(`attestationId`): `Promise`\<`void`\>
 
 Destroy the attestation.
 
@@ -174,19 +160,13 @@ Destroy the attestation.
 
 `string`
 
-The attestation to transfer.
-
-##### identity?
-
-`string`
-
-The identity to perform the attestation operation with.
+The attestation to destroy.
 
 #### Returns
 
 `Promise`\<`void`\>
 
-The updated attestation details.
+A promise that resolves when the attestation has been destroyed.
 
 #### Implementation of
 

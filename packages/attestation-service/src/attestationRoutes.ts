@@ -124,16 +124,14 @@ export function generateRestRoutesAttestation(
 						response: {
 							body: {
 								"@context": [
-									AttestationContexts.ContextRoot,
-									AttestationContexts.ContextRootCommon,
-									SchemaOrgContexts.ContextRoot
+									SchemaOrgContexts.Context,
+									AttestationContexts.Context,
+									AttestationContexts.ContextCommon
 								],
 								type: AttestationTypes.Information,
 								id: "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",
 								dateCreated: "2024-06-18T13:34:51Z",
 								ownerIdentity:
-									"did:iota:tst:0x8992c426116f21b2a4c7a2854300748d3e94a8ce089d5be62e11f105bd2a0f9e",
-								holderIdentity:
 									"did:iota:tst:0x8992c426116f21b2a4c7a2854300748d3e94a8ce089d5be62e11f105bd2a0f9e",
 								attestationObject: {
 									"@context": "https://schema.org",
@@ -157,16 +155,14 @@ export function generateRestRoutesAttestation(
 						response: {
 							body: {
 								"@context": [
-									AttestationContexts.ContextRoot,
-									AttestationContexts.ContextRootCommon,
-									SchemaOrgContexts.ContextRoot
+									SchemaOrgContexts.Context,
+									AttestationContexts.Context,
+									AttestationContexts.ContextCommon
 								],
 								type: AttestationTypes.Information,
 								id: "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",
 								dateCreated: "2024-06-18T13:34:51Z",
 								ownerIdentity:
-									"did:iota:tst:0x8992c426116f21b2a4c7a2854300748d3e94a8ce089d5be62e11f105bd2a0f9e",
-								holderIdentity:
 									"did:iota:tst:0x8992c426116f21b2a4c7a2854300748d3e94a8ce089d5be62e11f105bd2a0f9e",
 								attestationObject: {
 									"@context": "https://schema.org",
@@ -196,16 +192,14 @@ export function generateRestRoutesAttestation(
 						response: {
 							body: {
 								"@context": [
-									AttestationContexts.ContextRoot,
-									AttestationContexts.ContextRootCommon,
-									SchemaOrgContexts.ContextRoot
+									SchemaOrgContexts.Context,
+									AttestationContexts.Context,
+									AttestationContexts.ContextCommon
 								],
 								type: AttestationTypes.Information,
 								id: "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",
 								dateCreated: "2024-06-18T13:34:51Z",
 								ownerIdentity:
-									"did:iota:tst:0x8992c426116f21b2a4c7a2854300748d3e94a8ce089d5be62e11f105bd2a0f9e",
-								holderIdentity:
 									"did:iota:tst:0x8992c426116f21b2a4c7a2854300748d3e94a8ce089d5be62e11f105bd2a0f9e",
 								attestationObject: {
 									"@context": "https://schema.org",
@@ -229,16 +223,14 @@ export function generateRestRoutesAttestation(
 						response: {
 							body: {
 								"@context": [
-									AttestationContexts.ContextRoot,
-									AttestationContexts.ContextRootCommon,
-									SchemaOrgContexts.ContextRoot
+									SchemaOrgContexts.Context,
+									AttestationContexts.Context,
+									AttestationContexts.ContextCommon
 								],
 								type: AttestationTypes.Information,
 								id: "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",
 								dateCreated: "2024-06-18T13:34:51Z",
 								ownerIdentity:
-									"did:iota:tst:0x8992c426116f21b2a4c7a2854300748d3e94a8ce089d5be62e11f105bd2a0f9e",
-								holderIdentity:
 									"did:iota:tst:0x8992c426116f21b2a4c7a2854300748d3e94a8ce089d5be62e11f105bd2a0f9e",
 								attestationObject: {
 									"@context": "https://schema.org",
@@ -259,8 +251,7 @@ export function generateRestRoutesAttestation(
 					}
 				]
 			}
-		],
-		skipAuth: true
+		]
 	};
 
 	const transferRoute: IRestRoute<IAttestationTransferRequest, INoContentResponse> = {
@@ -281,8 +272,6 @@ export function generateRestRoutesAttestation(
 							id: "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg=="
 						},
 						body: {
-							holderIdentity:
-								"did:iota:tst:0x06ae1034f9f4af1b408a0b54e877bb476259666a14f221400d3746aecefa7105",
 							holderAddress: "tst1prctjk5ck0dutnsunnje6u90jk5htx03qznjjmkd6843pzltlgz87srjzzv"
 						}
 					}
@@ -328,7 +317,7 @@ export function generateRestRoutesAttestation(
 }
 
 /**
- * Sign the data and return the proof.
+ * Attest the data and return the location of the created attestation.
  * @param httpRequestContext The request context for the API.
  * @param componentName The name of the component to use in the routes.
  * @param request The request.
@@ -351,12 +340,7 @@ export async function attestationCreate(
 		request.body.attestationObject
 	);
 	const component = ComponentFactory.get<IAttestationComponent>(componentName);
-	const id = await component.create(
-		request.body.attestationObject,
-		request.body.namespace,
-		httpRequestContext.userIdentity,
-		httpRequestContext.nodeIdentity
-	);
+	const id = await component.create(request.body.attestationObject, request.body.namespace);
 	return {
 		statusCode: HttpStatusCode.created,
 		headers: {
@@ -422,19 +406,8 @@ export async function attestationTransfer(
 		nameof(request.body),
 		request.body
 	);
-	Guards.stringValue(
-		ROUTES_SOURCE,
-		nameof(request.body.holderIdentity),
-		request.body.holderIdentity
-	);
-
 	const component = ComponentFactory.get<IAttestationComponent>(componentName);
-	await component.transfer(
-		request.pathParams.id,
-		request.body.holderIdentity,
-		request.body.holderAddress,
-		httpRequestContext.userIdentity
-	);
+	await component.transfer(request.pathParams.id, request.body.holderAddress);
 
 	return {
 		statusCode: HttpStatusCode.noContent
@@ -462,7 +435,7 @@ export async function attestationDestroy(
 	Guards.stringValue(ROUTES_SOURCE, nameof(request.pathParams.id), request.pathParams.id);
 
 	const component = ComponentFactory.get<IAttestationComponent>(componentName);
-	await component.destroy(request.pathParams.id, httpRequestContext.userIdentity);
+	await component.destroy(request.pathParams.id);
 
 	return {
 		statusCode: HttpStatusCode.noContent

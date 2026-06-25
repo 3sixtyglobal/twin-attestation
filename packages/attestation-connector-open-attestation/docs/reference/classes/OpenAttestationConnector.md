@@ -1,6 +1,6 @@
 # Class: OpenAttestationConnector
 
-Class for performing attestation operations in entity storage.
+Class for performing attestation operations using the Open Attestation standard.
 
 ## Implements
 
@@ -28,7 +28,7 @@ The options for the attestation connector.
 
 ## Properties
 
-### NAMESPACE
+### NAMESPACE {#namespace}
 
 > `readonly` `static` **NAMESPACE**: `string` = `"open-attestation"`
 
@@ -36,19 +36,33 @@ The namespace for the entities.
 
 ***
 
-### CLASS\_NAME
+### CLASS\_NAME {#class_name}
 
-> `readonly` **CLASS\_NAME**: `string`
+> `readonly` `static` **CLASS\_NAME**: `string`
 
 Runtime name for the class.
 
-#### Implementation of
-
-`IAttestationConnector.CLASS_NAME`
-
 ## Methods
 
-### create()
+### className() {#classname}
+
+> **className**(): `string`
+
+Returns the class name of the component.
+
+#### Returns
+
+`string`
+
+The class name of the component.
+
+#### Implementation of
+
+`IAttestationConnector.className`
+
+***
+
+### create() {#create}
 
 > **create**(`controller`, `verificationMethodId`, `attestationObject`): `Promise`\<`string`\>
 
@@ -78,7 +92,7 @@ The data to attest.
 
 `Promise`\<`string`\>
 
-The id.
+The id of the created attestation.
 
 #### Implementation of
 
@@ -86,7 +100,7 @@ The id.
 
 ***
 
-### get()
+### get() {#get}
 
 > **get**(`id`): `Promise`\<`IAttestationInformation`\>
 
@@ -112,9 +126,9 @@ The verified attestation details.
 
 ***
 
-### transfer()
+### transfer() {#transfer}
 
-> **transfer**(`controller`, `attestationId`, `holderIdentity`, `holderAddress`): `Promise`\<`void`\>
+> **transfer**(`controller`, `attestationId`, `holderAddress`): `Promise`\<`void`\>
 
 Transfer the attestation to a new holder.
 
@@ -132,12 +146,6 @@ The controller identity of the user to access the vault keys.
 
 The attestation to transfer.
 
-##### holderIdentity
-
-`string`
-
-The holder identity of the attestation.
-
 ##### holderAddress
 
 `string`
@@ -148,7 +156,7 @@ The new controller address of the attestation belonging to the holder.
 
 `Promise`\<`void`\>
 
-Nothing.
+A promise that resolves when the transfer is complete.
 
 #### Implementation of
 
@@ -156,7 +164,7 @@ Nothing.
 
 ***
 
-### destroy()
+### destroy() {#destroy}
 
 > **destroy**(`controller`, `attestationId`): `Promise`\<`void`\>
 
@@ -180,7 +188,7 @@ The attestation to destroy.
 
 `Promise`\<`void`\>
 
-Nothing.
+A promise that resolves when the attestation has been destroyed.
 
 #### Implementation of
 

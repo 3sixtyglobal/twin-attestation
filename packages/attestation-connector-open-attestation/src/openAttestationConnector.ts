@@ -4,10 +4,10 @@ import type { IAttestationConnector, IAttestationInformation } from "@twin.org/a
 import { NotImplementedError } from "@twin.org/core";
 import type { IJsonLdNodeObject } from "@twin.org/data-json-ld";
 import { nameof } from "@twin.org/nameof";
-import type { IOpenAttestationConnectorConstructorOptions } from "./models/IOpenAttestationConnectorConstructorOptions";
+import type { IOpenAttestationConnectorConstructorOptions } from "./models/IOpenAttestationConnectorConstructorOptions.js";
 
 /**
- * Class for performing attestation operations in entity storage.
+ * Class for performing attestation operations using the Open Attestation standard.
  */
 export class OpenAttestationConnector implements IAttestationConnector {
 	/**
@@ -18,7 +18,7 @@ export class OpenAttestationConnector implements IAttestationConnector {
 	/**
 	 * Runtime name for the class.
 	 */
-	public readonly CLASS_NAME: string = nameof<OpenAttestationConnector>();
+	public static readonly CLASS_NAME: string = nameof<OpenAttestationConnector>();
 
 	/**
 	 * Create a new instance of OpenAttestationConnector.
@@ -28,18 +28,26 @@ export class OpenAttestationConnector implements IAttestationConnector {
 	constructor(options: IOpenAttestationConnectorConstructorOptions) {}
 
 	/**
+	 * Returns the class name of the component.
+	 * @returns The class name of the component.
+	 */
+	public className(): string {
+		return OpenAttestationConnector.CLASS_NAME;
+	}
+
+	/**
 	 * Attest the data and return the collated information.
 	 * @param controller The controller identity of the user to access the vault keys.
 	 * @param verificationMethodId The identity verification method to use for attesting the data.
 	 * @param attestationObject The data to attest.
-	 * @returns The id.
+	 * @returns The id of the created attestation.
 	 */
 	public async create(
 		controller: string,
 		verificationMethodId: string,
 		attestationObject: IJsonLdNodeObject
 	): Promise<string> {
-		throw new NotImplementedError(this.CLASS_NAME, "attest");
+		throw new NotImplementedError(OpenAttestationConnector.CLASS_NAME, "attest");
 	}
 
 	/**
@@ -48,33 +56,31 @@ export class OpenAttestationConnector implements IAttestationConnector {
 	 * @returns The verified attestation details.
 	 */
 	public async get(id: string): Promise<IAttestationInformation> {
-		throw new NotImplementedError(this.CLASS_NAME, "verify");
+		throw new NotImplementedError(OpenAttestationConnector.CLASS_NAME, "verify");
 	}
 
 	/**
 	 * Transfer the attestation to a new holder.
 	 * @param controller The controller identity of the user to access the vault keys.
 	 * @param attestationId The attestation to transfer.
-	 * @param holderIdentity The holder identity of the attestation.
 	 * @param holderAddress The new controller address of the attestation belonging to the holder.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the transfer is complete.
 	 */
 	public async transfer(
 		controller: string,
 		attestationId: string,
-		holderIdentity: string,
 		holderAddress: string
 	): Promise<void> {
-		throw new NotImplementedError(this.CLASS_NAME, "transfer");
+		throw new NotImplementedError(OpenAttestationConnector.CLASS_NAME, "transfer");
 	}
 
 	/**
 	 * Destroy the attestation.
 	 * @param controller The controller identity of the user to access the vault keys.
 	 * @param attestationId The attestation to destroy.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the attestation has been destroyed.
 	 */
 	public async destroy(controller: string, attestationId: string): Promise<void> {
-		throw new NotImplementedError(this.CLASS_NAME, "destroy");
+		throw new NotImplementedError(OpenAttestationConnector.CLASS_NAME, "destroy");
 	}
 }

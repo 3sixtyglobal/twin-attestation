@@ -1,6 +1,6 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
-import type { INftAttestationConnectorConfig } from "./INftAttestationConnectorConfig";
+import type { INftAttestationConnectorConfig } from "./INftAttestationConnectorConfig.js";
 
 /**
  * Options for the NFT attestation connector constructor.
