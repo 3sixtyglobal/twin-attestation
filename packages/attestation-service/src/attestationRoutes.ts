@@ -1,11 +1,12 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
-import type {
-	ICreatedResponse,
-	IHttpRequestContext,
-	INoContentResponse,
-	IRestRoute,
-	ITag
+import {
+	HttpHeaderHelper,
+	type ICreatedResponse,
+	type IHttpRequestContext,
+	type INoContentResponse,
+	type IRestRoute,
+	type ITag
 } from "@twin.org/api-models";
 import {
 	type IAttestationComponent,
@@ -20,7 +21,7 @@ import {
 import { ComponentFactory, Guards } from "@twin.org/core";
 import { nameof } from "@twin.org/nameof";
 import { SchemaOrgContexts } from "@twin.org/standards-schema-org";
-import { HeaderTypes, HttpStatusCode, MimeTypes } from "@twin.org/web";
+import { HeaderTypes, HttpStatusCode, type IHttpHeaders, MimeTypes } from "@twin.org/web";
 
 /**
  * The source used when communicating about these routes.
@@ -341,11 +342,13 @@ export async function attestationCreate(
 	);
 	const component = ComponentFactory.get<IAttestationComponent>(componentName);
 	const id = await component.create(request.body.attestationObject, request.body.namespace);
+
+	const headers: IHttpHeaders = {};
+	HttpHeaderHelper.buildId(headers, id);
+
 	return {
 		statusCode: HttpStatusCode.created,
-		headers: {
-			[HeaderTypes.Location]: id
-		}
+		headers
 	};
 }
 
@@ -369,15 +372,14 @@ export async function attestationGet(
 	);
 	Guards.stringValue(ROUTES_SOURCE, nameof(request.pathParams.id), request.pathParams.id);
 
-	const mimeType = request.headers?.[HeaderTypes.Accept] === MimeTypes.JsonLd ? "jsonld" : "json";
+	const headers: IHttpHeaders = {};
+	HttpHeaderHelper.buildJsonContentType(headers, request.headers);
 
 	const component = ComponentFactory.get<IAttestationComponent>(componentName);
 	const verificationResult = await component.get(request.pathParams.id);
 
 	return {
-		headers: {
-			[HeaderTypes.ContentType]: mimeType === "json" ? MimeTypes.Json : MimeTypes.JsonLd
-		},
+		headers,
 		body: verificationResult
 	};
 }
