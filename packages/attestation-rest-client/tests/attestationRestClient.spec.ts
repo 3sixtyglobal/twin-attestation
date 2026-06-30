@@ -93,12 +93,12 @@ describe("AttestationRestClient", () => {
 			expect(body.namespace).toBe("custom-namespace");
 		});
 
-		test("returns the location header value", async () => {
+		test("returns the attestation id extracted from the location header", async () => {
 			fetchMock.mockResolvedValueOnce(createdResponse(LOCATION));
 
 			const result = await client.create(TEST_ATTESTATION_OBJECT);
 
-			expect(result).toBe(LOCATION);
+			expect(result).toBe(ATTESTATION_URN);
 		});
 	});
 

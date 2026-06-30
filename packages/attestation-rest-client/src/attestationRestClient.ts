@@ -70,7 +70,7 @@ export class AttestationRestClient extends BaseRestClient implements IAttestatio
 			}
 		);
 
-		return HttpHeaderHelper.extractId(response.headers);
+		return HttpHeaderHelper.extractId(response.headers, `${this.getPathPrefix()}/:id`);
 	}
 
 	/**
