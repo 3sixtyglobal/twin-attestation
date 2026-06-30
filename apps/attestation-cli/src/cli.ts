@@ -41,7 +41,7 @@ export class CLI extends CLIBase {
 			{
 				title: "TWIN Attestation",
 				appName: "twin-attestation",
-				version: "0.9.1-next.2", // x-release-please-version
+				version: "0.9.1-next.3", // x-release-please-version
 				icon: "🌍",
 				supportsEnvFiles: true,
 				overrideOutputWidth: options?.overrideOutputWidth
