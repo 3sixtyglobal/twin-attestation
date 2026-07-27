@@ -1,6 +1,6 @@
 {
 	"name": "@twin.org/attestation-models",
-	"version": "0.9.1-next.3",
+	"version": "0.9.2-next.0",
 	"description": "Shared models and data types for attestation connectors and services.",
 	"repository": {
 		"type": "git",
