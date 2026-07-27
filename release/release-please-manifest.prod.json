@@ -1,8 +1,8 @@
 {
-	"packages/attestation-models": "0.9.0",
-	"packages/attestation-connector-nft": "0.9.0",
-	"packages/attestation-connector-open-attestation": "0.9.0",
-	"packages/attestation-service": "0.9.0",
-	"packages/attestation-rest-client": "0.9.0",
-	"apps/attestation-cli": "0.9.0"
+	"packages/attestation-models": "0.9.1",
+	"packages/attestation-connector-nft": "0.9.1",
+	"packages/attestation-connector-open-attestation": "0.9.1",
+	"packages/attestation-service": "0.9.1",
+	"packages/attestation-rest-client": "0.9.1",
+	"apps/attestation-cli": "0.9.1"
 }
