@@ -1,10 +1,11 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
 import { BaseRestClient } from "@twin.org/api-core";
-import type {
-	IBaseRestClientConfig,
-	ICreatedResponse,
-	INoContentResponse
+import {
+	HttpHeaderHelper,
+	type IBaseRestClientConfig,
+	type ICreatedResponse,
+	type INoContentResponse
 } from "@twin.org/api-models";
 import type {
 	IAttestationComponent,
@@ -18,7 +19,7 @@ import type {
 import { Guards, Urn } from "@twin.org/core";
 import type { IJsonLdNodeObject } from "@twin.org/data-json-ld";
 import { nameof } from "@twin.org/nameof";
-import { HeaderTypes } from "@twin.org/web";
+import { HttpMethod } from "@twin.org/web";
 
 /**
  * Client for performing attestation through to REST endpoints.
@@ -58,14 +59,18 @@ export class AttestationRestClient extends BaseRestClient implements IAttestatio
 			attestationObject
 		);
 
-		const response = await this.fetch<IAttestationCreateRequest, ICreatedResponse>("/", "POST", {
-			body: {
-				attestationObject,
-				namespace
+		const response = await this.fetch<IAttestationCreateRequest, ICreatedResponse>(
+			"/",
+			HttpMethod.POST,
+			{
+				body: {
+					attestationObject,
+					namespace
+				}
 			}
-		});
+		);
 
-		return response.headers[HeaderTypes.Location];
+		return HttpHeaderHelper.extractId(response.headers, `${this.getPathPrefix()}/:id`);
 	}
 
 	/**
@@ -78,7 +83,7 @@ export class AttestationRestClient extends BaseRestClient implements IAttestatio
 
 		const response = await this.fetch<IAttestationGetRequest, IAttestationGetResponse>(
 			"/:id",
-			"GET",
+			HttpMethod.GET,
 			{
 				pathParams: {
 					id
@@ -99,14 +104,18 @@ export class AttestationRestClient extends BaseRestClient implements IAttestatio
 		Urn.guard(AttestationRestClient.CLASS_NAME, nameof(attestationId), attestationId);
 		Guards.stringValue(AttestationRestClient.CLASS_NAME, nameof(holderAddress), holderAddress);
 
-		await this.fetch<IAttestationTransferRequest, INoContentResponse>("/:id/transfer", "PUT", {
-			pathParams: {
-				id: attestationId
-			},
-			body: {
-				holderAddress
+		await this.fetch<IAttestationTransferRequest, INoContentResponse>(
+			"/:id/transfer",
+			HttpMethod.PUT,
+			{
+				pathParams: {
+					id: attestationId
+				},
+				body: {
+					holderAddress
+				}
 			}
-		});
+		);
 	}
 
 	/**
@@ -117,7 +126,7 @@ export class AttestationRestClient extends BaseRestClient implements IAttestatio
 	public async destroy(attestationId: string): Promise<void> {
 		Urn.guard(AttestationRestClient.CLASS_NAME, nameof(attestationId), attestationId);
 
-		await this.fetch<IAttestationDestroyRequest, INoContentResponse>("/:id", "DELETE", {
+		await this.fetch<IAttestationDestroyRequest, INoContentResponse>("/:id", HttpMethod.DELETE, {
 			pathParams: {
 				id: attestationId
 			}

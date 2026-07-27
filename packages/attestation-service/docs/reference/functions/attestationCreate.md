@@ -1,6 +1,6 @@
 # Function: attestationCreate()
 
-> **attestationCreate**(`httpRequestContext`, `componentName`, `request`): `Promise`\<`ICreatedResponse`\>
+> **attestationCreate**(`httpRequestContext`, `componentName`, `request`, `baseRouteName`): `Promise`\<`ICreatedResponse`\>
 
 Attest the data and return the location of the created attestation.
 
@@ -23,6 +23,12 @@ The name of the component to use in the routes.
 `IAttestationCreateRequest`
 
 The request.
+
+### baseRouteName
+
+`string`
+
+The base route name for the attestation routes.
 
 ## Returns
 

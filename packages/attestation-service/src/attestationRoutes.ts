@@ -1,11 +1,14 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
-import type {
-	ICreatedResponse,
-	IHttpRequestContext,
-	INoContentResponse,
-	IRestRoute,
-	ITag
+import {
+	HttpContextIdKeys,
+	HttpHeaderHelper,
+	HttpUrlHelper,
+	type ICreatedResponse,
+	type IHttpRequestContext,
+	type INoContentResponse,
+	type IRestRoute,
+	type ITag
 } from "@twin.org/api-models";
 import {
 	type IAttestationComponent,
@@ -17,10 +20,11 @@ import {
 	AttestationContexts,
 	AttestationTypes
 } from "@twin.org/attestation-models";
+import { ContextIdStore } from "@twin.org/context";
 import { ComponentFactory, Guards } from "@twin.org/core";
 import { nameof } from "@twin.org/nameof";
 import { SchemaOrgContexts } from "@twin.org/standards-schema-org";
-import { HeaderTypes, HttpStatusCode, MimeTypes } from "@twin.org/web";
+import { HeaderTypes, HttpStatusCode, type IHttpHeaders, MimeTypes } from "@twin.org/web";
 
 /**
  * The source used when communicating about these routes.
@@ -54,7 +58,7 @@ export function generateRestRoutesAttestation(
 		method: "POST",
 		path: `${baseRouteName}/`,
 		handler: async (httpRequestContext, request) =>
-			attestationCreate(httpRequestContext, componentName, request),
+			attestationCreate(httpRequestContext, componentName, request, baseRouteName),
 		requestType: {
 			type: nameof<IAttestationCreateRequest>(),
 			examples: [
@@ -321,12 +325,14 @@ export function generateRestRoutesAttestation(
  * @param httpRequestContext The request context for the API.
  * @param componentName The name of the component to use in the routes.
  * @param request The request.
+ * @param baseRouteName The base route name for the attestation routes.
  * @returns The response object with additional http response properties.
  */
 export async function attestationCreate(
 	httpRequestContext: IHttpRequestContext,
 	componentName: string,
-	request: IAttestationCreateRequest
+	request: IAttestationCreateRequest,
+	baseRouteName: string
 ): Promise<ICreatedResponse> {
 	Guards.object<IAttestationCreateRequest>(ROUTES_SOURCE, nameof(request), request);
 	Guards.object<IAttestationCreateRequest["body"]>(
@@ -341,11 +347,20 @@ export async function attestationCreate(
 	);
 	const component = ComponentFactory.get<IAttestationComponent>(componentName);
 	const id = await component.create(request.body.attestationObject, request.body.namespace);
+
+	const contextIds = await ContextIdStore.getContextIds();
+	const publicOrigin = contextIds?.[HttpContextIdKeys.PublicOrigin];
+
+	const headers: IHttpHeaders = {};
+	HttpHeaderHelper.buildId(
+		headers,
+		id,
+		HttpUrlHelper.combineOriginPath(publicOrigin, `${baseRouteName}/:id`)
+	);
+
 	return {
 		statusCode: HttpStatusCode.created,
-		headers: {
-			[HeaderTypes.Location]: id
-		}
+		headers
 	};
 }
 
@@ -369,15 +384,14 @@ export async function attestationGet(
 	);
 	Guards.stringValue(ROUTES_SOURCE, nameof(request.pathParams.id), request.pathParams.id);
 
-	const mimeType = request.headers?.[HeaderTypes.Accept] === MimeTypes.JsonLd ? "jsonld" : "json";
+	const headers: IHttpHeaders = {};
+	HttpHeaderHelper.buildJsonContentType(headers, request.headers);
 
 	const component = ComponentFactory.get<IAttestationComponent>(componentName);
 	const verificationResult = await component.get(request.pathParams.id);
 
 	return {
-		headers: {
-			[HeaderTypes.ContentType]: mimeType === "json" ? MimeTypes.Json : MimeTypes.JsonLd
-		},
+		headers,
 		body: verificationResult
 	};
 }
