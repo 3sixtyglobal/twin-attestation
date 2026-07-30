@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0.
 import { Is } from "@twin.org/core";
 import type { IJsonLdNodeObject } from "@twin.org/data-json-ld";
+import { IdentityConnectorFactory } from "@twin.org/identity-models";
+import { NftConnectorFactory } from "@twin.org/nft-models";
 import {
 	TEST_IDENTITY_ADDRESS_2,
 	TEST_IDENTITY_CONNECTOR,
@@ -9,6 +11,26 @@ import {
 	setupTestEnv
 } from "./setupTestEnv.js";
 import { NftAttestationConnector } from "../src/nftAttestationConnector.js";
+import { NftAttestationUtils } from "../src/nftAttestationUtils.js";
+
+const TEST_IDENTITY_CONNECTOR_TYPE = "identity-revoked-test";
+const TEST_NFT_CONNECTOR_TYPE = "nft-revoked-test";
+
+const identityConnectorMock = {
+	checkVerifiableCredential: async () => ({
+		revoked: true,
+		verifiableCredential: undefined
+	})
+};
+
+const nftConnectorMock = {
+	resolve: async () => ({
+		immutableMetadata: {
+			proof: "header.payload.signature"
+		},
+		metadata: {}
+	})
+};
 
 let ownerIdentity: string;
 let verificationMethodId: string;
@@ -127,5 +149,29 @@ describe("NftAttestationConnector", () => {
 		});
 		expect(transfered.proof?.type).toEqual("JwtProof");
 		expect((transfered.proof?.value as string).split(".").length).toEqual(3);
+	});
+
+	test("reports revoked when the credential is not returned", async () => {
+		IdentityConnectorFactory.register(
+			TEST_IDENTITY_CONNECTOR_TYPE,
+			() => identityConnectorMock as never
+		);
+		NftConnectorFactory.register(TEST_NFT_CONNECTOR_TYPE, () => nftConnectorMock as never);
+
+		const attestation = new NftAttestationConnector({
+			identityConnectorType: TEST_IDENTITY_CONNECTOR_TYPE,
+			nftConnectorType: TEST_NFT_CONNECTOR_TYPE
+		});
+
+		const testAttestationId = NftAttestationUtils.nftIdToAttestationId("urn:nft:test");
+		const result = await attestation.get(testAttestationId);
+
+		expect(result.verified).toEqual(false);
+		expect(result.verificationFailure).toEqual(
+			"NftAttestationConnector.verificationFailures.revoked"
+		);
+		expect(result.verificationFailure).not.toEqual(
+			"NftAttestationConnector.verificationFailures.proofFailed"
+		);
 	});
 });
