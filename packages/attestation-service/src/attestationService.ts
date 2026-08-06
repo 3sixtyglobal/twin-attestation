@@ -2,14 +2,17 @@
 // SPDX-License-Identifier: Apache-2.0.
 import {
 	AttestationConnectorFactory,
+	AttestationMetricIds,
+	AttestationMetrics,
 	type IAttestationComponent,
 	type IAttestationConnector,
 	type IAttestationInformation
 } from "@twin.org/attestation-models";
 import { ContextIdHelper, ContextIdKeys, ContextIdStore } from "@twin.org/context";
-import { GeneralError, Guards, Urn } from "@twin.org/core";
+import { ComponentFactory, GeneralError, Guards, Is, Urn } from "@twin.org/core";
 import type { IJsonLdNodeObject } from "@twin.org/data-json-ld";
 import { nameof } from "@twin.org/nameof";
+import { MetricHelper, type ITelemetryComponent } from "@twin.org/telemetry-models";
 import type { IAttestationServiceConstructorOptions } from "./models/IAttestationServiceConstructorOptions.js";
 
 /**
@@ -40,6 +43,12 @@ export class AttestationService implements IAttestationComponent {
 	private readonly _verificationMethodId: string;
 
 	/**
+	 * The optional telemetry component used for event metrics.
+	 * @internal
+	 */
+	private readonly _telemetryComponent?: ITelemetryComponent;
+
+	/**
 	 * Create a new instance of AttestationService.
 	 * @param options The options for the service.
 	 * @param options.config The configuration for the service.
@@ -53,6 +62,10 @@ export class AttestationService implements IAttestationComponent {
 
 		this._defaultNamespace = options?.config?.defaultNamespace ?? names[0];
 		this._verificationMethodId = options?.config?.verificationMethodId ?? "attestation-assertion";
+
+		this._telemetryComponent = ComponentFactory.getIfExists<ITelemetryComponent>(
+			options?.telemetryComponentType
+		);
 	}
 
 	/**
@@ -61,6 +74,18 @@ export class AttestationService implements IAttestationComponent {
 	 */
 	public className(): string {
 		return AttestationService.CLASS_NAME;
+	}
+
+	/**
+	 * Register all attestation metrics with the telemetry component.
+	 * @returns A promise that resolves when all metrics have been registered.
+	 */
+	public async start(): Promise<void> {
+		if (Is.undefined(this._telemetryComponent)) {
+			return;
+		}
+
+		await MetricHelper.createMetrics(this._telemetryComponent, AttestationMetrics);
 	}
 
 	/**
@@ -90,6 +115,13 @@ export class AttestationService implements IAttestationComponent {
 				`${contextIds[ContextIdKeys.Organization]}#${this._verificationMethodId}`,
 				attestationObject
 			);
+
+			await MetricHelper.metricIncrement(
+				this._telemetryComponent,
+				AttestationMetricIds.AttestationCreated,
+				{ namespace: connectorNamespace }
+			);
+
 			return result;
 		} catch (error) {
 			throw new GeneralError(AttestationService.CLASS_NAME, "attestFailed", undefined, error);
@@ -108,6 +140,20 @@ export class AttestationService implements IAttestationComponent {
 			const attestationConnector = this.getConnector(id);
 
 			const result = await attestationConnector.get(id);
+
+			if (result.verified === true) {
+				await MetricHelper.metricIncrement(
+					this._telemetryComponent,
+					AttestationMetricIds.AttestationVerified
+				);
+			} else {
+				await MetricHelper.metricIncrement(
+					this._telemetryComponent,
+					AttestationMetricIds.AttestationVerificationFailed,
+					{ failureReason: result.verificationFailure }
+				);
+			}
+
 			return result;
 		} catch (error) {
 			throw new GeneralError(AttestationService.CLASS_NAME, "verifyFailed", undefined, error);
@@ -135,6 +181,12 @@ export class AttestationService implements IAttestationComponent {
 				attestationId,
 				holderAddress
 			);
+
+			await MetricHelper.metricIncrement(
+				this._telemetryComponent,
+				AttestationMetricIds.AttestationTransferred
+			);
+
 			return result;
 		} catch (error) {
 			throw new GeneralError(AttestationService.CLASS_NAME, "transferFailed", undefined, error);
@@ -159,6 +211,12 @@ export class AttestationService implements IAttestationComponent {
 				contextIds[ContextIdKeys.Organization],
 				attestationId
 			);
+
+			await MetricHelper.metricIncrement(
+				this._telemetryComponent,
+				AttestationMetricIds.AttestationDestroyed
+			);
+
 			return result;
 		} catch (error) {
 			throw new GeneralError(AttestationService.CLASS_NAME, "destroyFailed", undefined, error);
