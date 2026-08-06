@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.9.2-next.2](https://github.com/iotaledger/twin-attestation/compare/attestation-connector-open-attestation-v0.9.2-next.1...attestation-connector-open-attestation-v0.9.2-next.2) (2026-08-06)
+
+
+### Miscellaneous Chores
+
+* **attestation-connector-open-attestation:** Synchronize repo versions
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/attestation-models bumped from 0.9.2-next.1 to 0.9.2-next.2
+
 ## [0.9.2-next.1](https://github.com/iotaledger/twin-attestation/compare/attestation-connector-open-attestation-v0.9.2-next.0...attestation-connector-open-attestation-v0.9.2-next.1) (2026-07-30)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.2-next.2](https://github.com/iotaledger/twin-attestation/compare/attestation-models-v0.9.2-next.1...attestation-models-v0.9.2-next.2) (2026-08-06)
+
+
+### Features
+
+* add event-driven telemetry metrics ([#66](https://github.com/iotaledger/twin-attestation/issues/66)) ([1b0c778](https://github.com/iotaledger/twin-attestation/commit/1b0c778eaa8bd6dca1fdc24ed5d3b4e6ade4ea33))
+
 ## [0.9.2-next.1](https://github.com/iotaledger/twin-attestation/compare/attestation-models-v0.9.2-next.0...attestation-models-v0.9.2-next.1) (2026-07-30)
 
 
