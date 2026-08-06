@@ -58,6 +58,24 @@ The class name of the component.
 
 ***
 
+### start() {#start}
+
+> **start**(): `Promise`\<`void`\>
+
+Register all attestation metrics with the telemetry component.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+A promise that resolves when all metrics have been registered.
+
+#### Implementation of
+
+`IAttestationComponent.start`
+
+***
+
 ### create() {#create}
 
 > **create**(`attestationObject`, `namespace?`): `Promise`\<`string`\>

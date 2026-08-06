@@ -19,10 +19,13 @@
 ## Type Aliases
 
 - [AttestationContexts](type-aliases/AttestationContexts.md)
+- [AttestationMetricIds](type-aliases/AttestationMetricIds.md)
 - [AttestationTypes](type-aliases/AttestationTypes.md)
 
 ## Variables
 
 - [AttestationConnectorFactory](variables/AttestationConnectorFactory.md)
 - [AttestationContexts](variables/AttestationContexts.md)
+- [AttestationMetricIds](variables/AttestationMetricIds.md)
+- [AttestationMetrics](variables/AttestationMetrics.md)
 - [AttestationTypes](variables/AttestationTypes.md)
