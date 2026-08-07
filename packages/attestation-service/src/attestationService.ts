@@ -1,6 +1,13 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
 import {
+	HealthCategory,
+	HealthStatus,
+	type HealthApplicationCallback,
+	type IHealth,
+	type IHealthProviderComponent
+} from "@twin.org/api-models";
+import {
 	AttestationConnectorFactory,
 	AttestationMetricIds,
 	AttestationMetrics,
@@ -9,7 +16,7 @@ import {
 	type IAttestationInformation
 } from "@twin.org/attestation-models";
 import { ContextIdHelper, ContextIdKeys, ContextIdStore } from "@twin.org/context";
-import { ComponentFactory, GeneralError, Guards, Is, Urn } from "@twin.org/core";
+import { ComponentFactory, BaseError, GeneralError, Guards, Is, Urn } from "@twin.org/core";
 import type { IJsonLdNodeObject } from "@twin.org/data-json-ld";
 import { nameof } from "@twin.org/nameof";
 import { MetricHelper, type ITelemetryComponent } from "@twin.org/telemetry-models";
@@ -18,7 +25,7 @@ import type { IAttestationServiceConstructorOptions } from "./models/IAttestatio
 /**
  * Service for performing attestation operations to a connector.
  */
-export class AttestationService implements IAttestationComponent {
+export class AttestationService implements IAttestationComponent, IHealthProviderComponent {
 	/**
 	 * Runtime name for the class.
 	 */
@@ -77,15 +84,66 @@ export class AttestationService implements IAttestationComponent {
 	}
 
 	/**
+	 * Runs a full attestation lifecycle (create, get, destroy) against the organisation identity
+	 * in the current context and returns the result directly.
+	 * @param callback The callback to invoke when a deferred health result is ready.
+	 * @returns The health status of the service.
+	 */
+	public async healthApplication(
+		callback: HealthApplicationCallback
+	): Promise<IHealth[] | undefined> {
+		const contextIds = (await ContextIdStore.getContextIds()) ?? {};
+		const orgDid = contextIds[ContextIdKeys.Organization];
+
+		if (!Is.stringValue(orgDid)) {
+			return [];
+		}
+
+		try {
+			const connector = AttestationConnectorFactory.get<IAttestationConnector>(
+				this._defaultNamespace
+			);
+			const attestationId = await connector.create(orgDid, `${orgDid}#health-assertion`, {
+				"@context": "https://schema.org",
+				"@type": "Thing",
+				name: "Health Check"
+			});
+			const info = await connector.get(attestationId);
+			await connector.destroy(orgDid, attestationId);
+			return [
+				{
+					source: AttestationService.CLASS_NAME,
+					category: HealthCategory.Application,
+					status: Is.object(info) ? HealthStatus.Ok : HealthStatus.Error,
+					description: "healthDescription",
+					message: Is.object(info) ? undefined : "getAttestationFailed",
+					data: {
+						attestationId
+					}
+				}
+			];
+		} catch (error) {
+			return [
+				{
+					source: AttestationService.CLASS_NAME,
+					category: HealthCategory.Application,
+					status: HealthStatus.Error,
+					description: "healthDescription",
+					message: "getAttestationFailed",
+					error: BaseError.fromError(error)
+				}
+			];
+		}
+	}
+
+	/**
 	 * Register all attestation metrics with the telemetry component.
 	 * @returns A promise that resolves when all metrics have been registered.
 	 */
 	public async start(): Promise<void> {
-		if (Is.undefined(this._telemetryComponent)) {
-			return;
+		if (!Is.undefined(this._telemetryComponent)) {
+			await MetricHelper.createMetrics(this._telemetryComponent, AttestationMetrics);
 		}
-
-		await MetricHelper.createMetrics(this._telemetryComponent, AttestationMetrics);
 	}
 
 	/**

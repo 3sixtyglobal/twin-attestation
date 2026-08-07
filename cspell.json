@@ -29,6 +29,7 @@
 		"nameof",
 		"openapi",
 		"Stiftung",
+		"teardown",
 		"Unrevoke"
 	],
 	"ignoreRegExpList": [
