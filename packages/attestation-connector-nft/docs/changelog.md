@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.9.2-next.3](https://github.com/iotaledger/twin-attestation/compare/attestation-connector-nft-v0.9.2-next.2...attestation-connector-nft-v0.9.2-next.3) (2026-08-07)
+
+
+### Features
+
+* health provider ([#69](https://github.com/iotaledger/twin-attestation/issues/69)) ([bc45c73](https://github.com/iotaledger/twin-attestation/commit/bc45c73d2c7552e79e9176d5d202f0dd41da78d6))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/attestation-models bumped from 0.9.2-next.2 to 0.9.2-next.3
+
 ## [0.9.2-next.2](https://github.com/iotaledger/twin-attestation/compare/attestation-connector-nft-v0.9.2-next.1...attestation-connector-nft-v0.9.2-next.2) (2026-08-06)
 
 
