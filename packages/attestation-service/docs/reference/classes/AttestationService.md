@@ -5,6 +5,7 @@ Service for performing attestation operations to a connector.
 ## Implements
 
 - `IAttestationComponent`
+- `IHealthProviderComponent`
 
 ## Constructors
 
@@ -55,6 +56,33 @@ The class name of the component.
 #### Implementation of
 
 `IAttestationComponent.className`
+
+***
+
+### healthApplication() {#healthapplication}
+
+> **healthApplication**(`callback`): `Promise`\<`IHealth`[] \| `undefined`\>
+
+Runs a full attestation lifecycle (create, get, destroy) against the organisation identity
+in the current context and returns the result directly.
+
+#### Parameters
+
+##### callback
+
+`HealthApplicationCallback`
+
+The callback to invoke when a deferred health result is ready.
+
+#### Returns
+
+`Promise`\<`IHealth`[] \| `undefined`\>
+
+The health status of the service.
+
+#### Implementation of
+
+`IHealthProviderComponent.healthApplication`
 
 ***
 
