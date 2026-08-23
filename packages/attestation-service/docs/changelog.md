@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.9.2-next.4](https://github.com/iotaledger/twin-attestation/compare/attestation-service-v0.9.2-next.3...attestation-service-v0.9.2-next.4) (2026-08-23)
+
+
+### Features
+
+* tracing ([#72](https://github.com/iotaledger/twin-attestation/issues/72)) ([e3eaad4](https://github.com/iotaledger/twin-attestation/commit/e3eaad437f5c388f915ef95389b28ff34684b019))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/attestation-models bumped from 0.9.2-next.3 to 0.9.2-next.4
+  * devDependencies
+    * @twin.org/attestation-connector-nft bumped from 0.9.2-next.3 to 0.9.2-next.4
+
 ## [0.9.2-next.3](https://github.com/iotaledger/twin-attestation/compare/attestation-service-v0.9.2-next.2...attestation-service-v0.9.2-next.3) (2026-08-07)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.2-next.4](https://github.com/iotaledger/twin-attestation/compare/attestation-models-v0.9.2-next.3...attestation-models-v0.9.2-next.4) (2026-08-23)
+
+
+### Features
+
+* tracing ([#72](https://github.com/iotaledger/twin-attestation/issues/72)) ([e3eaad4](https://github.com/iotaledger/twin-attestation/commit/e3eaad437f5c388f915ef95389b28ff34684b019))
+
 ## [0.9.2-next.3](https://github.com/iotaledger/twin-attestation/compare/attestation-models-v0.9.2-next.2...attestation-models-v0.9.2-next.3) (2026-08-07)
 
 
