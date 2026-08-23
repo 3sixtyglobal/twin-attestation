@@ -20,6 +20,8 @@
 
 - [AttestationContexts](type-aliases/AttestationContexts.md)
 - [AttestationMetricIds](type-aliases/AttestationMetricIds.md)
+- [AttestationSpanAttributes](type-aliases/AttestationSpanAttributes.md)
+- [AttestationSpanNames](type-aliases/AttestationSpanNames.md)
 - [AttestationTypes](type-aliases/AttestationTypes.md)
 
 ## Variables
@@ -28,4 +30,6 @@
 - [AttestationContexts](variables/AttestationContexts.md)
 - [AttestationMetricIds](variables/AttestationMetricIds.md)
 - [AttestationMetrics](variables/AttestationMetrics.md)
+- [AttestationSpanAttributes](variables/AttestationSpanAttributes.md)
+- [AttestationSpanNames](variables/AttestationSpanNames.md)
 - [AttestationTypes](variables/AttestationTypes.md)

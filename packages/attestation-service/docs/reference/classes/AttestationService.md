@@ -29,7 +29,7 @@ The options for the service.
 
 #### Throws
 
-If no attestation connectors are registered.
+GeneralError If no attestation connectors are registered.
 
 ## Properties
 
