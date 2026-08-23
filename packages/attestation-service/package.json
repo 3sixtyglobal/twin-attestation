@@ -38,6 +38,7 @@
 		"@twin.org/nameof": "next",
 		"@twin.org/standards-schema-org": "next",
 		"@twin.org/telemetry-models": "next",
+		"@twin.org/tracing-models": "next",
 		"@twin.org/wallet-models": "next",
 		"@twin.org/web": "next"
 	},

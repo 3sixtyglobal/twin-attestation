@@ -10,6 +10,8 @@ export * from "./models/api/IAttestationTransferRequest.js";
 export * from "./models/attestationContexts.js";
 export * from "./models/attestationMetricIds.js";
 export * from "./models/attestationMetrics.js";
+export * from "./models/attestationSpanAttributes.js";
+export * from "./models/attestationSpanNames.js";
 export * from "./models/attestationTypes.js";
 export * from "./models/IAttestationComponent.js";
 export * from "./models/IAttestationConnector.js";
