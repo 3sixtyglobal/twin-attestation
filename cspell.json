@@ -23,11 +23,13 @@
 		"autorelease",
 		"bech",
 		"Faucet",
+		"hotfixes",
 		"ipfs",
 		"jsonld",
 		"nameof",
 		"openapi",
 		"Stiftung",
+		"teardown",
 		"Unrevoke"
 	],
 	"ignoreRegExpList": [

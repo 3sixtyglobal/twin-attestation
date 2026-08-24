@@ -200,10 +200,10 @@ export class NftAttestationConnector implements IAttestationConnector {
 			} else {
 				checkResult = await this._identityConnector.checkVerifiableCredential(jwtProof);
 
-				if (Is.empty(checkResult.verifiableCredential)) {
-					failure = `${NftAttestationConnector.CLASS_NAME}.verificationFailures.proofFailed`;
-				} else if (checkResult.revoked) {
+				if (checkResult.revoked) {
 					failure = `${NftAttestationConnector.CLASS_NAME}.verificationFailures.revoked`;
+				} else if (Is.empty(checkResult.verifiableCredential)) {
+					failure = `${NftAttestationConnector.CLASS_NAME}.verificationFailures.proofFailed`;
 				}
 			}
 

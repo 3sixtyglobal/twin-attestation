@@ -1,4 +1,10 @@
 {
+	"health": {
+		"attestationService": {
+			"healthDescription": "Attestation lifecycle (create, get, destroy) using the \"{namespace}\" namespace",
+			"getAttestationFailed": "Failed to get the health check attestation"
+		}
+	},
 	"error": {
 		"attestationService": {
 			"noConnectors": "There are no connectors registered with the attestation factory",
