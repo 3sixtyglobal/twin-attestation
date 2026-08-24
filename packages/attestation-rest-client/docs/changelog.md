@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.9.2](https://github.com/iotaledger/twin-attestation/compare/attestation-rest-client-v0.9.2...attestation-rest-client-v0.9.2) (2026-08-24)
+
+
+### Features
+
+* release to production ([aa69a08](https://github.com/iotaledger/twin-attestation/commit/aa69a08fbd3897c8d72b0d32ec730f104ad31b33))
+* release to production ([89ca987](https://github.com/iotaledger/twin-attestation/commit/89ca987963d9090abcfc1b62bc997e2c521944ec))
+* release to production ([#48](https://github.com/iotaledger/twin-attestation/issues/48)) ([7dacf79](https://github.com/iotaledger/twin-attestation/commit/7dacf796d2e7c987a7cd1cd907b4cfc72ce8f4f1))
+* release to production ([#59](https://github.com/iotaledger/twin-attestation/issues/59)) ([e6e0ae3](https://github.com/iotaledger/twin-attestation/commit/e6e0ae37f98d44e22797ee13476aee96867dd0eb))
+* release to production ([#77](https://github.com/iotaledger/twin-attestation/issues/77)) ([3446641](https://github.com/iotaledger/twin-attestation/commit/3446641b174b1f20e1ba660bb8bb6cf02d85c955))
+
 ## [0.9.2-next.4](https://github.com/iotaledger/twin-attestation/compare/attestation-rest-client-v0.9.2-next.3...attestation-rest-client-v0.9.2-next.4) (2026-08-23)
 
 
