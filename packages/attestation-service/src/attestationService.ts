@@ -11,8 +11,6 @@ import {
 	AttestationConnectorFactory,
 	AttestationMetricIds,
 	AttestationMetrics,
-	AttestationSpanAttributes,
-	AttestationSpanNames,
 	type IAttestationComponent,
 	type IAttestationConnector,
 	type IAttestationInformation
@@ -22,7 +20,6 @@ import { ComponentFactory, BaseError, GeneralError, Guards, Is, Urn } from "@twi
 import type { IJsonLdNodeObject } from "@twin.org/data-json-ld";
 import { nameof } from "@twin.org/nameof";
 import { MetricHelper, type ITelemetryComponent } from "@twin.org/telemetry-models";
-import { TracingHelper, type ITracingComponent } from "@twin.org/tracing-models";
 import type { IAttestationServiceConstructorOptions } from "./models/IAttestationServiceConstructorOptions.js";
 
 /**
@@ -59,12 +56,6 @@ export class AttestationService implements IAttestationComponent, IHealthProvide
 	private readonly _telemetryComponent?: ITelemetryComponent;
 
 	/**
-	 * The optional tracing component for recording spans.
-	 * @internal
-	 */
-	private readonly _tracingComponent?: ITracingComponent;
-
-	/**
 	 * Create a new instance of AttestationService.
 	 * @param options The options for the service.
 	 * @param options.config The configuration for the service.
@@ -81,9 +72,6 @@ export class AttestationService implements IAttestationComponent, IHealthProvide
 
 		this._telemetryComponent = ComponentFactory.getIfExists<ITelemetryComponent>(
 			options?.telemetryComponentType
-		);
-		this._tracingComponent = ComponentFactory.getIfExists<ITracingComponent>(
-			options?.tracingComponentType
 		);
 	}
 
@@ -174,35 +162,28 @@ export class AttestationService implements IAttestationComponent, IHealthProvide
 		const contextIds = await ContextIdStore.getContextIds();
 		ContextIdHelper.guard(contextIds, ContextIdKeys.Organization);
 
-		return TracingHelper.withSpan(
-			this._tracingComponent,
-			AttestationSpanNames.Create,
-			undefined,
-			async () => {
-				try {
-					const connectorNamespace = namespace ?? this._defaultNamespace;
+		try {
+			const connectorNamespace = namespace ?? this._defaultNamespace;
 
-					const attestationConnector =
-						AttestationConnectorFactory.get<IAttestationConnector>(connectorNamespace);
+			const attestationConnector =
+				AttestationConnectorFactory.get<IAttestationConnector>(connectorNamespace);
 
-					const result = await attestationConnector.create(
-						contextIds[ContextIdKeys.Organization],
-						`${contextIds[ContextIdKeys.Organization]}#${this._verificationMethodId}`,
-						attestationObject
-					);
+			const result = await attestationConnector.create(
+				contextIds[ContextIdKeys.Organization],
+				`${contextIds[ContextIdKeys.Organization]}#${this._verificationMethodId}`,
+				attestationObject
+			);
 
-					await MetricHelper.metricIncrement(
-						this._telemetryComponent,
-						AttestationMetricIds.AttestationCreated,
-						{ namespace: connectorNamespace }
-					);
+			await MetricHelper.metricIncrement(
+				this._telemetryComponent,
+				AttestationMetricIds.AttestationCreated,
+				{ namespace: connectorNamespace }
+			);
 
-					return result;
-				} catch (error) {
-					throw new GeneralError(AttestationService.CLASS_NAME, "attestFailed", undefined, error);
-				}
-			}
-		);
+			return result;
+		} catch (error) {
+			throw new GeneralError(AttestationService.CLASS_NAME, "attestFailed", undefined, error);
+		}
 	}
 
 	/**
@@ -213,35 +194,28 @@ export class AttestationService implements IAttestationComponent, IHealthProvide
 	public async get(id: string): Promise<IAttestationInformation> {
 		Urn.guard(AttestationService.CLASS_NAME, nameof(id), id);
 
-		return TracingHelper.withSpan(
-			this._tracingComponent,
-			AttestationSpanNames.Get,
-			{ attributes: { [AttestationSpanAttributes.Id]: id } },
-			async () => {
-				try {
-					const attestationConnector = this.getConnector(id);
+		try {
+			const attestationConnector = this.getConnector(id);
 
-					const result = await attestationConnector.get(id);
+			const result = await attestationConnector.get(id);
 
-					if (result.verified === true) {
-						await MetricHelper.metricIncrement(
-							this._telemetryComponent,
-							AttestationMetricIds.AttestationVerified
-						);
-					} else {
-						await MetricHelper.metricIncrement(
-							this._telemetryComponent,
-							AttestationMetricIds.AttestationVerificationFailed,
-							{ failureReason: result.verificationFailure }
-						);
-					}
-
-					return result;
-				} catch (error) {
-					throw new GeneralError(AttestationService.CLASS_NAME, "verifyFailed", undefined, error);
-				}
+			if (result.verified === true) {
+				await MetricHelper.metricIncrement(
+					this._telemetryComponent,
+					AttestationMetricIds.AttestationVerified
+				);
+			} else {
+				await MetricHelper.metricIncrement(
+					this._telemetryComponent,
+					AttestationMetricIds.AttestationVerificationFailed,
+					{ failureReason: result.verificationFailure }
+				);
 			}
-		);
+
+			return result;
+		} catch (error) {
+			throw new GeneralError(AttestationService.CLASS_NAME, "verifyFailed", undefined, error);
+		}
 	}
 
 	/**
@@ -257,31 +231,24 @@ export class AttestationService implements IAttestationComponent, IHealthProvide
 		const contextIds = await ContextIdStore.getContextIds();
 		ContextIdHelper.guard(contextIds, ContextIdKeys.Organization);
 
-		await TracingHelper.withSpan(
-			this._tracingComponent,
-			AttestationSpanNames.Transfer,
-			{ attributes: { [AttestationSpanAttributes.Id]: attestationId } },
-			async () => {
-				try {
-					const attestationConnector = this.getConnector(attestationId);
+		try {
+			const attestationConnector = this.getConnector(attestationId);
 
-					const result = await attestationConnector.transfer(
-						contextIds.organization,
-						attestationId,
-						holderAddress
-					);
+			const result = await attestationConnector.transfer(
+				contextIds.organization,
+				attestationId,
+				holderAddress
+			);
 
-					await MetricHelper.metricIncrement(
-						this._telemetryComponent,
-						AttestationMetricIds.AttestationTransferred
-					);
+			await MetricHelper.metricIncrement(
+				this._telemetryComponent,
+				AttestationMetricIds.AttestationTransferred
+			);
 
-					return result;
-				} catch (error) {
-					throw new GeneralError(AttestationService.CLASS_NAME, "transferFailed", undefined, error);
-				}
-			}
-		);
+			return result;
+		} catch (error) {
+			throw new GeneralError(AttestationService.CLASS_NAME, "transferFailed", undefined, error);
+		}
 	}
 
 	/**
@@ -295,30 +262,23 @@ export class AttestationService implements IAttestationComponent, IHealthProvide
 		const contextIds = await ContextIdStore.getContextIds();
 		ContextIdHelper.guard(contextIds, ContextIdKeys.Organization);
 
-		await TracingHelper.withSpan(
-			this._tracingComponent,
-			AttestationSpanNames.Destroy,
-			{ attributes: { [AttestationSpanAttributes.Id]: attestationId } },
-			async () => {
-				try {
-					const attestationConnector = this.getConnector(attestationId);
+		try {
+			const attestationConnector = this.getConnector(attestationId);
 
-					const result = await attestationConnector.destroy(
-						contextIds[ContextIdKeys.Organization],
-						attestationId
-					);
+			const result = await attestationConnector.destroy(
+				contextIds[ContextIdKeys.Organization],
+				attestationId
+			);
 
-					await MetricHelper.metricIncrement(
-						this._telemetryComponent,
-						AttestationMetricIds.AttestationDestroyed
-					);
+			await MetricHelper.metricIncrement(
+				this._telemetryComponent,
+				AttestationMetricIds.AttestationDestroyed
+			);
 
-					return result;
-				} catch (error) {
-					throw new GeneralError(AttestationService.CLASS_NAME, "destroyFailed", undefined, error);
-				}
-			}
-		);
+			return result;
+		} catch (error) {
+			throw new GeneralError(AttestationService.CLASS_NAME, "destroyFailed", undefined, error);
+		}
 	}
 
 	/**

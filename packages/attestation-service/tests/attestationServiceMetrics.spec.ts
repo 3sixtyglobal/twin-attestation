@@ -8,7 +8,7 @@ import {
 	type IAttestationInformation
 } from "@twin.org/attestation-models";
 import { ContextIdKeys, ContextIdStore } from "@twin.org/context";
-import { AlreadyExistsError, ComponentFactory } from "@twin.org/core";
+import { AlreadyExistsError, ComponentFactory, Is } from "@twin.org/core";
 import type { IJsonLdNodeObject } from "@twin.org/data-json-ld";
 import { SchemaOrgContexts } from "@twin.org/standards-schema-org";
 import {
@@ -44,13 +44,19 @@ function makeMockTelemetry(): {
 		start: async () => {},
 		stop: async () => {},
 		createMetric: async m => {
-			created.push({ ...m });
+			for (const metric of Is.array(m) ? m : [m]) {
+				created.push({ ...metric });
+			}
 		},
 		getMetric: async () => ({ metric: {} as never, value: {} as never }),
 		updateMetric: async () => {},
 		addMetricValue: async (id, value, customData) => {
 			values.push({ id, value, customData });
 			return "v";
+		},
+		addMetricValues: async entries => {
+			values.push(...entries);
+			return entries.map(() => "v");
 		},
 		getMetricValue: async (id, valueId) => ({
 			id: valueId,
