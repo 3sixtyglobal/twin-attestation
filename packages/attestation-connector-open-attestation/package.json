@@ -1,6 +1,6 @@
 {
 	"name": "@twin.org/attestation-connector-open-attestation",
-	"version": "0.9.3-next.1",
+	"version": "0.10.1-next.0",
 	"description": "Attestation connector for OpenAttestation-compatible document workflows.",
 	"repository": {
 		"type": "git",
@@ -29,7 +29,7 @@
 	},
 	"dependencies": {
 		"@govtechsg/open-attestation": "6.9.7",
-		"@twin.org/attestation-models": "0.9.3-next.1",
+		"@twin.org/attestation-models": "0.10.1-next.0",
 		"@twin.org/core": "next",
 		"@twin.org/data-json-ld": "next",
 		"@twin.org/entity": "next",
