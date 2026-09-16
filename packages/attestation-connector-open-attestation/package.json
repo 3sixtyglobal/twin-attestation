@@ -1,6 +1,6 @@
 {
 	"name": "@twin.org/attestation-connector-open-attestation",
-	"version": "0.9.3-next.1",
+	"version": "0.10.0",
 	"description": "Attestation connector for OpenAttestation-compatible document workflows.",
 	"repository": {
 		"type": "git",
@@ -29,17 +29,17 @@
 	},
 	"dependencies": {
 		"@govtechsg/open-attestation": "6.9.7",
-		"@twin.org/attestation-models": "0.9.3-next.1",
-		"@twin.org/core": "next",
-		"@twin.org/data-json-ld": "next",
-		"@twin.org/entity": "next",
-		"@twin.org/nameof": "next",
-		"@twin.org/standards-w3c-did": "next"
+		"@twin.org/attestation-models": "^0.10.0",
+		"@twin.org/core": "^0.10.0",
+		"@twin.org/data-json-ld": "^0.10.0",
+		"@twin.org/entity": "^0.10.0",
+		"@twin.org/nameof": "^0.10.0",
+		"@twin.org/standards-w3c-did": "^0.10.0"
 	},
 	"devDependencies": {
-		"@twin.org/nameof-transformer": "next",
-		"@twin.org/nameof-vitest-plugin": "next",
-		"@twin.org/validate-locales": "next",
+		"@twin.org/nameof-transformer": "^0.10.0",
+		"@twin.org/nameof-vitest-plugin": "^0.10.0",
+		"@twin.org/validate-locales": "^0.10.0",
 		"@vitest/coverage-v8": "4.1.10",
 		"copyfiles": "2.4.1",
 		"dotenv": "17.4.2",
