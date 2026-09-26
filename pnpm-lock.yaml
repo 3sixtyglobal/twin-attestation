@@ -242,7 +242,7 @@ importers:
   apps/attestation-cli:
     dependencies:
       '@twin.org/attestation-connector-nft':
-        specifier: 0.10.1-next.0
+        specifier: 0.10.1-next.1
         version: link:../../packages/attestation-connector-nft
       '@twin.org/cli-core':
         specifier: next
@@ -354,7 +354,7 @@ importers:
   packages/attestation-connector-nft:
     dependencies:
       '@twin.org/attestation-models':
-        specifier: 0.10.1-next.0
+        specifier: 0.10.1-next.1
         version: link:../attestation-models
       '@twin.org/core':
         specifier: next
@@ -457,7 +457,7 @@ importers:
         specifier: 6.9.7
         version: 6.9.7(ajv@8.20.0)(supports-color@10.2.2)
       '@twin.org/attestation-models':
-        specifier: 0.10.1-next.0
+        specifier: 0.10.1-next.1
         version: link:../attestation-models
       '@twin.org/core':
         specifier: next
@@ -603,7 +603,7 @@ importers:
         specifier: next
         version: 0.10.1-next.8
       '@twin.org/attestation-models':
-        specifier: 0.10.1-next.0
+        specifier: 0.10.1-next.1
         version: link:../attestation-models
       '@twin.org/core':
         specifier: next
@@ -673,7 +673,7 @@ importers:
         specifier: next
         version: 0.10.1-next.8
       '@twin.org/attestation-models':
-        specifier: 0.10.1-next.0
+        specifier: 0.10.1-next.1
         version: link:../attestation-models
       '@twin.org/context':
         specifier: next
@@ -704,7 +704,7 @@ importers:
         version: 0.10.1-next.12
     devDependencies:
       '@twin.org/attestation-connector-nft':
-        specifier: 0.10.1-next.0
+        specifier: 0.10.1-next.1
         version: link:../attestation-connector-nft
       '@twin.org/entity-storage-connector-memory':
         specifier: next

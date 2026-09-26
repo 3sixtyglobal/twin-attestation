@@ -1,6 +1,6 @@
 {
 	"name": "@twin.org/attestation-cli",
-	"version": "0.10.1-next.0",
+	"version": "0.10.1-next.1",
 	"description": "Command line tool for creating and managing attestations.",
 	"repository": {
 		"type": "git",
@@ -29,7 +29,7 @@
 		"dist:no-test": "pnpm run clean && concurrently -g -n build,merge,locales,types \"pnpm run build\" \"pnpm run merge-locales\" \"pnpm run validate-locales\" \"pnpm run test:build\""
 	},
 	"dependencies": {
-		"@twin.org/attestation-connector-nft": "0.10.1-next.0",
+		"@twin.org/attestation-connector-nft": "0.10.1-next.1",
 		"@twin.org/cli-core": "next",
 		"@twin.org/core": "next",
 		"@twin.org/crypto": "next",

@@ -1,5 +1,50 @@
 # Changelog
 
+## [0.10.1-next.1](https://github.com/iotaledger/twin-attestation/compare/attestation-service-v0.10.1-next.0...attestation-service-v0.10.1-next.1) (2026-09-26)
+
+
+### Features
+
+* add context id features ([#21](https://github.com/iotaledger/twin-attestation/issues/21)) ([640deab](https://github.com/iotaledger/twin-attestation/commit/640deabfc00340e619283f94570c5e1ec45e83af))
+* add event-driven telemetry metrics ([#66](https://github.com/iotaledger/twin-attestation/issues/66)) ([1b0c778](https://github.com/iotaledger/twin-attestation/commit/1b0c778eaa8bd6dca1fdc24ed5d3b4e6ade4ea33))
+* add ts-to-jsonld-context tool ([df7edd0](https://github.com/iotaledger/twin-attestation/commit/df7edd0d32cabc2b0f9f6dc7b216f569f739324d))
+* add validate-locales ([a1f9e13](https://github.com/iotaledger/twin-attestation/commit/a1f9e13875a661f612ce16dd9896e7df20c6a7ff))
+* context updates ([#25](https://github.com/iotaledger/twin-attestation/issues/25)) ([1ea71b2](https://github.com/iotaledger/twin-attestation/commit/1ea71b28d874daef4d0bca594fb5dbf5f2a47571))
+* enhanced rest testing ([#52](https://github.com/iotaledger/twin-attestation/issues/52)) ([f1b830f](https://github.com/iotaledger/twin-attestation/commit/f1b830f0d12029fa614dd72ecae3d60bc63c87e1))
+* eslint migration to flat config ([7c768ff](https://github.com/iotaledger/twin-attestation/commit/7c768ffae02456d60fd62ba8b4b488c307ceff32))
+* health provider ([#69](https://github.com/iotaledger/twin-attestation/issues/69)) ([bc45c73](https://github.com/iotaledger/twin-attestation/commit/bc45c73d2c7552e79e9176d5d202f0dd41da78d6))
+* release to production ([aa69a08](https://github.com/iotaledger/twin-attestation/commit/aa69a08fbd3897c8d72b0d32ec730f104ad31b33))
+* release to production ([89ca987](https://github.com/iotaledger/twin-attestation/commit/89ca987963d9090abcfc1b62bc997e2c521944ec))
+* remove holder identity ([#38](https://github.com/iotaledger/twin-attestation/issues/38)) ([4862d7f](https://github.com/iotaledger/twin-attestation/commit/4862d7f22345b82bcb90f27adc0d64ed75484813))
+* remove inline service tracing in favour of the tracing facade ([#80](https://github.com/iotaledger/twin-attestation/issues/80)) ([766ccda](https://github.com/iotaledger/twin-attestation/commit/766ccdab08d96096617e627662621ffbe954b7a2))
+* remove skipAuth from routes ([c7bacbc](https://github.com/iotaledger/twin-attestation/commit/c7bacbc8d14392e480035495ee7276d9e1665168))
+* remove unused namespace ([9e3fe9e](https://github.com/iotaledger/twin-attestation/commit/9e3fe9ea893103c730e7c91105baf8703446e09a))
+* remove unused schemas causing conflict ([#27](https://github.com/iotaledger/twin-attestation/issues/27)) ([9723bc3](https://github.com/iotaledger/twin-attestation/commit/9723bc3757f87ce8a943f5f091a92d258f867892))
+* rest enhancement ([#54](https://github.com/iotaledger/twin-attestation/issues/54)) ([6e4e5c2](https://github.com/iotaledger/twin-attestation/commit/6e4e5c28ee81d3b88d1d370cdca25266811f9438))
+* tracing ([#72](https://github.com/iotaledger/twin-attestation/issues/72)) ([e3eaad4](https://github.com/iotaledger/twin-attestation/commit/e3eaad437f5c388f915ef95389b28ff34684b019))
+* typescript 6 update ([9484667](https://github.com/iotaledger/twin-attestation/commit/948466713dc980e4b2d89e72ebb927b3fe530280))
+* update contexts and namespaces ([#23](https://github.com/iotaledger/twin-attestation/issues/23)) ([7e7ffb4](https://github.com/iotaledger/twin-attestation/commit/7e7ffb4056bfe296dd3cedcaa7a9bfb91fd830d7))
+* update dependencies ([1d96d2e](https://github.com/iotaledger/twin-attestation/commit/1d96d2ee6e81a30396980f6f5e16e9658710d32d))
+* update framework core ([02326d4](https://github.com/iotaledger/twin-attestation/commit/02326d41238862c13587c19bb3d04c1cb3b606d8))
+* update schemas ([c163f36](https://github.com/iotaledger/twin-attestation/commit/c163f3623d54a0e87a97cf5eab25327b9aeac0fe))
+* use shared store mechanism ([#5](https://github.com/iotaledger/twin-attestation/issues/5)) ([3768cf7](https://github.com/iotaledger/twin-attestation/commit/3768cf7214d30a5429b7b08190539b517d7fafa0))
+
+
+### Bug Fixes
+
+* adjusting transfer method param ([#7](https://github.com/iotaledger/twin-attestation/issues/7)) ([39c09f4](https://github.com/iotaledger/twin-attestation/commit/39c09f4054d3fe8c12ed04e9927c42e877d49241))
+* correct context ordering ([c7cded2](https://github.com/iotaledger/twin-attestation/commit/c7cded248662b8b78ff41b19749bc182ff5105c0))
+* remove context from correct object ([dde633a](https://github.com/iotaledger/twin-attestation/commit/dde633a6a09c934e18581cc955e771f5e00fa70a))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/attestation-models bumped from 0.10.1-next.0 to 0.10.1-next.1
+  * devDependencies
+    * @twin.org/attestation-connector-nft bumped from 0.10.1-next.0 to 0.10.1-next.1
+
 ## [0.10.0](https://github.com/iotaledger/twin-attestation/compare/attestation-service-v0.10.0...attestation-service-v0.10.0) (2026-09-16)
 
 
