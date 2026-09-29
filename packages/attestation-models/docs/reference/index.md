@@ -24,6 +24,8 @@
 
 ## Variables
 
+- [CompiledAttestationInformation](variables/CompiledAttestationInformation.md)
+- [CompiledAttestationJwtProof](variables/CompiledAttestationJwtProof.md)
 - [AttestationConnectorFactory](variables/AttestationConnectorFactory.md)
 - [AttestationContexts](variables/AttestationContexts.md)
 - [AttestationMetricIds](variables/AttestationMetricIds.md)
