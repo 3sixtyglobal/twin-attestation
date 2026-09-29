@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.11.0](https://github.com/iotaledger/twin-attestation/compare/attestation-service-v0.11.0...attestation-service-v0.11.0) (2026-09-29)
+
+
+### Features
+
+* release to production ([aa69a08](https://github.com/iotaledger/twin-attestation/commit/aa69a08fbd3897c8d72b0d32ec730f104ad31b33))
+* release to production ([89ca987](https://github.com/iotaledger/twin-attestation/commit/89ca987963d9090abcfc1b62bc997e2c521944ec))
+* release to production ([#48](https://github.com/iotaledger/twin-attestation/issues/48)) ([7dacf79](https://github.com/iotaledger/twin-attestation/commit/7dacf796d2e7c987a7cd1cd907b4cfc72ce8f4f1))
+* release to production ([#59](https://github.com/iotaledger/twin-attestation/issues/59)) ([e6e0ae3](https://github.com/iotaledger/twin-attestation/commit/e6e0ae37f98d44e22797ee13476aee96867dd0eb))
+* release to production ([#77](https://github.com/iotaledger/twin-attestation/issues/77)) ([3446641](https://github.com/iotaledger/twin-attestation/commit/3446641b174b1f20e1ba660bb8bb6cf02d85c955))
+* release to production [skip ci] ([#84](https://github.com/iotaledger/twin-attestation/issues/84)) ([31722d1](https://github.com/iotaledger/twin-attestation/commit/31722d1310994f0232936bf2cb3c73cdf9f53c95))
+* release to production [skip ci] ([#91](https://github.com/iotaledger/twin-attestation/issues/91)) ([f1bee84](https://github.com/iotaledger/twin-attestation/commit/f1bee8495bfb10b1b0c9e03a5532fdc8805a881c))
+
 ## [0.10.1-next.1](https://github.com/iotaledger/twin-attestation/compare/attestation-service-v0.10.1-next.0...attestation-service-v0.10.1-next.1) (2026-09-26)
 
 
