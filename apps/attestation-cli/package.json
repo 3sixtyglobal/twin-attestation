@@ -4,7 +4,7 @@
 	"description": "Command line tool for creating and managing attestations.",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/iotaledger/twin-attestation.git",
+		"url": "git+https://github.com/3sixtyglobal/twin-attestation.git",
 		"directory": "apps/attestation-cli"
 	},
 	"author": "martyn.janes@iota.org",
@@ -100,7 +100,7 @@
 		"trust"
 	],
 	"bugs": {
-		"url": "git+https://github.com/iotaledger/twin-attestation/issues"
+		"url": "git+https://github.com/3sixtyglobal/twin-attestation/issues"
 	},
 	"homepage": "https://twindev.org"
 }

@@ -19,3 +19,7 @@ In practice, this enables a consistent attestation workflow from domain models t
 ## Contributing
 
 To contribute to this package see the guidelines for building and publishing in [CONTRIBUTING](./CONTRIBUTING.md)
+
+## Origin
+
+This repository is derived from the original [iotaledger/twin-attestation](https://github.com/iotaledger/twin-attestation) repository.
