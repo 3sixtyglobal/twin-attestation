@@ -8,6 +8,7 @@
 	"release-type": "node",
 	"initial-version": "0.0.1",
 	"versioning": "default",
+	"last-release-sha": "0601c0c4178284e07af5b0fd8fd5098c6664dd8d",
 	"packages": {
 		"packages/attestation-models": {
 			"package-name": "attestation-models",

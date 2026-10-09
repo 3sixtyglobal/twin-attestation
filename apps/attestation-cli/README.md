@@ -1,11 +1,11 @@
-# TWIN Attestation CLI
+# 3Sixty Attestation CLI
 
 Command line tool for creating and managing attestations.
 
 ## Installation
 
 ```shell
-npm install -g @twin.org/attestation-cli
+npm install -g @3sixty/attestation-cli
 ```
 
 ## Usage

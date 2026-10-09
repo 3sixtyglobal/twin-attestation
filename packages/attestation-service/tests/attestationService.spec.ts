@@ -1,34 +1,34 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
-import { HealthCategory, HealthStatus, type IHealth } from "@twin.org/api-models";
-import { NftAttestationConnector } from "@twin.org/attestation-connector-nft";
-import { AttestationConnectorFactory } from "@twin.org/attestation-models";
-import { ContextIdKeys, ContextIdStore, type IContextIds } from "@twin.org/context";
-import { MemoryEntityStorageConnector } from "@twin.org/entity-storage-connector-memory";
-import { EntityStorageConnectorFactory } from "@twin.org/entity-storage-models";
+import { HealthCategory, HealthStatus, type IHealth } from "@3sixty/api-models";
+import { NftAttestationConnector } from "@3sixty/attestation-connector-nft";
+import { AttestationConnectorFactory } from "@3sixty/attestation-models";
+import { ContextIdKeys, ContextIdStore, type IContextIds } from "@3sixty/context";
+import { MemoryEntityStorageConnector } from "@3sixty/entity-storage-connector-memory";
+import { EntityStorageConnectorFactory } from "@3sixty/entity-storage-models";
 import {
 	EntityStorageIdentityConnector,
 	type IdentityDocument,
 	initSchema as initSchemaIdentity
-} from "@twin.org/identity-connector-entity-storage";
-import { IdentityConnectorFactory } from "@twin.org/identity-models";
-import { nameof } from "@twin.org/nameof";
+} from "@3sixty/identity-connector-entity-storage";
+import { IdentityConnectorFactory } from "@3sixty/identity-models";
+import { nameof } from "@3sixty/nameof";
 import {
 	EntityStorageNftConnector,
 	initSchema as initSchemaNft,
 	type Nft
-} from "@twin.org/nft-connector-entity-storage";
-import { NftConnectorFactory } from "@twin.org/nft-models";
-import { DidVerificationMethodType } from "@twin.org/standards-w3c-did";
+} from "@3sixty/nft-connector-entity-storage";
+import { NftConnectorFactory } from "@3sixty/nft-models";
+import { DidVerificationMethodType } from "@3sixty/standards-w3c-did";
 import {
 	EntityStorageVaultConnector,
 	type VaultKey,
 	type VaultSecret,
 	initSchema as initSchemaVault
-} from "@twin.org/vault-connector-entity-storage";
-import { VaultConnectorFactory } from "@twin.org/vault-models";
-import type { IWalletConnector } from "@twin.org/wallet-models";
-import { WalletConnectorFactory } from "@twin.org/wallet-models";
+} from "@3sixty/vault-connector-entity-storage";
+import { VaultConnectorFactory } from "@3sixty/vault-models";
+import type { IWalletConnector } from "@3sixty/wallet-models";
+import { WalletConnectorFactory } from "@3sixty/wallet-models";
 import { AttestationService } from "../src/attestationService.js";
 
 const TEST_CONTROLLER = "test-controller";

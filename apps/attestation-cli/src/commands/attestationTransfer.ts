@@ -1,16 +1,16 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
-import { NftAttestationConnector, NftAttestationUtils } from "@twin.org/attestation-connector-nft";
-import { CLIDisplay, CLIParam } from "@twin.org/cli-core";
-import { Converter, I18n, Is, StringHelper } from "@twin.org/core";
-import { IdentityConnectorTypes, setupIdentityConnector } from "@twin.org/identity-cli";
-import { IdentityConnectorFactory } from "@twin.org/identity-models";
-import { setupNftConnector } from "@twin.org/nft-cli";
-import { IotaNftUtils } from "@twin.org/nft-connector-iota";
-import { NftConnectorFactory } from "@twin.org/nft-models";
-import { VaultConnectorFactory } from "@twin.org/vault-models";
-import { setupWalletConnector, WalletConnectorTypes } from "@twin.org/wallet-cli";
-import { WalletConnectorFactory } from "@twin.org/wallet-models";
+import { NftAttestationConnector, NftAttestationUtils } from "@3sixty/attestation-connector-nft";
+import { CLIDisplay, CLIParam } from "@3sixty/cli-core";
+import { Converter, I18n, Is, StringHelper } from "@3sixty/core";
+import { IdentityConnectorTypes, setupIdentityConnector } from "@3sixty/identity-cli";
+import { IdentityConnectorFactory } from "@3sixty/identity-models";
+import { setupNftConnector } from "@3sixty/nft-cli";
+import { IotaNftUtils } from "@3sixty/nft-connector-iota";
+import { NftConnectorFactory } from "@3sixty/nft-models";
+import { VaultConnectorFactory } from "@3sixty/vault-models";
+import { setupWalletConnector, WalletConnectorTypes } from "@3sixty/wallet-cli";
+import { WalletConnectorFactory } from "@3sixty/wallet-models";
 import { Command } from "commander";
 import { setupVault } from "./setupCommands.js";
 

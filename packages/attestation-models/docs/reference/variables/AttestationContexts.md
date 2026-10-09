@@ -8,36 +8,36 @@ The contexts of attestation data.
 
 ### Namespace {#namespace}
 
-> `readonly` **Namespace**: `"https://schema.twindev.org/attestation/"` = `"https://schema.twindev.org/attestation/"`
+> `readonly` **Namespace**: `"https://schema.3sixty.global/attestation/"` = `"https://schema.3sixty.global/attestation/"`
 
 The canonical RDF namespace URI for Attestation.
 
 ### Context {#context}
 
-> `readonly` **Context**: `"https://schema.twindev.org/attestation/"` = `"https://schema.twindev.org/attestation/"`
+> `readonly` **Context**: `"https://schema.3sixty.global/attestation/"` = `"https://schema.3sixty.global/attestation/"`
 
 The value to use in context for Attestation.
 
 ### JsonLdContext {#jsonldcontext}
 
-> `readonly` **JsonLdContext**: `"https://schema.twindev.org/attestation/types.jsonld"` = `"https://schema.twindev.org/attestation/types.jsonld"`
+> `readonly` **JsonLdContext**: `"https://schema.3sixty.global/attestation/types.jsonld"` = `"https://schema.3sixty.global/attestation/types.jsonld"`
 
 The JSON-LD Context URL for Attestation.
 
 ### NamespaceCommon {#namespacecommon}
 
-> `readonly` **NamespaceCommon**: `"https://schema.twindev.org/common/"` = `"https://schema.twindev.org/common/"`
+> `readonly` **NamespaceCommon**: `"https://schema.3sixty.global/common/"` = `"https://schema.3sixty.global/common/"`
 
 The canonical RDF namespace URI for TWIN Common.
 
 ### ContextCommon {#contextcommon}
 
-> `readonly` **ContextCommon**: `"https://schema.twindev.org/common/"` = `"https://schema.twindev.org/common/"`
+> `readonly` **ContextCommon**: `"https://schema.3sixty.global/common/"` = `"https://schema.3sixty.global/common/"`
 
 The value to use in JSON-LD context for TWIN Common.
 
 ### JsonLdContextCommon {#jsonldcontextcommon}
 
-> `readonly` **JsonLdContextCommon**: `"https://schema.twindev.org/common/types.jsonld"` = `"https://schema.twindev.org/common/types.jsonld"`
+> `readonly` **JsonLdContextCommon**: `"https://schema.3sixty.global/common/types.jsonld"` = `"https://schema.3sixty.global/common/types.jsonld"`
 
 The JSON-LD Context URL for TWIN Common.

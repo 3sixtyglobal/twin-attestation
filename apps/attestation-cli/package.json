@@ -1,10 +1,10 @@
 {
-	"name": "@twin.org/attestation-cli",
-	"version": "0.11.1-next.0",
+	"name": "@3sixty/attestation-cli",
+	"version": "0.20.0-next.0",
 	"description": "Command line tool for creating and managing attestations.",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/3sixtyglobal/twin-attestation.git",
+		"url": "git+https://github.com/3sixtyglobal/attestation.git",
 		"directory": "apps/attestation-cli"
 	},
 	"author": "martyn.janes@iota.org",
@@ -29,33 +29,33 @@
 		"dist:no-test": "pnpm run clean && concurrently -g -n build,merge,locales,types \"pnpm run build\" \"pnpm run merge-locales\" \"pnpm run validate-locales\" \"pnpm run test:build\""
 	},
 	"dependencies": {
-		"@twin.org/attestation-connector-nft": "0.11.1-next.0",
-		"@twin.org/cli-core": "next",
-		"@twin.org/core": "next",
-		"@twin.org/crypto": "next",
-		"@twin.org/crypto-cli": "next",
-		"@twin.org/data-json-ld": "next",
-		"@twin.org/entity": "next",
-		"@twin.org/entity-storage-connector-memory": "next",
-		"@twin.org/entity-storage-models": "next",
-		"@twin.org/identity-cli": "next",
-		"@twin.org/identity-connector-iota": "next",
-		"@twin.org/identity-models": "next",
-		"@twin.org/nameof": "next",
-		"@twin.org/nft-cli": "next",
-		"@twin.org/nft-connector-iota": "next",
-		"@twin.org/nft-models": "next",
-		"@twin.org/vault-connector-entity-storage": "next",
-		"@twin.org/vault-models": "next",
-		"@twin.org/wallet-cli": "next",
-		"@twin.org/wallet-models": "next",
+		"@3sixty/attestation-connector-nft": "0.20.0-next.0",
+		"@3sixty/cli-core": "next",
+		"@3sixty/core": "next",
+		"@3sixty/crypto": "next",
+		"@3sixty/crypto-cli": "next",
+		"@3sixty/data-json-ld": "next",
+		"@3sixty/entity": "next",
+		"@3sixty/entity-storage-connector-memory": "next",
+		"@3sixty/entity-storage-models": "next",
+		"@3sixty/identity-cli": "next",
+		"@3sixty/identity-connector-iota": "next",
+		"@3sixty/identity-models": "next",
+		"@3sixty/nameof": "next",
+		"@3sixty/nft-cli": "next",
+		"@3sixty/nft-connector-iota": "next",
+		"@3sixty/nft-models": "next",
+		"@3sixty/vault-connector-entity-storage": "next",
+		"@3sixty/vault-models": "next",
+		"@3sixty/wallet-cli": "next",
+		"@3sixty/wallet-models": "next",
 		"commander": "15.0.0"
 	},
 	"devDependencies": {
-		"@twin.org/merge-locales": "next",
-		"@twin.org/nameof-transformer": "next",
-		"@twin.org/nameof-vitest-plugin": "next",
-		"@twin.org/validate-locales": "next",
+		"@3sixty/merge-locales": "next",
+		"@3sixty/nameof-transformer": "next",
+		"@3sixty/nameof-vitest-plugin": "next",
+		"@3sixty/validate-locales": "next",
 		"@types/node": "26.6.2",
 		"@vitest/coverage-v8": "5.0.1",
 		"concurrently": "10.0.5",
@@ -86,7 +86,7 @@
 		"docs"
 	],
 	"bin": {
-		"twin-attestation": "bin/index.js"
+		"3sixty-attestation": "bin/index.js"
 	},
 	"keywords": [
 		"twin",
@@ -100,7 +100,7 @@
 		"trust"
 	],
 	"bugs": {
-		"url": "git+https://github.com/3sixtyglobal/twin-attestation/issues"
+		"url": "git+https://github.com/3sixtyglobal/attestation/issues"
 	},
-	"homepage": "https://twindev.org"
+	"homepage": "https://3sixty.global"
 }

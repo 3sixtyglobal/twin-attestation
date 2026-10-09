@@ -1,11 +1,11 @@
 // Copyright 2026 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
-import type { IAttestationInformation } from "@twin.org/attestation-models";
-import { AttestationContexts, AttestationTypes } from "@twin.org/attestation-models";
-import { GuardError } from "@twin.org/core";
-import type { IJsonLdNodeObject } from "@twin.org/data-json-ld";
-import { SchemaOrgContexts } from "@twin.org/standards-schema-org";
-import { HttpMethod } from "@twin.org/web";
+import type { IAttestationInformation } from "@3sixty/attestation-models";
+import { AttestationContexts, AttestationTypes } from "@3sixty/attestation-models";
+import { GuardError } from "@3sixty/core";
+import type { IJsonLdNodeObject } from "@3sixty/data-json-ld";
+import { SchemaOrgContexts } from "@3sixty/standards-schema-org";
+import { HttpMethod } from "@3sixty/web";
 import { AttestationRestClient } from "../src/attestationRestClient.js";
 import {
 	createdResponse,

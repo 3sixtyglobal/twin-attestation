@@ -9,32 +9,32 @@ export const AttestationContexts = {
 	/**
 	 * The canonical RDF namespace URI for Attestation.
 	 */
-	Namespace: "https://schema.twindev.org/attestation/",
+	Namespace: "https://schema.3sixty.global/attestation/",
 
 	/**
 	 * The value to use in context for Attestation.
 	 */
-	Context: "https://schema.twindev.org/attestation/",
+	Context: "https://schema.3sixty.global/attestation/",
 
 	/**
 	 * The JSON-LD Context URL for Attestation.
 	 */
-	JsonLdContext: "https://schema.twindev.org/attestation/types.jsonld",
+	JsonLdContext: "https://schema.3sixty.global/attestation/types.jsonld",
 
 	/**
 	 * The canonical RDF namespace URI for TWIN Common.
 	 */
-	NamespaceCommon: "https://schema.twindev.org/common/",
+	NamespaceCommon: "https://schema.3sixty.global/common/",
 
 	/**
 	 * The value to use in JSON-LD context for TWIN Common.
 	 */
-	ContextCommon: "https://schema.twindev.org/common/",
+	ContextCommon: "https://schema.3sixty.global/common/",
 
 	/**
 	 * The JSON-LD Context URL for TWIN Common.
 	 */
-	JsonLdContextCommon: "https://schema.twindev.org/common/types.jsonld"
+	JsonLdContextCommon: "https://schema.3sixty.global/common/types.jsonld"
 } as const;
 
 /**

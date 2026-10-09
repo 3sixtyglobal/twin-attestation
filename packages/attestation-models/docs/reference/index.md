@@ -1,4 +1,4 @@
-# @twin.org/attestation-models
+# @3sixty/attestation-models
 
 ## Classes
 

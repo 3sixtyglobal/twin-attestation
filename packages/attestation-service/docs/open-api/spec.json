@@ -1,8 +1,8 @@
 {
 	"openapi": "3.1.1",
 	"info": {
-		"title": "TWIN - Test Endpoints",
-		"description": "REST API for TWIN - Test Endpoints.",
+		"title": "3Sixty - Test Endpoints",
+		"description": "REST API for 3Sixty - Test Endpoints.",
 		"version": "1.0.0",
 		"license": {
 			"name": "Apache 2.0 License",
@@ -176,8 +176,8 @@
 										"value": {
 											"@context": [
 												"https://schema.org",
-												"https://schema.twindev.org/attestation/",
-												"https://schema.twindev.org/common/"
+												"https://schema.3sixty.global/attestation/",
+												"https://schema.3sixty.global/common/"
 											],
 											"type": "Information",
 											"id": "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",
@@ -201,8 +201,8 @@
 										"value": {
 											"@context": [
 												"https://schema.org",
-												"https://schema.twindev.org/attestation/",
-												"https://schema.twindev.org/common/"
+												"https://schema.3sixty.global/attestation/",
+												"https://schema.3sixty.global/common/"
 											],
 											"type": "Information",
 											"id": "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",
@@ -234,8 +234,8 @@
 										"value": {
 											"@context": [
 												"https://schema.org",
-												"https://schema.twindev.org/attestation/",
-												"https://schema.twindev.org/common/"
+												"https://schema.3sixty.global/attestation/",
+												"https://schema.3sixty.global/common/"
 											],
 											"type": "Information",
 											"id": "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",
@@ -259,8 +259,8 @@
 										"value": {
 											"@context": [
 												"https://schema.org",
-												"https://schema.twindev.org/attestation/",
-												"https://schema.twindev.org/common/"
+												"https://schema.3sixty.global/attestation/",
+												"https://schema.3sixty.global/common/"
 											],
 											"type": "Information",
 											"id": "attestation:iota:aW90YS1uZnQ6dHN0OjB4NzYyYjljNDllYTg2OWUwZWJkYTliYmZhNzY5Mzk0NDdhNDI4ZGNmMTc4YzVkMTVhYjQ0N2UyZDRmYmJiNGViMg==",
@@ -546,7 +546,7 @@
 				"type": "object",
 				"properties": {
 					"attestationObject": {
-						"$ref": "https://schema.twindev.org/json-ld/JsonLdNodeObject"
+						"$ref": "https://schema.3sixty.global/json-ld/JsonLdNodeObject"
 					},
 					"namespace": {
 						"type": "string",
@@ -569,14 +569,14 @@
 								"const": "https://schema.org"
 							},
 							{
-								"const": "https://schema.twindev.org/attestation/"
+								"const": "https://schema.3sixty.global/attestation/"
 							},
 							{
-								"const": "https://schema.twindev.org/common/"
+								"const": "https://schema.3sixty.global/common/"
 							}
 						],
 						"items": {
-							"$ref": "https://schema.twindev.org/json-ld/JsonLdContextDefinitionElement"
+							"$ref": "https://schema.3sixty.global/json-ld/JsonLdContextDefinitionElement"
 						},
 						"minItems": 3,
 						"description": "JSON-LD Context."
@@ -602,10 +602,10 @@
 						"description": "The identity of the owner."
 					},
 					"attestationObject": {
-						"$ref": "https://schema.twindev.org/json-ld/JsonLdNodeObject"
+						"$ref": "https://schema.3sixty.global/json-ld/JsonLdNodeObject"
 					},
 					"proof": {
-						"$ref": "https://schema.twindev.org/json-ld/JsonLdNodeObject"
+						"$ref": "https://schema.3sixty.global/json-ld/JsonLdNodeObject"
 					},
 					"verified": {
 						"type": "boolean",

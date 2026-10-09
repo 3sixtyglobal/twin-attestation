@@ -1,4 +1,4 @@
-# @twin.org/attestation-cli
+# @3sixty/attestation-cli
 
 ## Classes
 

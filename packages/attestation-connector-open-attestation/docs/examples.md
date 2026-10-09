@@ -5,8 +5,8 @@ Use these examples to wire a connector instance into your application now, while
 ## OpenAttestationConnector
 
 ```typescript
-import { OpenAttestationConnector } from '@twin.org/attestation-connector-open-attestation';
-import type { IJsonLdNodeObject } from '@twin.org/data-json-ld';
+import { OpenAttestationConnector } from '@3sixty/attestation-connector-open-attestation';
+import type { IJsonLdNodeObject } from '@3sixty/data-json-ld';
 
 const connector = new OpenAttestationConnector({});
 
@@ -37,7 +37,7 @@ try {
 ```
 
 ```typescript
-import { OpenAttestationConnector } from '@twin.org/attestation-connector-open-attestation';
+import { OpenAttestationConnector } from '@3sixty/attestation-connector-open-attestation';
 
 const connector = new OpenAttestationConnector({});
 

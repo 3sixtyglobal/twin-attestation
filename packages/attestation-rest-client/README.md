@@ -1,11 +1,11 @@
-# TWIN Attestation REST Client
+# 3Sixty Attestation REST Client
 
 REST client for calling attestation service endpoints.
 
 ## Installation
 
 ```shell
-npm install @twin.org/attestation-rest-client
+npm install @3sixty/attestation-rest-client
 ```
 
 ## Examples

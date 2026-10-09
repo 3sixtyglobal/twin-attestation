@@ -1,12 +1,12 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
-import { BaseRestClient } from "@twin.org/api-core";
+import { BaseRestClient } from "@3sixty/api-core";
 import {
 	HttpHeaderHelper,
 	type IBaseRestClientConfig,
 	type ICreatedResponse,
 	type INoContentResponse
-} from "@twin.org/api-models";
+} from "@3sixty/api-models";
 import type {
 	IAttestationComponent,
 	IAttestationCreateRequest,
@@ -15,11 +15,11 @@ import type {
 	IAttestationGetResponse,
 	IAttestationInformation,
 	IAttestationTransferRequest
-} from "@twin.org/attestation-models";
-import { Guards, Urn } from "@twin.org/core";
-import type { IJsonLdNodeObject } from "@twin.org/data-json-ld";
-import { nameof } from "@twin.org/nameof";
-import { HttpMethod } from "@twin.org/web";
+} from "@3sixty/attestation-models";
+import { Guards, Urn } from "@3sixty/core";
+import type { IJsonLdNodeObject } from "@3sixty/data-json-ld";
+import { nameof } from "@3sixty/nameof";
+import { HttpMethod } from "@3sixty/web";
 
 /**
  * Client for performing attestation through to REST endpoints.

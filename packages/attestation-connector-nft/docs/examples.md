@@ -5,8 +5,8 @@ These snippets show a full attestation flow, from creating a claim to transferri
 ## NftAttestationConnector
 
 ```typescript
-import { NftAttestationConnector } from '@twin.org/attestation-connector-nft';
-import type { IJsonLdNodeObject } from '@twin.org/data-json-ld';
+import { NftAttestationConnector } from '@3sixty/attestation-connector-nft';
+import type { IJsonLdNodeObject } from '@3sixty/data-json-ld';
 
 const connector = new NftAttestationConnector({
   config: {
@@ -38,7 +38,7 @@ console.log(details.ownerIdentity); // did:iota:tst:0x98ebf9f7af4a9f6f597eb317a9
 ```
 
 ```typescript
-import { NftAttestationConnector } from '@twin.org/attestation-connector-nft';
+import { NftAttestationConnector } from '@3sixty/attestation-connector-nft';
 
 const connector = new NftAttestationConnector();
 
@@ -59,7 +59,7 @@ await connector.destroy(controller, attestationId);
 ## NftAttestationUtils
 
 ```typescript
-import { NftAttestationUtils } from '@twin.org/attestation-connector-nft';
+import { NftAttestationUtils } from '@3sixty/attestation-connector-nft';
 
 const nftId = 'urn:nft:iota:tst:0xb2c65417e89b709267cb7f3103318f3b77f52e3f7ac641f6f4d59ed8255e8761';
 

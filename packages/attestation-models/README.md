@@ -1,11 +1,11 @@
-# TWIN Attestation Models
+# 3Sixty Attestation Models
 
 Shared models and data types for attestation connectors and services.
 
 ## Installation
 
 ```shell
-npm install @twin.org/attestation-models
+npm install @3sixty/attestation-models
 ```
 
 ## Examples

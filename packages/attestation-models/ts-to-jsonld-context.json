@@ -1,8 +1,8 @@
 {
 	"prefix": "twin-attestation",
-	"contextUrl": "https://schema.twindev.org/attestation/",
+	"contextUrl": "https://schema.3sixty.global/attestation/",
 	"additionalContextUrls": {
-		"twin-common": "https://schema.twindev.org/common/",
+		"twin-common": "https://schema.3sixty.global/common/",
 		"schema": "http://schema.org/"
 	},
 	"fixedMappings": {

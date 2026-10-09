@@ -1,4 +1,4 @@
-# @twin.org/attestation-connector-nft
+# @3sixty/attestation-connector-nft
 
 ## Classes
 

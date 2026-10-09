@@ -5,8 +5,8 @@ These client-side snippets show how to call the REST API for creation, verificat
 ## AttestationRestClient
 
 ```typescript
-import { AttestationRestClient } from '@twin.org/attestation-rest-client';
-import type { IJsonLdNodeObject } from '@twin.org/data-json-ld';
+import { AttestationRestClient } from '@3sixty/attestation-rest-client';
+import type { IJsonLdNodeObject } from '@3sixty/data-json-ld';
 
 const client = new AttestationRestClient({
   endpoint: 'http://localhost:8080',
@@ -32,7 +32,7 @@ console.log(verified.id); // attestation:urn:attestation:nft:...
 ```
 
 ```typescript
-import { AttestationRestClient } from '@twin.org/attestation-rest-client';
+import { AttestationRestClient } from '@3sixty/attestation-rest-client';
 
 const client = new AttestationRestClient({
   endpoint: 'http://localhost:8080',

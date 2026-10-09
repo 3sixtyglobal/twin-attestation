@@ -6,16 +6,16 @@ import {
 	AttestationTypes,
 	type IAttestationConnector,
 	type IAttestationInformation
-} from "@twin.org/attestation-models";
-import { ContextIdKeys, ContextIdStore } from "@twin.org/context";
-import { AlreadyExistsError, ComponentFactory, Is } from "@twin.org/core";
-import type { IJsonLdNodeObject } from "@twin.org/data-json-ld";
-import { SchemaOrgContexts } from "@twin.org/standards-schema-org";
+} from "@3sixty/attestation-models";
+import { ContextIdKeys, ContextIdStore } from "@3sixty/context";
+import { AlreadyExistsError, ComponentFactory, Is } from "@3sixty/core";
+import type { IJsonLdNodeObject } from "@3sixty/data-json-ld";
+import { SchemaOrgContexts } from "@3sixty/standards-schema-org";
 import {
 	MetricType,
 	type ITelemetryComponent,
 	type ITelemetryMetric
-} from "@twin.org/telemetry-models";
+} from "@3sixty/telemetry-models";
 import { AttestationService } from "../src/attestationService.js";
 
 const TEST_ORGANIZATION = "did:test:org";

@@ -1,4 +1,4 @@
-# @twin.org/attestation-service
+# @3sixty/attestation-service
 
 ## Classes
 

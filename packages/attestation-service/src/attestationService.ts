@@ -6,7 +6,7 @@ import {
 	type HealthApplicationCallback,
 	type IHealth,
 	type IHealthProviderComponent
-} from "@twin.org/api-models";
+} from "@3sixty/api-models";
 import {
 	AttestationConnectorFactory,
 	AttestationMetricIds,
@@ -14,12 +14,12 @@ import {
 	type IAttestationComponent,
 	type IAttestationConnector,
 	type IAttestationInformation
-} from "@twin.org/attestation-models";
-import { ContextIdHelper, ContextIdKeys, ContextIdStore } from "@twin.org/context";
-import { ComponentFactory, BaseError, GeneralError, Guards, Is, Urn } from "@twin.org/core";
-import type { IJsonLdNodeObject } from "@twin.org/data-json-ld";
-import { nameof } from "@twin.org/nameof";
-import { MetricHelper, type ITelemetryComponent } from "@twin.org/telemetry-models";
+} from "@3sixty/attestation-models";
+import { ContextIdHelper, ContextIdKeys, ContextIdStore } from "@3sixty/context";
+import { ComponentFactory, BaseError, GeneralError, Guards, Is, Urn } from "@3sixty/core";
+import type { IJsonLdNodeObject } from "@3sixty/data-json-ld";
+import { nameof } from "@3sixty/nameof";
+import { MetricHelper, type ITelemetryComponent } from "@3sixty/telemetry-models";
 import type { IAttestationServiceConstructorOptions } from "./models/IAttestationServiceConstructorOptions.js";
 
 /**

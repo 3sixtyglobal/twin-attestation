@@ -1,11 +1,11 @@
-# TWIN Attestation Service
+# 3Sixty Attestation Service
 
 Service layer for creating, verifying, transferring, and destroying attestations.
 
 ## Installation
 
 ```shell
-npm install @twin.org/attestation-service
+npm install @3sixty/attestation-service
 ```
 
 ## Examples

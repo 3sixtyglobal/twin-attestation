@@ -1,24 +1,24 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
 import path from "node:path";
-import { NftAttestationConnector, NftAttestationUtils } from "@twin.org/attestation-connector-nft";
+import { NftAttestationConnector, NftAttestationUtils } from "@3sixty/attestation-connector-nft";
 import {
 	CLIDisplay,
 	CLIOptions,
 	CLIParam,
 	CLIUtils,
 	type CliOutputOptions
-} from "@twin.org/cli-core";
-import { Converter, GeneralError, I18n, Is, StringHelper } from "@twin.org/core";
-import type { IJsonLdNodeObject } from "@twin.org/data-json-ld";
-import { IdentityConnectorTypes, setupIdentityConnector } from "@twin.org/identity-cli";
-import { DocumentHelper, IdentityConnectorFactory } from "@twin.org/identity-models";
-import { setupNftConnector } from "@twin.org/nft-cli";
-import { IotaNftUtils } from "@twin.org/nft-connector-iota";
-import { NftConnectorFactory } from "@twin.org/nft-models";
-import { VaultConnectorFactory, VaultKeyType } from "@twin.org/vault-models";
-import { setupWalletConnector, WalletConnectorTypes } from "@twin.org/wallet-cli";
-import { WalletConnectorFactory } from "@twin.org/wallet-models";
+} from "@3sixty/cli-core";
+import { Converter, GeneralError, I18n, Is, StringHelper } from "@3sixty/core";
+import type { IJsonLdNodeObject } from "@3sixty/data-json-ld";
+import { IdentityConnectorTypes, setupIdentityConnector } from "@3sixty/identity-cli";
+import { DocumentHelper, IdentityConnectorFactory } from "@3sixty/identity-models";
+import { setupNftConnector } from "@3sixty/nft-cli";
+import { IotaNftUtils } from "@3sixty/nft-connector-iota";
+import { NftConnectorFactory } from "@3sixty/nft-models";
+import { VaultConnectorFactory, VaultKeyType } from "@3sixty/vault-models";
+import { setupWalletConnector, WalletConnectorTypes } from "@3sixty/wallet-cli";
+import { WalletConnectorFactory } from "@3sixty/wallet-models";
 import { Command } from "commander";
 import { setupVault } from "./setupCommands.js";
 

@@ -5,9 +5,9 @@ The following examples show how to orchestrate connector operations from one ser
 ## AttestationService
 
 ```typescript
-import { ContextIdKeys, ContextIdStore } from '@twin.org/context';
-import type { IJsonLdNodeObject } from '@twin.org/data-json-ld';
-import { AttestationService } from '@twin.org/attestation-service';
+import { ContextIdKeys, ContextIdStore } from '@3sixty/context';
+import type { IJsonLdNodeObject } from '@3sixty/data-json-ld';
+import { AttestationService } from '@3sixty/attestation-service';
 
 await ContextIdStore.setContextId(
   ContextIdKeys.Organization,
@@ -40,7 +40,7 @@ console.log(details.holderIdentity); // did:iota:tst:0x6534f1f3257403d2f48f54fdd
 ```
 
 ```typescript
-import { AttestationService } from '@twin.org/attestation-service';
+import { AttestationService } from '@3sixty/attestation-service';
 
 const service = new AttestationService({
   config: {

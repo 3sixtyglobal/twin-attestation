@@ -1,4 +1,4 @@
-# @twin.org/attestation-rest-client
+# @3sixty/attestation-rest-client
 
 ## Classes
 

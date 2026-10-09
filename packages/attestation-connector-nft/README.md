@@ -1,11 +1,11 @@
-# TWIN Attestation Connector NFT
+# 3Sixty Attestation Connector NFT
 
 Attestation connector for minting and resolving NFT-backed attestations.
 
 ## Installation
 
 ```shell
-npm install @twin.org/attestation-connector-nft
+npm install @3sixty/attestation-connector-nft
 ```
 
 ## Examples

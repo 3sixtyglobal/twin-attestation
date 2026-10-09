@@ -7,14 +7,14 @@ Use these commands to run the tool locally and inspect available commands before
 To install and run the CLI locally use the following commands:
 
 ```shell
-npm install @twin.org/attestation-cli -g
-twin-attestation
+npm install @3sixty/attestation-cli -g
+3sixty-attestation
 ```
 
 or run directly using NPX:
 
 ```shell
-npx "@twin.org/attestation-cli"
+npx "@3sixty/attestation-cli"
 ```
 
 ## Help
@@ -22,9 +22,9 @@ npx "@twin.org/attestation-cli"
 You should see output similar to the following:
 
 ```shell
-🌍 TWIN Attestation v1.0.0
+🌍 3Sixty Attestation v1.0.0
 
-Usage: twin-attestation [command]
+Usage: 3sixty-attestation [command]
 
 Options:
   -V, --version                             output the version number
@@ -52,15 +52,15 @@ Commands:
 You can get further details on subcommands by using the help option for each command.
 
 ```shell
-twin-attestation attestation-create --help
+3sixty-attestation attestation-create --help
 ```
 
 ## attestation-create --help
 
 ```shell
-🌍 TWIN Attestation v1.0.0
+🌍 3Sixty Attestation v1.0.0
 
-Usage: twin-attestation attestation-create [options]
+Usage: 3sixty-attestation attestation-create [options]
 
 Create an attestation.
 
@@ -89,19 +89,19 @@ Use this command to attest some data, the owner address must have sufficient fun
 
 ```shell
 # Generate a seed and mnemonic and store it in the env file
-twin-attestation mnemonic --env wallet.env
+3sixty-attestation mnemonic --env wallet.env
 
 # Generate an address and store it in the env file
-twin-attestation address --load-env wallet.env --hrp tst --seed !SEED --count 4 --env wallet.env --merge-env
+3sixty-attestation address --load-env wallet.env --hrp tst --seed !SEED --count 4 --env wallet.env --merge-env
 
 # Add some funds to the address generated in the previous step
-twin-attestation faucet --load-env config.env --address !ADDRESS_0
+3sixty-attestation faucet --load-env config.env --address !ADDRESS_0
 
 # Create an identity to own the attestation
-twin-attestation identity-create --load-env config.env wallet.env --seed !SEED --controller !ADDRESS_0 --env identity.env
+3sixty-attestation identity-create --load-env config.env wallet.env --seed !SEED --controller !ADDRESS_0 --env identity.env
 
 # Add a verification method to the identity
-twin-attestation verification-method-add --load-env config.env wallet.env identity.env --seed !SEED --did !DID --type verificationMethod --id attestation --env verification-method.env
+3sixty-attestation verification-method-add --load-env config.env wallet.env identity.env --seed !SEED --did !DID --type verificationMethod --id attestation --env verification-method.env
 
 ```
 
@@ -127,7 +127,7 @@ To attest the data issue the following command:
 
 ```shell
 # Attest the data and store the id in the attestation.env file
-twin-attestation attestation-create --load-env config.env wallet.env verification-method.env --seed !SEED --owner !ADDRESS_0 --verification-method-id !DID_VERIFICATION_METHOD_ID --private-key !DID_VERIFICATION_METHOD_PRIVATE_KEY --data-json data.json --env attestation.env
+3sixty-attestation attestation-create --load-env config.env wallet.env verification-method.env --seed !SEED --owner !ADDRESS_0 --verification-method-id !DID_VERIFICATION_METHOD_ID --private-key !DID_VERIFICATION_METHOD_PRIVATE_KEY --data-json data.json --env attestation.env
 ```
 
 ### attestation-get
@@ -135,7 +135,7 @@ twin-attestation attestation-create --load-env config.env wallet.env verificatio
 To verify the attestation and retrieve its details issue the following command.
 
 ```shell
-twin-attestation attestation-get --load-env config.env attestation.env --id !ATTESTATION_ID
+3sixty-attestation attestation-get --load-env config.env attestation.env --id !ATTESTATION_ID
 ```
 
 You should see output to the following.
@@ -163,13 +163,13 @@ You can transfer the attestation to another holder using the following command. 
 
 ```shell
 # Add some funds to the second address generated earlier
-twin-attestation faucet --load-env config.env --address !ADDRESS_1
+3sixty-attestation faucet --load-env config.env --address !ADDRESS_1
 
 # Create new identity on the second address
-twin-attestation identity-create --load-env config.env wallet.env --seed !SEED --controller !ADDRESS_1 --env identity2.env
+3sixty-attestation identity-create --load-env config.env wallet.env --seed !SEED --controller !ADDRESS_1 --env identity2.env
 
 # Transfer the attestation to the new holder (the original issuer is kept intact)
-twin-attestation attestation-transfer --load-env config.env wallet.env attestation.env identity2.env --seed !SEED --id !ATTESTATION_ID --holder-address !ADDRESS_1 --holder-identity !DID
+3sixty-attestation attestation-transfer --load-env config.env wallet.env attestation.env identity2.env --seed !SEED --id !ATTESTATION_ID --holder-address !ADDRESS_1 --holder-identity !DID
 ```
 
 If you repeat the attestation-get command you should see the following updated details, with `holderIdentity` and `transferred` set.

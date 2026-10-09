@@ -1,4 +1,4 @@
-# TWIN Attestation
+# 3Sixty Attestation
 
 This repository contains modular components for creating, verifying, transferring, and consuming attestations across different integration styles. The packages are designed to work together through shared contracts, so teams can compose model definitions, connector implementations, service orchestration, and client access without duplicating core logic.
 

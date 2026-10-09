@@ -5,7 +5,7 @@ import {
 	AttestationTypes,
 	type IAttestationConnector,
 	type IAttestationInformation
-} from "@twin.org/attestation-models";
+} from "@3sixty/attestation-models";
 import {
 	Coerce,
 	GeneralError,
@@ -14,18 +14,18 @@ import {
 	Urn,
 	Validation,
 	type IValidationFailure
-} from "@twin.org/core";
-import { JsonLdHelper, JsonLdProcessor, type IJsonLdNodeObject } from "@twin.org/data-json-ld";
-import { IdentityConnectorFactory, type IIdentityConnector } from "@twin.org/identity-models";
-import { nameof } from "@twin.org/nameof";
-import { NftConnectorFactory, type INftConnector } from "@twin.org/nft-models";
-import { SchemaOrgContexts, SchemaOrgDataTypes } from "@twin.org/standards-schema-org";
+} from "@3sixty/core";
+import { JsonLdHelper, JsonLdProcessor, type IJsonLdNodeObject } from "@3sixty/data-json-ld";
+import { IdentityConnectorFactory, type IIdentityConnector } from "@3sixty/identity-models";
+import { nameof } from "@3sixty/nameof";
+import { NftConnectorFactory, type INftConnector } from "@3sixty/nft-models";
+import { SchemaOrgContexts, SchemaOrgDataTypes } from "@3sixty/standards-schema-org";
 import {
 	DidContexts,
 	DidTypes,
 	VerifiableCredentialHelper,
 	type IDidVerifiableCredential
-} from "@twin.org/standards-w3c-did";
+} from "@3sixty/standards-w3c-did";
 import type { INftAttestationConnectorConfig } from "./models/INftAttestationConnectorConfig.js";
 import type { INftAttestationConnectorConstructorOptions } from "./models/INftAttestationConnectorConstructorOptions.js";
 import type { INftAttestationHolder } from "./models/INftAttestationHolder.js";

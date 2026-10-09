@@ -10,6 +10,7 @@
 	"versioning": "prerelease",
 	"prerelease": true,
 	"prerelease-type": "next",
+	"last-release-sha": "3d7efb989b552c29e054df7e4bca527dfab2bc99",
 	"packages": {
 		"packages/attestation-models": {
 			"package-name": "attestation-models",

@@ -1,11 +1,11 @@
-# TWIN Attestation Connector OpenAttestation
+# 3Sixty Attestation Connector OpenAttestation
 
 Attestation connector for [OpenAttestation](https://www.openattestation.com/) compatible document workflows.
 
 ## Installation
 
 ```shell
-npm install @twin.org/attestation-connector-open-attestation
+npm install @3sixty/attestation-connector-open-attestation
 ```
 
 ## Examples

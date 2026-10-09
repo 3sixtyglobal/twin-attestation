@@ -1,4 +1,4 @@
-# @twin.org/attestation-connector-open-attestation
+# @3sixty/attestation-connector-open-attestation
 
 ## Classes
 

@@ -1,9 +1,9 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
-import { Is } from "@twin.org/core";
-import type { IJsonLdNodeObject } from "@twin.org/data-json-ld";
-import { IdentityConnectorFactory } from "@twin.org/identity-models";
-import { NftConnectorFactory } from "@twin.org/nft-models";
+import { Is } from "@3sixty/core";
+import type { IJsonLdNodeObject } from "@3sixty/data-json-ld";
+import { IdentityConnectorFactory } from "@3sixty/identity-models";
+import { NftConnectorFactory } from "@3sixty/nft-models";
 import {
 	TEST_IDENTITY_ADDRESS_2,
 	TEST_IDENTITY_CONNECTOR,
@@ -95,8 +95,8 @@ describe("NftAttestationConnector", () => {
 		expect(attested).toBeDefined();
 		expect(attested["@context"]).toEqual([
 			"https://schema.org",
-			"https://schema.twindev.org/attestation/",
-			"https://schema.twindev.org/common/",
+			"https://schema.3sixty.global/attestation/",
+			"https://schema.3sixty.global/common/",
 			"https://www.w3.org/ns/activitystreams"
 		]);
 		expect(attested.verified).toEqual(true);
